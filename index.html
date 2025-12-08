@@ -416,7 +416,7 @@
         .team-body > p { font-size: 0.9375rem; color: var(--bark); line-height: 1.6; }
         .team-exp { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 8px 14px; background: var(--cloud); border-radius: var(--radius); font-size: 0.8125rem; font-weight: 500; color: var(--forest); }
         .team-exp svg { width: 14px; height: 14px; color: var(--primary); }
-        /* Services */
+        /* Services 
         .services { background: white; }
         .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
         .service-card { background: var(--cloud); border-radius: var(--radius); padding: 20px 24px; display: flex; align-items: center; gap: 20px; transition: var(--transition); }
@@ -428,7 +428,213 @@
         .service-info p { font-size: 0.8125rem; color: var(--bark); line-height: 1.4; }
         .service-price { text-align: right; flex-shrink: 0; }
         .service-price .price { font-size: 1.125rem; font-weight: 700; color: var(--primary-dark); }
-        .service-price .unit { font-size: 0.75rem; color: var(--bark); }
+        .service-price .unit { font-size: 0.75rem; color: var(--bark); }*/
+        /* Services Accordion */
+.services { background: white; }
+.services-accordion { max-width: 900px; margin: 0 auto; }
+
+.service-category {
+    background: var(--cloud);
+    border-radius: var(--radius-lg);
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+.service-category:hover {
+    box-shadow: var(--shadow-sm);
+}
+.service-category.active {
+    box-shadow: var(--shadow-md);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 28px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.category-header:hover {
+    background: var(--fog);
+}
+
+.category-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+.service-category.active .category-icon {
+    background: var(--accent);
+}
+
+.category-info {
+    flex: 1;
+}
+.category-info h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--night);
+    margin-bottom: 4px;
+}
+.category-info p {
+    font-size: 0.875rem;
+    color: var(--bark);
+}
+
+.category-count {
+    background: var(--fog);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--forest);
+}
+.service-category.active .category-count {
+    background: var(--accent-light);
+    color: var(--night);
+}
+
+.category-toggle {
+    width: 40px;
+    height: 40px;
+    background: var(--fog);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+.category-toggle svg {
+    width: 20px;
+    height: 20px;
+    color: var(--forest);
+    transition: transform 0.3s ease;
+}
+.service-category.active .category-toggle {
+    background: var(--accent);
+}
+.service-category.active .category-toggle svg {
+    transform: rotate(180deg);
+    color: var(--night);
+}
+
+.category-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+.service-category.active .category-content {
+    max-height: 1000px;
+}
+
+.category-services {
+    padding: 0 28px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.service-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    background: white;
+    border-radius: var(--radius);
+    transition: var(--transition);
+}
+.service-item:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-sm);
+}
+
+.service-item-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--primary-light);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.service-item-icon svg {
+    width: 18px;
+    height: 18px;
+    color: var(--primary-dark);
+}
+
+.service-item-info {
+    flex: 1;
+}
+.service-item-info h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--night);
+    margin-bottom: 4px;
+}
+.service-item-info p {
+    font-size: 0.8125rem;
+    color: var(--bark);
+    line-height: 1.5;
+}
+
+.service-item-price {
+    text-align: right;
+    flex-shrink: 0;
+}
+.service-item-price .price {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    white-space: nowrap;
+}
+.service-item-price .unit {
+    font-size: 0.75rem;
+    color: var(--bark);
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .category-header {
+        padding: 20px;
+        flex-wrap: wrap;
+    }
+    .category-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.25rem;
+    }
+    .category-count {
+        order: 4;
+        margin-left: 64px;
+        margin-top: -8px;
+    }
+    .category-services {
+        padding: 0 20px 20px;
+    }
+    .service-item {
+        flex-wrap: wrap;
+        padding: 16px;
+    }
+    .service-item-price {
+        width: 100%;
+        text-align: left;
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid var(--fog);
+    }
+}
         /* Advantages - БЕЛЫЙ ФОН */
         .advantages { background: white; position: relative; overflow: hidden; }
         .advantages .organic-shape { background: var(--primary-light); opacity: 0.3; width: 600px; height: 600px; top: -200px; right: -200px; }
@@ -806,7 +1012,7 @@
             </div>
         </div>
     </section>
-    <!-- Services -->
+    <!-- Services 
     <section class="services" id="services">
         <div class="container">
             <div class="section-header">
@@ -816,16 +1022,224 @@
             </div>
             <div class="services-grid">
                 <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Подбор клиники и врача</h3><p>Анализ вашего случая, подбор оптимальной клиники и специалиста</p></div><div class="service-price"><div class="price">Бесплатно</div></div></div>
-                <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Жемчужные виниры в зоне улыбки</h3><p>Первичный и повторные приемы, 3д снимок, оптический слепок, MOC-UP, анестезия, временные коронки, керамические виниры Е-max 20 ед.</p></div><div class="service-price"><div class="price">1 296 000</div></div></div>
-                <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Голливудская улыбка (тотальное протезирование керамическими винирами)</h3><p>Первичный и повторные приемы, 3д снимок, оптический слепок, MOC-UP, анестезия, временные коронки, керамические виниры Е-max 28 ед.</p></div><div class="service-price"><div class="price">1 816 000</div><div class="unit">.</div></div></div>
-                <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Восстановление зубного ряда на 1 челюсть по системе «все на 4-х»</h3><p>Первичный и повторные приемы стоматолога-хирурга и стоматолога-ортопеда, 3д снимок, анестезия, имплантация (система Medentika), навигационный шаблон, формирователь десны, оптический слепок, временная и постоянная конструкция на Акриле</p></div><div class="service-price"><div class="price">631 000</div><div class="unit">.</div></div></div>
-                <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Восстановление зубного ряда на 1 челюсть по системе «все на 6-ти»</h3><p>Первичный и повторные приемы стоматолога-хирурга и стоматолога-ортопеда,3д снимок, анестезия, имплантация (система Strauman), навигационный шаблон, формирователь десны, оптический слепок, временная и постоянная конструкция на оксиде циркония</p></div><div class="service-price"><div class="price">1 037 000</div></div></div>
+                <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Жемчужные виниры в зоне улыбки</h3><p>Первичный и повторные приемы, 3д снимок, оптический слепок, MOC-UP, анестезия, временные коронки, керамические виниры Е-max 20 ед.</p></div><div class="service-price"><div class="price">1 296 000</div></div></div>
+                <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Голливудская улыбка (тотальное протезирование керамическими винирами)</h3><p>Первичный и повторные приемы, 3д снимок, оптический слепок, MOC-UP, анестезия, временные коронки, керамические виниры Е-max 28 ед.</p></div><div class="service-price"><div class="price">1 816 000</div><div class="unit">.</div></div></div>
+                <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Восстановление зубного ряда на 1 челюсть по системе «все на 4-х»</h3><p>Первичный и повторные приемы стоматолога-хирурга и стоматолога-ортопеда, 3д снимок, анестезия, имплантация (система Medentika), навигационный шаблон, формирователь десны, оптический слепок, временная и постоянная конструкция на Акриле</p></div><div class="service-price"><div class="price">631 000</div><div class="unit">.</div></div></div>
+                <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Восстановление зубного ряда на 1 челюсть по системе «все на 6-ти»</h3><p>Первичный и повторные приемы стоматолога-хирурга и стоматолога-ортопеда,3д снимок, анестезия, имплантация (система Strauman), навигационный шаблон, формирователь десны, оптический слепок, временная и постоянная конструкция на оксиде циркония</p></div><div class="service-price"><div class="price">1 037 000</div></div></div>
                 <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Глубокий SMAS лифтинг+Смайл-лифтинг+Эндоскопическая подтяжка лба</h3><p>Консультация с хирургом— Обследование и анализы— 1 сеанс кислородной терапии— Послеоперационные осмотры— Лазерное лечение при необходимости— 1 ночь в клинике + 14 дней в отеле— Переводчик и сопровождение— Трансфер из/в аэропорт Инчхонх</p></div><div class="service-price"><div class="price">1 843 000</div><div class="unit">+ билеты</div></div></div>
                 <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Смайл-лифтинг+Эндоскопическая подтяжка лба</h3><p>Консультация с хирургом— Послеоперационные осмотры— 10 дней в отеле— Переводчик и сопровождение— Трансфер</p></div><div class="service-price"><div class="price">671 000</div>+ билеты</div></div>
                 <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Перевод медицинских документов</h3><p>Выписки, заключения, результаты анализов</p></div><div class="service-price"><div class="price">от 1 500 ₽</div><div class="unit">за страницу</div></div></div>
             </div>
         </div>
     </section>
+    -->
+    <section class="services" id="services">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-eyebrow">Услуги</span>
+            <h2 class="section-title">Наши услуги</h2>
+            <p class="section-desc">Полный спектр услуг по организации лечения — от первой консультации до возвращения домой</p>
+        </div>
+        
+        <div class="services-accordion">
+            
+            <!-- Категория: Стоматология -->
+            <div class="service-category active">
+                <div class="category-header">
+                    <div class="category-icon">🦷</div>
+                    <div class="category-info">
+                        <h3>Стоматология</h3>
+                        <p>Виниры, имплантация, протезирование</p>
+                    </div>
+                    <div class="category-count">4 услуги</div>
+                    <div class="category-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <div class="category-services">
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Жемчужные виниры в зоне улыбки</h4>
+                                <p>Первичный и повторные приёмы, 3D снимок, оптический слепок, MOC-UP, анестезия, временные коронки, керамические виниры E-max 20 ед.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">1 296 000 ₽</div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Голливудская улыбка</h4>
+                                <p>Тотальное протезирование керамическими винирами E-max 28 ед. Включает все приёмы, 3D снимок, MOC-UP, анестезию, временные коронки.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">1 816 000 ₽</div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Восстановление зубного ряда «Всё на 4-х»</h4>
+                                <p>Имплантация Medentika на 1 челюсть: приёмы хирурга и ортопеда, 3D снимок, навигационный шаблон, временная и постоянная конструкция на акриле.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">631 000 ₽</div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Восстановление зубного ряда «Всё на 6-ти»</h4>
+                                <p>Имплантация Straumann на 1 челюсть: приёмы хирурга и ортопеда, 3D снимок, навигационный шаблон, постоянная конструкция на оксиде циркония.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">1 037 000 ₽</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Категория: Косметология -->
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon">💆</div>
+                    <div class="category-info">
+                        <h3>Косметология и пластика</h3>
+                        <p>Лифтинг, омоложение, эстетическая медицина</p>
+                    </div>
+                    <div class="category-count">2 услуги</div>
+                    <div class="category-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <div class="category-services">
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Глубокий SMAS лифтинг + Смайл-лифтинг + Эндоскопическая подтяжка лба</h4>
+                                <p>Южная Корея. Консультация хирурга, обследование, кислородная терапия, послеоперационные осмотры, 1 ночь в клинике + 14 дней в отеле, переводчик, трансфер.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">1 843 000 ₽</div>
+                                <div class="unit">+ авиабилеты</div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Смайл-лифтинг + Эндоскопическая подтяжка лба</h4>
+                                <p>Южная Корея. Консультация хирурга, послеоперационные осмотры, 10 дней в отеле, переводчик и сопровождение, трансфер.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">671 000 ₽</div>
+                                <div class="unit">+ авиабилеты</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Категория: Организация и сервис -->
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon">🏥</div>
+                    <div class="category-info">
+                        <h3>Организация лечения</h3>
+                        <p>Подбор клиники, сопровождение, переводчик</p>
+                    </div>
+                    <div class="category-count">4 услуги</div>
+                    <div class="category-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <div class="category-services">
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Подбор клиники и врача</h4>
+                                <p>Анализ вашего случая, подбор оптимальной клиники и специалиста, консультация по вариантам лечения.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">Бесплатно</div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Медицинский переводчик</h4>
+                                <p>Сопровождение на приёмах и процедурах, перевод медицинской документации.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">от 8 000 ₽</div>
+                                <div class="unit">за день</div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Сопровождение 24/7</h4>
+                                <p>Связь с координатором в любое время суток, помощь в решении любых вопросов.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">от 10 000 ₽</div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Перевод медицинских документов</h4>
+                                <p>Выписки, заключения, результаты анализов — профессиональный медицинский перевод.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">от 1 500 ₽</div>
+                                <div class="unit">за страницу</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
     <!-- Team -->
     <section class="team" id="team">
         <div class="container">
@@ -1401,22 +1815,26 @@
                 } 
             }); 
         });
+        /* Services Accordion */
+document.querySelectorAll('.category-header').forEach(header => {
+    header.addEventListener('click', () => {
+        const category = header.parentElement;
+        const isActive = category.classList.contains('active');
+        
+        // Закрыть все категории (раскомментируйте, если нужно только одна открытая)
+        // document.querySelectorAll('.service-category').forEach(cat => {
+        //     cat.classList.remove('active');
+        // });
+        
+        // Переключить текущую
+        if (isActive) {
+            category.classList.remove('active');
+        } else {
+            category.classList.add('active');
+        }
+    });
+});
     </script>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
