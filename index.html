@@ -1706,9 +1706,162 @@
         mobileNav.querySelectorAll('a').forEach(link => { 
             link.addEventListener('click', closeMobileMenu); 
         });
+
+        /* ==================================================================
+        ФОРМА ОБРАТНОЙ СВЯЗИ с Telegram Bot + ОТПРАВКА ФАЙЛОВ
+        ================================================================== */
+        // Конфигурация Telegram Bot
+        const TELEGRAM_BOT_TOKEN = '8515761687:AAEwi4vxajExDIEuxcDgjKkKKVIsXxMiQRM';
+        const TELEGRAM_CHAT_ID = '1010659765';
+
+        // Функция отправки в Telegram (текст + файлы)
+        async function sendToTelegram(data, files) {
+            // 1. Отправляем текстовое сообщение
+            const message = `
+        🏥 <b>Новая заявка с Финист Мед</b>
+
+        👤 Имя: ${data.name}
+        📞 Телефон: ${data.phone}
+        📧 Email: ${data.email || 'не указан'}
+        💬 Мессенджер: ${data.messenger || 'не указан'}
+        📝 Сообщение: ${data.message || 'не указано'}
+
+        ⏰ Дата: ${new Date().toLocaleString('ru-RU')}
+            `.trim();
+
+            const textUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+            
+            console.log('=== ОТПРАВКА В TELEGRAM ===');
+            console.log('Chat ID:', TELEGRAM_CHAT_ID);
+            
+            try {
+                // Отправляем текст
+                const textResponse = await fetch(textUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                });
+
+                const textResult = await textResponse.json();
+                console.log('Ответ (текст):', textResult);
+                
+                if (!textResult.ok) {
+                    throw new Error(textResult.description || 'Ошибка отправки текста');
+                }
+
+                // 2. Отправляем файлы (если есть)
+                if (files && files.length > 0) {
+                    console.log(`Отправка ${files.length} файлов...`);
+                    
+                    for (let i = 0; i < files.length; i++) {
+                        const file = files[i];
+                        
+                        // Проверка размера (50 МБ максимум для Telegram)
+                        if (file.size > 50 * 1024 * 1024) {
+                            console.warn(`Файл ${file.name} слишком большой (${(file.size / 1024 / 1024).toFixed(2)} МБ). Пропускаем.`);
+                            continue;
+                        }
+                        
+                        const fileUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument`;
+                        
+                        const formData = new FormData();
+                        formData.append('chat_id', TELEGRAM_CHAT_ID);
+                        formData.append('document', file);
+                        formData.append('caption', `📎 Файл ${i + 1} из ${files.length}: ${file.name}`);
+                        
+                        const fileResponse = await fetch(fileUrl, {
+                            method: 'POST',
+                            body: formData
+                        });
+                        
+                        const fileResult = await fileResponse.json();
+                        console.log(`Файл ${i + 1}:`, fileResult);
+                        
+                        if (!fileResult.ok) {
+                            console.error(`Ошибка отправки файла ${file.name}:`, fileResult);
+                        }
+                    }
+                    
+                    console.log('✅ Все файлы отправлены');
+                }
+                
+                return { success: true };
+                
+            } catch (error) {
+                console.error('Ошибка:', error);
+                return { success: false, error: error.message };
+            }    
+        }
+        
+        // Обработка формы
+        const form = document.getElementById('contactForm');
+        const modal = document.getElementById('successModal');
+        const consentCheckbox = document.getElementById('consent');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        consentCheckbox.addEventListener('change', () => { 
+            submitBtn.disabled = !consentCheckbox.checked; 
+        });
+        
+        form.addEventListener('submit', async (e) => { 
+            e.preventDefault();
+            
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Отправка...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Собираем данные формы
+                const formData = new FormData(form);
+                const data = {
+                    name: formData.get('name'),
+                    phone: formData.get('phone'),
+                    email: formData.get('email'),
+                    messenger: formData.get('messenger'),
+                    message: formData.get('message')
+                };
+                
+                // Собираем файлы
+                const fileInput = form.querySelector('input[type="file"]');
+                const files = fileInput && fileInput.files ? Array.from(fileInput.files) : [];
+                
+                console.log('Данные формы:', data);
+                console.log('Файлы:', files.length > 0 ? files.map(f => f.name) : 'нет файлов');
+                
+                // Отправляем в Telegram (текст + файлы)
+                const result = await sendToTelegram(data, files);
+                
+                if (result.success) {
+                    modal.classList.add('active');
+                    form.reset();
+                    consentCheckbox.checked = false;
+                    submitBtn.disabled = true;
+                } else {
+                    alert('Ошибка отправки. Попробуйте позже или позвоните нам по телефону 8 (342) 219-66-66');
+                }
+            } catch (error) {
+                console.error('Критическая ошибка:', error);
+                alert('Ошибка соединения. Проверьте интернет или позвоните нам по телефону 8 (342) 219-66-66');
+            }
+            
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = !consentCheckbox.checked;
+        });
+        
+        function closeModal() { 
+            modal.classList.remove('active'); 
+        }
+        
+        modal.addEventListener('click', (e) => { 
+            if (e.target === modal) closeModal(); 
+        });
         /* ==================================================================
         ФОРМА ОБРАТНОЙ СВЯЗИ с Telegram Bot
-        ================================================================== */
+        ==================================================================
         // Конфигурация Telegram Bot
         const TELEGRAM_BOT_TOKEN = '8515761687:AAEwi4vxajExDIEuxcDgjKkKKVIsXxMiQRM';
         const TELEGRAM_CHAT_ID = '1010659765';
@@ -1716,15 +1869,15 @@
         // Функция отправки в Telegram
         async function sendToTelegram(data) {
             const message = `
-🏥 <b>Новая заявка с Финист Мед</b>
+        🏥 <b>Новая заявка с Финист Мед</b>
 
-👤 Имя: ${data.name}
-📞 Телефон: ${data.phone}
-📧 Email: ${data.email || 'не указан'}
-💬 Мессенджер: ${data.messenger || 'не указан'}
-📝 Сообщение: ${data.message || 'не указано'}
+        👤 Имя: ${data.name}
+        📞 Телефон: ${data.phone}
+        📧 Email: ${data.email || 'не указан'}
+        💬 Мессенджер: ${data.messenger || 'не указан'}
+        📝 Сообщение: ${data.message || 'не указано'}
 
-⏰ Дата: ${new Date().toLocaleString('ru-RU')}
+        ⏰ Дата: ${new Date().toLocaleString('ru-RU')}
             `.trim();
 
             const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
@@ -1809,7 +1962,7 @@
         modal.addEventListener('click', (e) => { 
             if (e.target === modal) closeModal(); 
         });
-        
+         */
         /* ==================================================================
         ФОРМА ОБРАТНОЙ СВЯЗИ с Web3Forms
         ================================================================== 
@@ -1955,6 +2108,7 @@ document.querySelectorAll('.category-header').forEach(header => {
 </body>
 
 </html>
+
 
 
 
