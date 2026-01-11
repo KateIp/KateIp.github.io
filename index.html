@@ -1383,16 +1383,17 @@
                 </div>
                 <div class="contact-form-box">
                     <h3>Отправить запрос</h3>
-                    <p>Заполните форму, и мы перезвоним вам</p>
-                    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+                    <p>Заполните форму, и мы перезвоним вам</p>  
+                    <form id="contactForm">
+                        <!-- <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data"> -->
                         <!-- Web3Forms Access Key -->
-                        <input type="hidden" name="access_key" value="c5525465-67e3-450b-be33-826c9bb36be4">
+                        <!--  <input type="hidden" name="access_key" value="c5525465-67e3-450b-be33-826c9bb36be4">-->
                         <!-- Тема письма -->
-                        <input type="hidden" name="subject" value="Новая заявка с сайта Финист Мед">
+                        <!-- <input type="hidden" name="subject" value="Новая заявка с сайта Финист Мед">-->
                         <!-- Имя отправителя -->
-                        <input type="hidden" name="from_name" value="Финист Мед">
+                        <!-- <input type="hidden" name="from_name" value="Финист Мед">-->
                         <!-- Защита от спама (honeypot) -->
-                        <input type="checkbox" name="botcheck" style="display: none;">
+                        <!-- <input type="checkbox" name="botcheck" style="display: none;">-->
                         <div class="form-group"><label>ФИО <span class="req">*</span></label><input type="text" name="name" placeholder="Иванов Иван Иванович" required></div>
                         <div class="form-row">
                             <div class="form-group"><label>Телефон <span class="req">*</span></label><input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required></div>
@@ -1705,10 +1706,113 @@
         mobileNav.querySelectorAll('a').forEach(link => { 
             link.addEventListener('click', closeMobileMenu); 
         });
+        /* ==================================================================
+        ФОРМА ОБРАТНОЙ СВЯЗИ с Telegram Bot
+        ================================================================== */
+        // Конфигурация Telegram Bot
+        const TELEGRAM_BOT_TOKEN = '8515761687:AAEwi4vxajExDIEuxcDgjKkKKVIsXxMiQRM';
+        const TELEGRAM_CHAT_ID = '1010659765';
 
+        // Функция отправки в Telegram
+        async function sendToTelegram(data) {
+            const message = `
+🏥 <b>Новая заявка с Финист Мед</b>
+
+👤 Имя: ${data.name}
+📞 Телефон: ${data.phone}
+📧 Email: ${data.email || 'не указан'}
+💬 Мессенджер: ${data.messenger || 'не указан'}
+📝 Сообщение: ${data.message || 'не указано'}
+
+⏰ Дата: ${new Date().toLocaleString('ru-RU')}
+            `.trim();
+
+            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+    
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                });
+
+                const result = await response.json();
+        
+                if (result.ok) {
+                    return { success: true };
+                } else {
+                    throw new Error(result.description || 'Ошибка отправки');
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                return { success: false, error: error.message };
+            }    
+        }
+        
+        // Обработка формы
+        const form = document.getElementById('contactForm');
+        const modal = document.getElementById('successModal');
+        const consentCheckbox = document.getElementById('consent');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        consentCheckbox.addEventListener('change', () => { 
+            submitBtn.disabled = !consentCheckbox.checked; 
+        });
+        
+        form.addEventListener('submit', async (e) => { 
+            e.preventDefault();
+            
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Отправка...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Собираем данные формы
+                const formData = new FormData(form);
+                const data = {
+                    name: formData.get('name'),
+                    phone: formData.get('phone'),
+                    email: formData.get('email'),
+                    messenger: formData.get('messenger'),
+                    message: formData.get('message')
+                };
+                
+                // Отправляем в Telegram
+                const result = await sendToTelegram(data);
+                
+                if (result.success) {
+                    modal.classList.add('active');
+                    form.reset();
+                    consentCheckbox.checked = false;
+                    submitBtn.disabled = true;
+                } else {
+                    alert('Ошибка отправки. Попробуйте позже или позвоните нам по телефону 8 (342) 219-66-66');
+                }
+            } catch (error) {
+                alert('Ошибка соединения. Проверьте интернет или позвоните нам по телефону 8 (342) 219-66-66');
+            }
+            
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = !consentCheckbox.checked;
+        });
+        
+        function closeModal() { 
+            modal.classList.remove('active'); 
+        }
+        
+        modal.addEventListener('click', (e) => { 
+            if (e.target === modal) closeModal(); 
+        });
+        
         /* ==================================================================
         ФОРМА ОБРАТНОЙ СВЯЗИ с Web3Forms
-        ================================================================== */
+        ================================================================== 
         const form = document.getElementById('contactForm');
         const modal = document.getElementById('successModal');
         const consentCheckbox = document.getElementById('consent');
@@ -1755,7 +1859,7 @@
         modal.addEventListener('click', (e) => { 
             if (e.target === modal) closeModal(); 
         });
-
+*/
         /* ==================================================================
         ПЛАВНАЯ ПРОКРУТКА
         ================================================================== */
@@ -1851,5 +1955,6 @@ document.querySelectorAll('.category-header').forEach(header => {
 </body>
 
 </html>
+
 
 
