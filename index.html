@@ -408,6 +408,21 @@
         .destination-body > p { font-size: 0.9375rem; color: var(--bark); margin-bottom: 20px; line-height: 1.6; }
         .tags { display: flex; flex-wrap: wrap; gap: 8px; }
         .tag { padding: 6px 12px; background: var(--cloud); border-radius: var(--radius-sm); font-size: 0.75rem; font-weight: 500; color: var(--forest); }
+        /* Sanatoriums - БЕЛЫЙ ФОН */
+        .sanatoriums { background: white; position: relative; overflow: hidden; }
+        .sanatoriums .organic-shape { width: 400px; height: 400px; background: var(--accent-light); top: 50%; left: -200px; transform: translateY(-50%); opacity: 0.3; }
+        .sanatoriums-carousel { position: relative; z-index: 1; }
+        .sanatoriums-wrapper { overflow: hidden; margin: 0 -12px; padding: 0 12px; }
+        .sanatoriums-grid { display: flex; gap: 24px; transition: transform 0.4s ease; }
+        .sanatorium-card { background: var(--cloud); border-radius: var(--radius-xl); overflow: hidden; transition: var(--transition); flex: 0 0 calc(25% - 18px); min-width: calc(25% - 18px); }
+        .sanatorium-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+        .sanatorium-img { height: 180px; background: linear-gradient(135deg, var(--accent-light) 0%, var(--fog) 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .sanatorium-img img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .sanatorium-card:hover .sanatorium-img img { transform: scale(1.05); }
+        .sanatorium-body { padding: 28px; }
+        .sanatorium-body h3 { font-size: 1.375rem; margin-bottom: 8px; }
+        .sanatorium-body > p { font-size: 0.9375rem; color: var(--bark); margin-bottom: 20px; line-height: 1.6; }
+        
         /* Team - ФОН КАК У DESTINATIONS */
         .team { background: var(--cloud); }
         .team-carousel { position: relative; }
@@ -807,6 +822,7 @@
             .hero-floating { top: -20px; right: -10px; }
             .steps-container { grid-template-columns: repeat(2, 1fr); }
             .destination-card { flex: 0 0 calc(50% - 12px); min-width: calc(50% - 12px); }
+            .sanatorium-card { flex: 0 0 calc(50% - 12px); min-width: calc(50% - 12px); }
             .carousel-btn-prev { left: -12px; }
             .carousel-btn-next { right: -12px; }
             .team-card { flex: 0 0 calc(50% - 12px); min-width: calc(50% - 12px); }
@@ -829,6 +845,7 @@
             .hero-visual { text-align: center; }
             .steps-container { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
             .destination-card { flex: 0 0 calc(100% - 24px); min-width: calc(100% - 24px); }
+            .sanatorium-card { flex: 0 0 calc(100% - 24px); min-width: calc(100% - 24px); }
             .carousel-btn { width: 40px; height: 40px; }
             .carousel-btn svg { width: 20px; height: 20px; }
             .carousel-btn-prev { left: 0; }
@@ -868,6 +885,7 @@
                 <nav class="nav">
                     <a href="#how-it-works">Как это работает</a>
                     <a href="#destinations">Направления</a>
+                    <a href="#sanatoriums">Санатории</a>
                     <a href="#services">Услуги</a>
                     <a href="#team">Команда</a>
                     <a href="#advantages">Преимущества</a>
@@ -1034,6 +1052,89 @@
                     </div>
                 </div>
                 <button class="carousel-btn carousel-btn-next" id="destNext" aria-label="Вперёд"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></button>
+            </div>
+        </div>
+    </section>
+    <!-- Sanatoriums -->
+    <section class="sanatoriums" id="sanatoriums">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Реабилитация</span>
+                <h2 class="section-title">Санатории и реабилитация</h2>
+                <p class="section-desc">Организуем восстановительное лечение в лучших санаториях России</p>
+            </div>
+            <div class="sanatoriums-carousel">
+                <button class="carousel-btn carousel-btn-prev" id="sanPrev" aria-label="Назад"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></button>
+                <div class="sanatoriums-wrapper">
+                    <div class="sanatoriums-grid" id="sanGrid">
+                        
+                        <div class="sanatorium-card">
+                            <div class="sanatorium-img"><img src="img/san01.jpg" alt="Санаторий Усть-Качка"></div>
+                            <div class="sanatorium-body">
+                                <h3>Усть-Качка</h3>
+                                <p>Крупнейший бальнеологический курорт Урала. Лечение опорно-двигательного аппарата, нервной системы, гинекологии.</p>
+                                <div class="tags">
+                                    <span class="tag">Минеральные ванны</span>
+                                    <span class="tag">Грязелечение</span>
+                                    <span class="tag">Массаж</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sanatorium-card">
+                            <div class="sanatorium-img"><img src="img/san02.jpg" alt="Санаторий Ключи"></div>
+                            <div class="sanatorium-body">
+                                <h3>Ключи</h3>
+                                <p>Современный санаторий в Пермском крае. Кардиология, эндокринология, программы детокса и anti-age.</p>
+                                <div class="tags">
+                                    <span class="tag">SPA-процедуры</span>
+                                    <span class="tag">Диетология</span>
+                                    <span class="tag">Wellness</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sanatorium-card">
+                            <div class="sanatorium-img"><img src="img/san03.jpg" alt="Санаторий Демидково"></div>
+                            <div class="sanatorium-body">
+                                <h3>Демидково</h3>
+                                <p>Санаторий на берегу Камы. Реабилитация после COVID-19, программы восстановления, профилактика.</p>
+                                <div class="tags">
+                                    <span class="tag">Пост-COVID</span>
+                                    <span class="tag">Физиотерапия</span>
+                                    <span class="tag">ЛФК</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sanatorium-card">
+                            <div class="sanatorium-img"><img src="img/san04.jpg" alt="Санаторий Хмельники"></div>
+                            <div class="sanatorium-body">
+                                <h3>Хмельники (Пермь)</h3>
+                                <p>Городской санаторий с радоновыми ваннами. Лечение суставов, позвоночника, неврологии.</p>
+                                <div class="tags">
+                                    <span class="tag">Радоновые ванны</span>
+                                    <span class="tag">Неврология</span>
+                                    <span class="tag">Ортопедия</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sanatorium-card">
+                            <div class="sanatorium-img"><img src="img/san05.jpg" alt="Санаторий"></div>
+                            <div class="sanatorium-body">
+                                <h3>Другие санатории России</h3>
+                                <p>Организуем поездки в санатории Сочи, Кавказских Минеральных Вод, Крыма и других регионов.</p>
+                                <div class="tags">
+                                    <span class="tag">По всей России</span>
+                                    <span class="tag">Индивидуальный подбор</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <button class="carousel-btn carousel-btn-next" id="sanNext" aria-label="Вперёд"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></button>
             </div>
         </div>
     </section>
@@ -1625,6 +1726,7 @@
             destPosition = 0; updateCarousel(); 
             specPosition = 0; updateSpecCarousel(); 
             teamPosition = 0; updateTeamCarousel(); 
+            sanPosition = 0; updateSanCarousel(); 
         });
         updateCarousel();
 
@@ -1699,6 +1801,36 @@
             if (teamPosition < max) { teamPosition++; updateTeamCarousel(); } 
         });
         updateTeamCarousel();
+
+        /* ==================================================================
+        КАРУСЕЛЬ САНАТОРИЕВ
+        ================================================================== */
+        const sanGrid = document.getElementById('sanGrid');
+        const sanPrev = document.getElementById('sanPrev');
+        const sanNext = document.getElementById('sanNext');
+        let sanPosition = 0;
+        
+        function getSanCardWidth() { 
+            const card = sanGrid.querySelector('.sanatorium-card'); 
+            return card.offsetWidth + 24;
+        }
+        
+        function updateSanCarousel() { 
+            const total = 5, visible = getVisibleCards(), max = Math.max(0, total - visible); 
+            sanPrev.disabled = sanPosition <= 0;
+            sanNext.disabled = sanPosition >= max;
+            sanGrid.style.transform = 'translateX(-' + (sanPosition * getSanCardWidth()) + 'px)'; 
+        }
+        
+        sanPrev.addEventListener('click', () => { 
+            if (sanPosition > 0) { sanPosition--; updateSanCarousel(); } 
+        });
+        sanNext.addEventListener('click', () => { 
+            const max = Math.max(0, 5 - getVisibleCards()); 
+            if (sanPosition < max) { sanPosition++; updateSanCarousel(); } 
+        });
+        
+        updateSanCarousel();
 
         /* ==================================================================
         МОБИЛЬНОЕ МЕНЮ
@@ -2229,6 +2361,7 @@ document.querySelectorAll('.category-header').forEach(header => {
 </body>
 
 </html>
+
 
 
 
