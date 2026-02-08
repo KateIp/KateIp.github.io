@@ -1,0 +1,2238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<!-- 
+================================================================================
+ФИНИСТ МЕД — Лендинг медицинского туризма
+================================================================================
+Версия: 1.0
+Автор: Финист Мед / ООО ТК "Финист трэвел"
+Сайт: med.finist-travel.com
+Дата: 2024
+
+СТРУКТУРА ЛЕНДИНГА:
+1. HEAD - мета-теги, SEO, шрифты, стили
+2. HEADER - шапка с навигацией (фиксированная)
+3. HERO - главный экран (асимметричный дизайн)
+4. HOW IT WORKS - как мы работаем (4 шага)
+5. DESTINATIONS - наши клиники (карусель, 5 карточек)
+6. SERVICES - услуги и цены (8 услуг)
+7. TEAM - команда (2 карусели: специалисты + врачи)
+8. ADVANTAGES - преимущества (6 карточек)
+9. REVIEWS - отзывы пациентов
+10. FAQ - часто задаваемые вопросы (аккордеон)
+11. CONTACT - форма обратной связи
+12. MAP - карта с офисом (Яндекс.Карты)
+13. FOOTER - подвал сайта
+14. MODALS - модальные окна (успех, документы)
+15. FLOATING - плавающие кнопки (телефон, Telegram)
+16. SCRIPTS - JavaScript функционал
+
+ЦВЕТОВАЯ ПАЛИТРА:
+- Основной зелёный: #4CAF50
+- Тёмный зелёный: #388E3C  
+- Акцентный жёлтый: #FFD600
+- Тёмный фон: #1F2E24
+- Светлый фон: #F2F7F3
+
+ШРИФТЫ:
+- Заголовки: Cormorant (serif)
+- Текст: Plus Jakarta Sans (sans-serif)
+================================================================================
+-->
+
+<head>
+    <!-- ====================================================================
+    МЕТА-ТЕГИ И SEO
+    ==================================================================== -->
+    
+    <!-- Базовые мета-теги -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105747856', 'ym');
+        ym(105747856, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/105747856" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    
+    <!-- SEO: Заголовок и описание -->
+    <title>Медицинский туризм из Перми — лечение в клиниках России, Кореи, Турции, Израиля, Германии | Финист Мед</title>
+    <meta name="description" content="Организация лечения за рубежом из Перми. Онкология, кардиология, ортопедия, check-up в лучших клиниках мира. 29 лет опыта. Подбор клиники бесплатно. Сопровождение 24/7.">
+    <meta name="keywords" content="медицинский туризм Пермь, лечение за рубежом, лечение в Корее, лечение в Турции, лечение в Израиле, лечение в Германии, онкология за рубежом, check-up Корея, медтуризм">
+    
+    <!-- Open Graph для соцсетей (VK, Facebook, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Финист Мед — Медицинский туризм из Перми">
+    <meta property="og:description" content="Организуем лечение в лучших клиниках России и мира. Корея, Турция, Израиль, Германия. Бесплатный подбор клиники.">
+    <meta property="og:url" content="https://med.finist-travel.com/">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="Финист Мед">
+    
+    <!-- Индексация и авторство -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="ООО ТК Финист трэвел">
+    
+    <!-- Геолокация для локального SEO -->
+    <meta name="geo.region" content="RU-PER">
+    <meta name="geo.placename" content="Пермь">
+    
+    <!-- Канонический URL -->
+    <link rel="canonical" href="https://med.finist-travel.com/">
+    
+    <!-- Schema.org разметка для поисковиков (структурированные данные) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalBusiness",
+        "name": "Финист Мед",
+        "description": "Организация медицинского туризма и лечения за рубежом из Перми",
+        "url": "https://med.finist-travel.com/",
+        "telephone": "+7 (342) 219-66-66",
+        "email": "admin@finist-travel.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "ул. Газеты Звезда, 27, офис 205",
+            "addressLocality": "Пермь",
+            "addressRegion": "Пермский край",
+            "postalCode": "614000",
+            "addressCountry": "RU"
+        }
+    }
+    </script>
+    
+    <!-- ====================================================================
+    ШРИФТЫ
+    ==================================================================== -->
+    
+    <!-- Предзагрузка шрифтов Google Fonts для ускорения -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Cormorant - для заголовков, Plus Jakarta Sans - для текста -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ====================================================================
+    CSS СТИЛИ
+    ==================================================================== -->
+    <style>
+        /* ==================================================================
+        CSS ПЕРЕМЕННЫЕ (Custom Properties)
+        Централизованное управление цветами, отступами, тенями
+        ================================================================== */
+        :root {
+            /* Оттенки серо-зелёного (от светлого к тёмному) */
+            --snow: #FAFCFA;      /* Почти белый */
+            --cloud: #F2F7F3;     /* Светлый фон секций */
+            --fog: #E4EDE6;       /* Фон карточек при hover */
+            --stone: #C8D9CC;     /* Границы, разделители */
+            --earth: #94A89A;     /* Вспомогательный текст */
+            --bark: #687D6E;      /* Основной серый текст */
+            --forest: #4A5D50;    /* Тёмный текст */
+            --night: #1F2E24;     /* Самый тёмный (заголовки, фон Hero) */
+            
+            /* Основные цвета бренда */
+            --primary: #4CAF50;        /* Зелёный - основной */
+            --primary-dark: #388E3C;   /* Зелёный тёмный */
+            --primary-light: #C8E6C9;  /* Зелёный светлый */
+            
+            /* Акцентные цвета (жёлтый) */
+            --accent: #FFD600;         /* Жёлтый - кнопки, акценты */
+            --accent-dark: #E6C200;    /* Жёлтый при hover */
+            --accent-light: #FFF8D6;   /* Жёлтый светлый */
+            
+            /* Тени (от лёгкой к насыщенной) */
+            --shadow-xs: 0 1px 2px rgba(31, 46, 36, 0.04);
+            --shadow-sm: 0 2px 8px rgba(31, 46, 36, 0.06);
+            --shadow-md: 0 8px 24px rgba(31, 46, 36, 0.08);
+            --shadow-lg: 0 16px 48px rgba(31, 46, 36, 0.1);
+            
+            /* Скругления углов */
+            --radius-sm: 8px;   /* Маленькие элементы */
+            --radius: 12px;     /* Стандартное */
+            --radius-lg: 20px;  /* Карточки */
+            --radius-xl: 28px;  /* Большие блоки */
+            
+            /* Анимации */
+            --transition: all 0.35s ease;
+        }
+        
+        /* ==================================================================
+        СБРОС СТИЛЕЙ И БАЗОВЫЕ НАСТРОЙКИ
+        ================================================================== */
+        
+        /* Сброс отступов и box-sizing для всех элементов */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* Плавная прокрутка при клике на якоря */
+        html { scroll-behavior: smooth; }
+        
+        /* Базовые стили body */
+        body { 
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; 
+            font-weight: 400; 
+            color: var(--forest); 
+            background: var(--snow); 
+            line-height: 1.7; 
+            overflow-x: hidden; /* Убираем горизонтальный скролл */
+            -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов на Mac */
+        }
+        
+        /* Заголовки используют шрифт Cormorant */
+        h1, h2, h3, h4 { 
+            font-family: 'Cormorant', Georgia, serif; 
+            font-weight: 600; 
+            color: var(--night); 
+            line-height: 1.25; 
+        }
+        
+        /* Контейнер - ограничивает ширину контента */
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+        
+        /* Декоративная органическая форма (blob) */
+        .organic-shape { 
+            position: absolute; 
+            border-radius: 60% 40% 50% 50% / 50% 50% 40% 60%; 
+            opacity: 0.4; 
+            pointer-events: none; 
+            z-index: 0; 
+        }
+        
+        /* ==================================================================
+        КОМПОНЕНТЫ СЕКЦИЙ
+        ================================================================== */
+        
+        /* Надпись над заголовком секции (eyebrow) */
+        .section-eyebrow { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px; 
+            font-size: 0.8125rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 0.12em; 
+            color: var(--accent-dark); 
+            margin-bottom: 16px; 
+        }
+        .section-eyebrow::before { 
+            content: ''; 
+            width: 24px; 
+            height: 2px; 
+            background: var(--accent); 
+            border-radius: 2px; 
+        }
+        
+        /* Заголовок секции */
+        .section-title { 
+            font-size: clamp(2rem, 4.5vw, 3rem); /* Адаптивный размер */
+            margin-bottom: 16px; 
+            letter-spacing: -0.02em; 
+        }
+        
+        /* Описание секции */
+        .section-desc { 
+            font-size: 1.0625rem; 
+            color: var(--bark); 
+            max-width: 520px; 
+            line-height: 1.7; 
+        }
+        
+        /* Шапка секции (центрированная) */
+        .section-header { text-align: center; margin-bottom: 56px; }
+        .section-header-second { margin-top: 80px; }
+        .section-header .section-eyebrow { justify-content: center; }
+        .section-header .section-eyebrow::before { display: none; }
+        .section-header .section-desc { margin: 0 auto; }
+        
+        /* Базовые отступы секций */
+        section { padding: 100px 0; position: relative; }
+        
+        /* ==================================================================
+        HEADER (Шапка сайта)
+        Фиксированная, меняет стиль при прокрутке
+        ================================================================== */
+        
+        .header { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            z-index: 1000; 
+            padding: 20px 0; 
+            transition: var(--transition); 
+        }
+        
+        /* Стили до прокрутки (на тёмном Hero) */
+        .header:not(.scrolled) .nav a { color: rgba(255, 255, 255, 0.9); }
+        .header:not(.scrolled) .nav a:hover { background: rgba(255, 255, 255, 0.1); color: white; }
+        .header:not(.scrolled) .header-phone a { color: white; }
+        .header:not(.scrolled) .header-phone span { color: rgba(255, 255, 255, 0.7); }
+        .header:not(.scrolled) .mobile-menu-btn { background: rgba(255, 255, 255, 0.1); }
+        .header:not(.scrolled) .mobile-menu-btn span { background: white; }
+        
+        /* Стили после прокрутки (светлый фон) */
+        .header.scrolled { 
+            background: rgba(250, 250, 250, 0.95); 
+            backdrop-filter: blur(16px); 
+            -webkit-backdrop-filter: blur(16px); 
+            box-shadow: var(--shadow-sm); 
+        }
+        .header.scrolled .nav a { color: var(--forest); }
+        .header.scrolled .header-phone a { color: var(--night); }
+        .header.scrolled .header-phone span { color: var(--bark); }
+        
+        /* Внутренняя структура шапки */
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 80px; width: auto; }
+        
+        /* Навигация */
+        .nav { display: flex; align-items: center; gap: 4px; }
+        .nav a { text-decoration: none; color: var(--forest); font-size: 0.9375rem; font-weight: 500; padding: 10px 16px; border-radius: var(--radius); transition: var(--transition); }
+        .nav a:hover { background: var(--cloud); color: var(--night); }
+        .header-contact { display: flex; align-items: center; gap: 20px; }
+        .header-phone { text-align: right; }
+        .header-phone a { font-family: 'Cormorant', serif; font-size: 1.5rem; font-weight: 600; color: var(--night); text-decoration: none; }
+        .header-phone span { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8125rem; font-weight: 400; color: var(--bark); }
+        .mobile-menu-btn { display: none; flex-direction: column; gap: 5px; background: var(--cloud); border: none; border-radius: var(--radius); cursor: pointer; padding: 12px; z-index: 1001; }
+        .mobile-menu-btn span { width: 20px; height: 2px; background: var(--forest); border-radius: 2px; transition: var(--transition); }
+        .mobile-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: white; z-index: 1000; padding: 100px 28px 40px; flex-direction: column; gap: 8px; overflow-y: auto; }
+        .mobile-nav.active { display: flex; }
+        .mobile-nav-close { position: absolute; top: 20px; right: 20px; width: 48px; height: 48px; background: var(--cloud); border: none; border-radius: var(--radius); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+        .mobile-nav-close:hover { background: var(--fog); }
+        .mobile-nav-close svg { width: 24px; height: 24px; color: var(--forest); }
+        .mobile-nav a { display: block; padding: 16px 20px; font-size: 1.125rem; font-weight: 500; color: var(--night); text-decoration: none; border-radius: var(--radius); transition: var(--transition); }
+        .mobile-nav a:hover { background: var(--cloud); color: var(--primary-dark); }
+        .mobile-nav .btn { margin-top: 16px; text-align: center; justify-content: center; }
+        /* Buttons */
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 28px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9375rem; font-weight: 600; text-decoration: none; border-radius: var(--radius); transition: var(--transition); cursor: pointer; border: none; }
+        .btn-primary { background: var(--accent); color: var(--night); }
+        .btn-primary:hover:not(:disabled) { background: var(--accent-dark); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .btn-primary:disabled { background: var(--stone); color: var(--bark); cursor: not-allowed; opacity: 0.7; }
+        .btn-secondary { background: var(--cloud); color: var(--night); }
+        .btn-secondary:hover { background: var(--fog); }
+        .btn-outline { background: transparent; color: var(--forest); border: 1.5px solid var(--stone); }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary-dark); }
+        .btn svg { width: 18px; height: 18px; }
+        /* Hero - Асимметричный дизайн */
+        .hero { 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            padding: 100px 0 80px; 
+            position: relative; 
+            overflow: hidden; 
+            background: var(--night); 
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -20%;
+            width: 80%;
+            height: 200%;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            border-radius: 0 0 0 50%;
+            transform: rotate(-15deg);
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px; left: -100px;
+            width: 400px; height: 400px;
+            background: rgba(255, 214, 0, 0.08);
+            border-radius: 50%;
+        }
+        .hero .container { position: relative; z-index: 1; }
+        .hero-content { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
+        .hero-text { color: white; }
+        .hero-eyebrow { display: inline-block; padding: 8px 16px; background: var(--accent); color: var(--night); border-radius: var(--radius); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 28px; }
+        .hero-text h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 24px; letter-spacing: -0.02em; color: white; }
+        .hero-text > p { font-size: 1.125rem; color: rgba(255, 255, 255, 0.85); margin-bottom: 40px; line-height: 1.8; }
+        .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+        .hero-cta .btn-primary { background: var(--accent); color: var(--night); }
+        .hero-cta .btn-primary:hover { background: var(--accent-light); }
+        .hero-cta .btn-white { background: white; color: var(--night); }
+        .hero-cta .btn-white:hover { background: var(--cloud); }
+        .hero-features { display: flex; gap: 32px; flex-wrap: wrap; }
+        .hero-feature { display: flex; align-items: center; gap: 12px; }
+        .hero-feature-icon { width: 44px; height: 44px; background: rgba(255, 255, 255, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .hero-feature-icon svg { width: 22px; height: 22px; color: var(--accent); }
+        .hero-feature span { font-size: 0.9375rem; color: rgba(255, 255, 255, 0.9); }
+        .hero-visual { position: relative; }
+        .hero-card { background: white; border-radius: var(--radius-xl); padding: 36px; box-shadow: var(--shadow-lg); }
+        .hero-card h3 { font-size: 1.5rem; color: var(--night); margin-bottom: 24px; }
+        .destination-list { display: flex; flex-direction: column; gap: 16px; }
+        .destination-item { display: flex; align-items: center; gap: 16px; padding: 16px; background: var(--cloud); border-radius: var(--radius); transition: var(--transition); cursor: pointer; }
+        .destination-item:hover { background: var(--fog); transform: translateX(8px); }
+        .destination-emoji { width: 48px; height: 48px; background: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: var(--shadow-sm); }
+        .destination-text h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 600; color: var(--night); }
+        .destination-text p { font-size: 0.8125rem; color: var(--bark); }
+        .hero-floating { position: absolute; top: -30px; right: -30px; background: var(--accent); padding: 20px 28px; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); text-align: center; }
+        .hero-floating .value { font-family: 'Cormorant', serif; font-size: 2rem; font-weight: 700; color: var(--night); line-height: 1; }
+        .hero-floating .label { font-size: 0.75rem; color: var(--forest); font-weight: 500; }
+        /* How It Works */
+        .how-it-works { background: white; }
+        .steps-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .step-card { padding: 28px 24px; background: var(--cloud); border-radius: var(--radius-lg); position: relative; transition: var(--transition); }
+        .step-card:hover { background: white; box-shadow: var(--shadow-md); transform: translateY(-4px); }
+        .step-num { width: 44px; height: 44px; background: var(--accent); color: var(--night); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant', serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 20px; }
+        .step-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.0625rem; font-weight: 600; margin-bottom: 8px; }
+        .step-card p { font-size: 0.9375rem; color: var(--bark); line-height: 1.6; }
+        /* Destinations */
+        .destinations { background: var(--cloud); position: relative; overflow: hidden; }
+        .destinations .organic-shape { width: 400px; height: 400px; background: var(--primary-light); top: 50%; right: -200px; transform: translateY(-50%); opacity: 0.3; }
+        .destinations-carousel { position: relative; z-index: 1; }
+        .destinations-wrapper { overflow: hidden; margin: 0 -12px; padding: 0 12px; }
+        .destinations-grid { display: flex; gap: 24px; transition: transform 0.4s ease; }
+        .destination-card { background: white; border-radius: var(--radius-xl); overflow: hidden; transition: var(--transition); flex: 0 0 calc(25% - 18px); min-width: calc(25% - 18px); }
+        .destination-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; background: white; border: none; border-radius: 50%; box-shadow: var(--shadow-md); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition); z-index: 10; }
+        .carousel-btn:hover { background: var(--primary); color: white; }
+        .carousel-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .carousel-btn:disabled:hover { background: white; color: inherit; }
+        .carousel-btn svg { width: 24px; height: 24px; }
+        .carousel-btn-prev { left: -24px; }
+        .carousel-btn-next { right: -24px; }
+        .destination-img { height: 180px; background: linear-gradient(135deg, var(--primary-light) 0%, var(--fog) 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .destination-img img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .destination-card:hover .destination-img img { transform: scale(1.05); }
+        .destination-body { padding: 28px; }
+        .destination-body h3 { font-size: 1.375rem; margin-bottom: 8px; }
+        .destination-body > p { font-size: 0.9375rem; color: var(--bark); margin-bottom: 20px; line-height: 1.6; }
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { padding: 6px 12px; background: var(--cloud); border-radius: var(--radius-sm); font-size: 0.75rem; font-weight: 500; color: var(--forest); }
+        /* Sanatoriums - БЕЛЫЙ ФОН */
+        .sanatoriums { background: white; position: relative; overflow: hidden; }
+        .sanatoriums .organic-shape { width: 400px; height: 400px; background: var(--accent-light); top: 50%; left: -200px; transform: translateY(-50%); opacity: 0.3; }
+        .sanatoriums-carousel { position: relative; z-index: 1; }
+        .sanatoriums-wrapper { overflow: hidden; margin: 0 -12px; padding: 0 12px; }
+        .sanatoriums-grid { display: flex; gap: 24px; transition: transform 0.4s ease; }
+        .sanatorium-card { background: var(--cloud); border-radius: var(--radius-xl); overflow: hidden; transition: var(--transition); flex: 0 0 calc(25% - 18px); min-width: calc(25% - 18px); }
+        .sanatorium-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+        .sanatorium-img { height: 180px; background: linear-gradient(135deg, var(--accent-light) 0%, var(--fog) 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .sanatorium-img img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .sanatorium-card:hover .sanatorium-img img { transform: scale(1.05); }
+        .sanatorium-body { padding: 28px; }
+        .sanatorium-body h3 { font-size: 1.375rem; margin-bottom: 8px; }
+        .sanatorium-body > p { font-size: 0.9375rem; color: var(--bark); margin-bottom: 20px; line-height: 1.6; }
+        
+        /* Team - ФОН КАК У DESTINATIONS */
+        .team { background: var(--cloud); }
+        .team-carousel { position: relative; }
+        .team-wrapper { overflow: hidden; margin: 0 -12px; padding: 0 12px; }
+        .team-grid { display: flex; gap: 24px; transition: transform 0.4s ease; }
+        .team-card { background: white; border-radius: var(--radius-xl); overflow: hidden; transition: var(--transition); flex: 0 0 calc(25% - 18px); min-width: calc(25% - 18px); }
+        /* Карусель специалистов: 3 карточки на десктопе */
+        #specGrid .team-card { flex: 0 0 calc(33.333% - 16px); min-width: calc(33.333% - 16px); }
+        .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+        .team-carousel .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; }
+        .team-carousel .carousel-btn-prev { left: -24px; }
+        .team-carousel .carousel-btn-next { right: -24px; }
+        .team-photo { height: 300px; background: linear-gradient(135deg, var(--fog) 0%, var(--stone) 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .team-photo img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .team-card:hover .team-photo img { transform: scale(1.04); }
+        .team-body { padding: 28px; text-align: center; }
+        .team-body h3 { font-size: 1.25rem; margin-bottom: 4px; }
+        .team-role { font-size: 0.8125rem; font-weight: 600; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+        .team-body > p { font-size: 0.9375rem; color: var(--bark); line-height: 1.6; }
+        .team-exp { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 8px 14px; background: var(--cloud); border-radius: var(--radius); font-size: 0.8125rem; font-weight: 500; color: var(--forest); }
+        .team-exp svg { width: 14px; height: 14px; color: var(--primary); }
+        /* Services 
+        .services { background: white; }
+        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .service-card { background: var(--cloud); border-radius: var(--radius); padding: 20px 24px; display: flex; align-items: center; gap: 20px; transition: var(--transition); }
+        .service-card:hover { transform: translateX(4px); box-shadow: var(--shadow-md); background: white; }
+        .service-icon { width: 52px; height: 52px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .service-icon svg { width: 26px; height: 26px; color: white; }
+        .service-info { flex: 1; }
+        .service-info h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 600; color: var(--night); margin-bottom: 4px; }
+        .service-info p { font-size: 0.8125rem; color: var(--bark); line-height: 1.4; }
+        .service-price { text-align: right; flex-shrink: 0; }
+        .service-price .price { font-size: 1.125rem; font-weight: 700; color: var(--primary-dark); }
+        .service-price .unit { font-size: 0.75rem; color: var(--bark); }*/
+        /* Services Accordion */
+.services { background: white; }
+.services-accordion { max-width: 900px; margin: 0 auto; }
+
+.service-category {
+    background: var(--cloud);
+    border-radius: var(--radius-lg);
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+.service-category:hover {
+    box-shadow: var(--shadow-sm);
+}
+.service-category.active {
+    box-shadow: var(--shadow-md);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 28px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.category-header:hover {
+    background: var(--fog);
+}
+
+.category-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+.service-category.active .category-icon {
+    background: var(--accent);
+}
+
+.category-info {
+    flex: 1;
+}
+.category-info h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--night);
+    margin-bottom: 4px;
+}
+.category-info p {
+    font-size: 0.875rem;
+    color: var(--bark);
+}
+
+.category-count {
+    background: var(--fog);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--forest);
+}
+.service-category.active .category-count {
+    background: var(--accent-light);
+    color: var(--night);
+}
+
+.category-toggle {
+    width: 40px;
+    height: 40px;
+    background: var(--fog);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+.category-toggle svg {
+    width: 20px;
+    height: 20px;
+    color: var(--forest);
+    transition: transform 0.3s ease;
+}
+.service-category.active .category-toggle {
+    background: var(--accent);
+}
+.service-category.active .category-toggle svg {
+    transform: rotate(180deg);
+    color: var(--night);
+}
+
+.category-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+.service-category.active .category-content {
+    max-height: 1000px;
+}
+
+.category-services {
+    padding: 0 28px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.service-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    background: white;
+    border-radius: var(--radius);
+    transition: var(--transition);
+}
+.service-item:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-sm);
+}
+
+.service-item-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--primary-light);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.service-item-icon svg {
+    width: 18px;
+    height: 18px;
+    color: var(--primary-dark);
+}
+
+.service-item-info {
+    flex: 1;
+}
+.service-item-info h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--night);
+    margin-bottom: 4px;
+}
+.service-item-info p {
+    font-size: 0.8125rem;
+    color: var(--bark);
+    line-height: 1.5;
+}
+
+.service-item-price {
+    text-align: right;
+    flex-shrink: 0;
+}
+.service-item-price .price {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    white-space: nowrap;
+}
+.service-item-price .unit {
+    font-size: 0.75rem;
+    color: var(--bark);
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .category-header {
+        padding: 20px;
+        flex-wrap: wrap;
+    }
+    .category-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.25rem;
+    }
+    .category-count {
+        order: 4;
+        margin-left: 64px;
+        margin-top: -8px;
+    }
+    .category-services {
+        padding: 0 20px 20px;
+    }
+    .service-item {
+        flex-wrap: wrap;
+        padding: 16px;
+    }
+    .service-item-price {
+        width: 100%;
+        text-align: left;
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid var(--fog);
+    }
+}
+        /* Advantages - БЕЛЫЙ ФОН */
+        .advantages { background: white; position: relative; overflow: hidden; }
+        .advantages .organic-shape { background: var(--primary-light); opacity: 0.3; width: 600px; height: 600px; top: -200px; right: -200px; }
+        .advantages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; position: relative; z-index: 1; }
+        .advantage-card { padding: 32px 28px; background: var(--cloud); border: 1px solid var(--fog); border-radius: var(--radius-lg); transition: var(--transition); }
+        .advantage-card:hover { border-color: var(--stone); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .advantage-icon { width: 52px; height: 52px; background: var(--accent); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px; }
+        .advantage-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.0625rem; font-weight: 600; color: var(--night); margin-bottom: 8px; }
+        .advantage-card p { font-size: 0.9375rem; color: var(--bark); line-height: 1.6; }
+        /* Reviews - ФОН КАК У DESTINATIONS */
+        .reviews { background: var(--cloud); }
+        .reviews-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .review-card { padding: 32px; background: white; border-radius: var(--radius-xl); transition: var(--transition); }
+        .review-card:hover { box-shadow: var(--shadow-md); }
+        .review-top { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+        .review-avatar { width: 52px; height: 52px; background: linear-gradient(135deg, var(--primary-light), var(--primary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant', serif; font-size: 1rem; font-weight: 600; color: white; }
+        .review-meta h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 600; margin-bottom: 2px; }
+        .review-meta p { font-size: 0.8125rem; color: var(--bark); }
+        .review-block { padding: 14px 16px; background: var(--cloud); border-radius: var(--radius); margin-bottom: 12px; }
+        .review-block-label { font-size: 0.6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--primary-dark); margin-bottom: 4px; }
+        .review-block p { font-size: 0.875rem; color: var(--forest); }
+        .review-quote { font-size: 0.9375rem; font-style: italic; color: var(--bark); line-height: 1.7; padding-left: 16px; border-left: 3px solid var(--primary); }
+        /* FAQ - БЕЛЫЙ ФОН */
+        .faq { background: white; }
+        .faq-grid { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: var(--cloud); border-radius: var(--radius-lg); margin-bottom: 12px; overflow: hidden; transition: var(--transition); }
+        .faq-item:hover { box-shadow: var(--shadow-sm); }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; cursor: pointer; gap: 16px; }
+        .faq-question h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 600; color: var(--night); margin: 0; }
+        .faq-icon { width: 32px; height: 32px; background: var(--fog); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: var(--transition); }
+        .faq-icon svg { width: 16px; height: 16px; color: var(--forest); transition: var(--transition); }
+        .faq-item.active .faq-icon { background: var(--accent); }
+        .faq-item.active .faq-icon svg { color: var(--night); transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
+        .faq-item.active .faq-answer { max-height: 300px; }
+        .faq-answer-inner { padding: 0 24px 24px; color: var(--bark); font-size: 0.9375rem; line-height: 1.7; }
+        .faq-answer-inner a { color: var(--primary); text-decoration: none; }
+        .faq-answer-inner a:hover { text-decoration: underline; }
+        /* Contact - ФОН КАК У DESTINATIONS */
+        .contact { background: var(--cloud); }
+        .contact-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: start; }
+        .contact-left h2 { font-size: 2.25rem; margin-bottom: 16px; }
+        .contact-left > p { font-size: 1rem; color: var(--bark); margin-bottom: 36px; line-height: 1.7; }
+        .contact-list { display: flex; flex-direction: column; gap: 16px; }
+        .contact-row { display: flex; align-items: center; gap: 14px; padding: 14px 16px; background: white; border-radius: var(--radius); transition: var(--transition); }
+        .contact-row:hover { background: var(--fog); }
+        .contact-icon { width: 42px; height: 42px; background: var(--cloud); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--primary-dark); box-shadow: var(--shadow-xs); }
+        .contact-icon svg { width: 20px; height: 20px; }
+        .contact-info span { display: block; font-size: 0.75rem; color: var(--bark); text-transform: uppercase; letter-spacing: 0.05em; }
+        .contact-info p, .contact-info a { font-size: 1rem; font-weight: 500; color: var(--night); text-decoration: none; }
+        .contact-info a:hover { color: var(--primary-dark); }
+        .contact-socials { display: flex; gap: 12px; margin-top: 28px; }
+        .contact-social { width: 44px; height: 44px; background: white; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: var(--forest); transition: var(--transition); }
+        .contact-social:hover { background: var(--primary); color: white; }
+        .contact-social svg { width: 22px; height: 22px; }
+        .contact-form-box { background: white; border-radius: var(--radius-xl); padding: 36px; }
+        .contact-form-box h3 { font-size: 1.375rem; margin-bottom: 6px; }
+        .contact-form-box > p { font-size: 0.9375rem; color: var(--bark); margin-bottom: 28px; }
+        /* Form */
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: 0.875rem; font-weight: 500; color: var(--forest); margin-bottom: 6px; }
+        .form-group label .req { color: #DC6E6E; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 14px 16px; border: 1px solid var(--stone); border-radius: var(--radius); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9375rem; background: white; color: var(--night); transition: var(--transition); }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: var(--earth); }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15); }
+        .form-group textarea { min-height: 110px; resize: vertical; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .file-drop { border: 2px dashed var(--stone); border-radius: var(--radius); padding: 20px; text-align: center; cursor: pointer; transition: var(--transition); background: var(--cloud); }
+        .file-drop:hover { border-color: var(--primary); background: rgba(76, 175, 80, 0.03); }
+        .file-drop input { display: none; }
+        .file-drop-icon { font-size: 1.75rem; margin-bottom: 6px; }
+        .file-drop p { font-size: 0.875rem; color: var(--bark); }
+        .file-drop span { color: var(--primary-dark); font-weight: 600; }
+        /* Список прикреплённых файлов */
+        .file-list { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+        .file-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--cloud); border-radius: var(--radius-sm); font-size: 0.875rem; transition: var(--transition); }
+        .file-item:hover { background: var(--fog); }
+        .file-item-info { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
+        .file-item-icon { font-size: 1.25rem; flex-shrink: 0; }
+        .file-item-name { color: var(--night); font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .file-item-size { color: var(--bark); font-size: 0.75rem; white-space: nowrap; margin-left: 8px; }
+        .file-item-remove { width: 28px; height: 28px; background: transparent; border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--earth); transition: var(--transition); flex-shrink: 0; }
+        .file-item-remove:hover { background: var(--fog); color: #DC6E6E; }
+        .file-item-remove svg { width: 16px; height: 16px; }
+        
+        .form-submit { margin-top: 24px; }
+        .form-submit .btn { width: 100%; padding: 16px 28px; font-size: 1rem; }
+        .form-checkbox { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 20px; }
+        .form-checkbox input[type="checkbox"] { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--primary); cursor: pointer; flex-shrink: 0; }
+        .form-checkbox label { font-size: 0.8125rem; color: var(--bark); line-height: 1.5; cursor: pointer; }
+        .form-checkbox a { color: var(--primary-dark); text-decoration: underline; transition: var(--transition); }
+        .form-checkbox a:hover { color: var(--accent); }
+        /* Map - ФОН КАК У ФУТЕРА */
+        .map-section { background: var(--cloud); padding: 0; }
+        .map-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 480px; }
+        .map-content { padding: 56px; background: linear-gradient(135deg, var(--primary-dark) 0%, var(--night) 100%); color: white; display: flex; flex-direction: column; justify-content: center; }
+        .map-content h3 { font-size: 1.75rem; color: white; margin-bottom: 28px; }
+        .map-list { display: flex; flex-direction: column; gap: 20px; }
+        .map-item { display: flex; gap: 14px; }
+        .map-item svg { width: 22px; height: 22px; color: var(--accent-light); flex-shrink: 0; margin-top: 2px; }
+        .map-item p { font-size: 1rem; color: var(--stone); line-height: 1.6; }
+        .map-item a { color: var(--accent-light); text-decoration: none; }
+        .map-item a:hover { color: var(--accent); }
+        .map-item small { color: var(--bark); }
+        .map-legal { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--forest); }
+        .map-legal p { font-size: 0.8125rem; color: var(--earth); line-height: 1.5; }
+        .map-embed { background: var(--fog); display: flex; align-items: center; justify-content: center; }
+        /* Footer */
+        .footer { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--night) 100%); color: rgba(255, 255, 255, 0.8); padding: 44px 0 20px; }
+        .footer-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.15); margin-bottom: 20px; }
+        .footer-logo img { height: 80px; opacity: 0.95; }
+        .footer-nav { display: flex; gap: 28px; }
+        .footer-nav a { color: rgba(255, 255, 255, 0.8); text-decoration: none; font-size: 0.875rem; transition: var(--transition); }
+        .footer-nav a:hover { color: white; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.8125rem; color: rgba(255, 255, 255, 0.7); }
+        .footer-bottom a { color: var(--accent-light); text-decoration: none; }
+        .footer-bottom a:hover { color: var(--accent); }
+        /* Modal */
+        .modal-overlay { position: fixed; inset: 0; background: rgba(41, 37, 36, 0.7); backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 24px; }
+        .modal-overlay.active { display: flex; }
+        .modal { background: white; border-radius: var(--radius-xl); padding: 44px; max-width: 420px; text-align: center; position: relative; animation: modalIn 0.3s ease; }
+        @keyframes modalIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        .modal-icon { width: 68px; height: 68px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.75rem; color: var(--night); }
+        .modal h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .modal p { color: var(--bark); margin-bottom: 24px; }
+        .modal-close { position: absolute; top: 14px; right: 14px; width: 34px; height: 34px; border: none; background: var(--cloud); border-radius: 50%; cursor: pointer; font-size: 1.125rem; color: var(--bark); transition: var(--transition); }
+        .modal-close:hover { background: var(--fog); color: var(--night); }
+        /* Doc Modal */
+        .doc-modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(31, 46, 36, 0.6); backdrop-filter: blur(4px); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 20px; }
+        .doc-modal-overlay.active { display: flex; }
+        .doc-modal { background: white; border-radius: var(--radius-xl); max-width: 700px; width: 100%; max-height: 80vh; overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow-lg); }
+        .doc-modal-header { padding: 24px 28px; border-bottom: 1px solid var(--fog); display: flex; justify-content: space-between; align-items: center; }
+        .doc-modal-header h3 { font-size: 1.25rem; }
+        .doc-modal-close { width: 40px; height: 40px; background: var(--cloud); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+        .doc-modal-close:hover { background: var(--fog); }
+        .doc-modal-close svg { width: 20px; height: 20px; color: var(--forest); }
+        .doc-modal-body { padding: 28px; overflow-y: auto; font-size: 0.9375rem; line-height: 1.8; color: var(--forest); }
+        .doc-modal-body h4 { font-size: 1rem; margin: 20px 0 10px; }
+        .doc-modal-body p { margin-bottom: 12px; }
+        /* Floating */
+        .floating { position: fixed; bottom: 24px; right: 24px; display: flex; flex-direction: column; gap: 12px; z-index: 900; }
+        .float-btn { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; box-shadow: var(--shadow-md); transition: var(--transition); }
+        .float-btn:hover { transform: scale(1.08); }
+        .float-btn svg { width: 22px; height: 22px; }
+        .float-btn.phone { background: var(--accent); color: var(--night); }
+        .float-btn.telegram { background: #229ED9; }
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav { display: none; }
+            .mobile-menu-btn { display: flex; }
+            .hero::before { width: 100%; right: -30%; transform: rotate(-10deg); }
+            .hero-content { grid-template-columns: 1fr; text-align: center; gap: 48px; }
+            .hero-text { max-width: 100%; }
+            .hero-features { justify-content: center; }
+            .hero-cta { justify-content: center; }
+            .hero-visual { max-width: 480px; margin: 0 auto; }
+            .hero-floating { top: -20px; right: -10px; }
+            .steps-container { grid-template-columns: repeat(2, 1fr); }
+            .destination-card { flex: 0 0 calc(50% - 12px); min-width: calc(50% - 12px); }
+            .sanatorium-card { flex: 0 0 calc(50% - 12px); min-width: calc(50% - 12px); }
+            .carousel-btn-prev { left: -12px; }
+            .carousel-btn-next { right: -12px; }
+            .team-card { flex: 0 0 calc(50% - 12px); min-width: calc(50% - 12px); }
+            #specGrid .team-card { flex: 0 0 calc(50% - 12px); min-width: calc(50% - 12px); }
+            .team-carousel .carousel-btn-prev { left: -12px; }
+            .team-carousel .carousel-btn-next { right: -12px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .advantages-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-layout { grid-template-columns: 1fr; }
+            .map-grid { grid-template-columns: 1fr; }
+            .map-embed { min-height: 320px; }
+        }
+        @media (max-width: 768px) {
+            section { padding: 70px 0; }
+            .header-contact { display: none; }
+            .hero { padding: 100px 0 60px; }
+            .hero::before { width: 120%; right: -40%; top: -30%; }
+            .hero-features { flex-direction: column; align-items: center; gap: 16px; }
+            .hero-floating { position: relative; top: 0; right: 0; margin-top: 20px; display: inline-block; }
+            .hero-visual { text-align: center; }
+            .steps-container { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+            .destination-card { flex: 0 0 calc(100% - 24px); min-width: calc(100% - 24px); }
+            .sanatorium-card { flex: 0 0 calc(100% - 24px); min-width: calc(100% - 24px); }
+            .carousel-btn { width: 40px; height: 40px; }
+            .carousel-btn svg { width: 20px; height: 20px; }
+            .carousel-btn-prev { left: 0; }
+            .carousel-btn-next { right: 0; }
+            .team-card { flex: 0 0 calc(100% - 24px); min-width: calc(100% - 24px); }
+             #specGrid .team-card { flex: 0 0 calc(100% - 24px); min-width: calc(100% - 24px); }
+            .team-carousel .carousel-btn-prev { left: 0; }
+            .team-carousel .carousel-btn-next { right: 0; }
+            .service-card { flex-wrap: wrap; }
+            .service-price { width: 100%; text-align: left; margin-top: 8px; padding-top: 12px; border-top: 1px solid var(--fog); }
+            .advantages-grid { grid-template-columns: 1fr; }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .contact-form-box { padding: 28px 20px; }
+            .map-content { padding: 40px 28px; }
+            .footer-top { flex-direction: column; gap: 20px; }
+            .footer-nav { flex-wrap: wrap; justify-content: center; gap: 14px 24px; }
+            .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================================================
+    HEADER (Шапка сайта)
+    - Фиксированная позиция (position: fixed)
+    - Меняет стиль при прокрутке (класс .scrolled добавляется через JS)
+    - На тёмном Hero: белый текст
+    - После прокрутки: светлый фон с размытием (backdrop-filter)
+    ======================================================================== -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <!-- Логотип -->
+                <div class="logo"><img src="logo.png" alt="Финист Мед"></div>
+                
+                <!-- Основная навигация (скрыта на мобильных) -->
+                <nav class="nav">
+                    <a href="#how-it-works">Как это работает</a>
+                    <a href="#destinations">Направления</a>
+                    <a href="sanatoriums.html">Санатории</a>
+                    <a href="#services">Услуги</a>
+                    <a href="#team">Команда</a>
+                    <a href="#advantages">Преимущества</a>
+                    <a href="#faq">Вопросы</a>
+                    <a href="#contact">Контакты</a>
+                </nav>
+                
+                <!-- Телефон в шапке (скрыт на мобильных) -->
+                <div class="header-contact">
+                    <div class="header-phone">
+                        <a href="tel:+73422196666">8 (342) 219-66-66</a>
+                        <span>Бесплатная консультация</span>
+                    </div>
+                </div>
+                
+                <!-- Кнопка мобильного меню (бургер) -->
+                <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- ========================================================================
+    MOBILE NAV (Мобильное меню)
+    - Появляется при клике на бургер
+    - Полноэкранный оверлей
+    - Закрывается по клику на крестик или на ссылку
+    ======================================================================== -->
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Закрыть меню">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+        <a href="#how-it-works">Как это работает</a>
+        <a href="#destinations">Направления</a>
+        <a href="sanatoriums.html">Санатории</a>
+        <a href="#services">Услуги</a>
+        <a href="#team">Команда</a>
+        <a href="#advantages">Преимущества</a>
+        <a href="#faq">Вопросы</a>
+        <a href="#contact">Контакты</a>
+        <a href="tel:+73422196666" class="btn btn-primary">Позвонить</a>
+    </nav>
+    
+    <!-- ========================================================================
+    HERO (Главный экран)
+    - Асимметричный дизайн с диагональной зелёной формой
+    - Тёмный фон (--night) с зелёным градиентом справа
+    - Слева: текст, кнопки CTA, преимущества
+    - Справа: карточка с направлениями + плавающий бейдж "29 лет"
+    ======================================================================== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <!-- Левая часть: текст -->
+                <div class="hero-text">
+                    <!-- Бейдж над заголовком -->
+                    <span class="hero-eyebrow">Медицинский туризм</span>
+                    
+                    <!-- Главный заголовок H1 -->
+                    <h1>Лечение в лучших клиниках мира</h1>
+                    
+                    <!-- Подзаголовок -->
+                    <p>Полный цикл организации: от подбора клиники до сопровождения на месте. 29 лет заботимся о здоровье наших пациентов.</p>
+                    
+                    <!-- Кнопки призыва к действию (CTA) -->
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary">Бесплатная консультация</a>
+                        <a href="tel:+73422196666" class="btn btn-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                            8 (342) 219-66-66
+                        </a>
+                    </div>
+                    
+                    <!-- Преимущества с иконками -->
+                    <div class="hero-features">
+                        <div class="hero-feature">
+                            <div class="hero-feature-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            </div>
+                            <span>Проверенные клиники</span>
+                        </div>
+                        <div class="hero-feature">
+                            <div class="hero-feature-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            </div>
+                            <span>Поддержка 24/7</span>
+                        </div>
+                        <div class="hero-feature">
+                            <div class="hero-feature-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                            </div>
+                            <span>Прозрачные цены</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <h3>Куда организуем лечение</h3>
+                        <div class="destination-list">
+                            <div class="destination-item">
+                                <div class="destination-emoji">🇰🇷</div>
+                                <div class="destination-text">
+                                    <h4>Южная Корея</h4>
+                                    <p>Онкология • Check-up • Пластика</p>
+                                </div>
+                            </div>
+                            <div class="destination-item">
+                                <div class="destination-emoji">🇹🇷</div>
+                                <div class="destination-text">
+                                    <h4>Турция</h4>
+                                    <p>Стоматология • Ортопедия • Кардиология</p>
+                                </div>
+                            </div>
+                            <div class="destination-item">
+                                <div class="destination-emoji">🏥</div>
+                                <div class="destination-text">
+                                    <h4>Пермь</h4>
+                                    <p>Ведущие частные клиники</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-floating">
+                        <div class="value">29 лет</div>
+                        <div class="label">опыта работы</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Процесс</span>
+                <h2 class="section-title">Как мы работаем</h2>
+                <p class="section-desc">Четыре простых шага от первого обращения до выздоровления</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-card"><div class="step-num">1</div><h3>Консультация</h3><p>Оставьте заявку — наш врач свяжется с вами для обсуждения ситуации</p></div>
+                <div class="step-card"><div class="step-num">2</div><h3>Подбор клиники</h3><p>Анализируем ваш случай и подбираем оптимальную клинику</p></div>
+                <div class="step-card"><div class="step-num">3</div><h3>Организация</h3><p>Берём на себя визы, перелёты, трансферы и проживание</p></div>
+                <div class="step-card"><div class="step-num">4</div><h3>Сопровождение</h3><p>Поддерживаем вас 24/7 на всех этапах лечения</p></div>
+            </div>
+        </div>
+    </section>
+    <!-- Destinations -->
+    <section class="destinations" id="destinations">
+        <div class="organic-shape"></div>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow"></span>
+                <h2 class="section-title">Наши клиники</h2>
+                <p class="section-desc">Работаем с проверенными клиниками в России и за рубежом</p>
+            </div>
+            <div class="destinations-carousel">
+                <button class="carousel-btn carousel-btn-prev" id="destPrev" aria-label="Назад"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></button>
+                <div class="destinations-wrapper">
+                    <div class="destinations-grid" id="destGrid">
+                        <div class="destination-card"><div class="destination-img"><img src="img/clinic01.jpg" alt="Стоматология Гутен Таг"></div><div class="destination-body"><h3>Стоматология Гутен Таг</h3><p>Комплексные медицинские услуги в области стоматологии, имплантологии, протезировании. Качество. Технология. Сервис.</p><div class="tags"><span class="tag">Диагностика</span><span class="tag">Имплантология</span><span class="tag">Протезирование</span></div></div></div>
+                        <div class="destination-card"><div class="destination-img"><img src="img/clinic02.jpg" alt="Медицинский центр Любимый доктор"></div><div class="destination-body"><h3>Медицинский центр Любимый доктор</h3><p>Современное оборудование от ведущих мировых производителей. Полный цикл амбулаторно-поликлинических услуг.</p><div class="tags"><span class="tag">Онкология</span><span class="tag">Check-up</span><span class="tag">Пластика</span></div></div></div>
+                        <div class="destination-card"><div class="destination-img"><img src="img/clinic03.jpg" alt="Клиника современной косметологии"></div><div class="destination-body"><h3>Клиника современной косметологии</h3><p>Комплексный подход к решению эстетических проблем, используя передовые технологии эстетической медицины.</p><div class="tags"><span class="tag">Инъекционная терапия</span><span class="tag">Нитевой лифтинг</span><span class="tag">Лазерная терапия</span></div></div></div>
+                        <div class="destination-card"><div class="destination-img"><img src="img/clinic04.jpg" alt="Южнокорейская клиника Элит"></div><div class="destination-body"><h3>Южнокорейская клиника Элит</h3><p>Передовые технологии и методы, Южная Корея — мировая столица красоты! Качество и безопасность.</p><div class="tags"><span class="tag">Глубокий SMAS лифтинг</span><span class="tag">Эндоскопическая подтяжка</span></div></div></div>
+                        <div class="destination-card"><div class="destination-img"><img src="img/clinic05.jpg" alt="Клиника"></div><div class="destination-body"><h3>Клиника .....</h3><p>Европейское качество медицины. Точная диагностика и инновационные методы лечения.</p><div class="tags"><span class="tag">Диагностика</span><span class="tag">Ортопедия</span><span class="tag">Кардиология</span></div></div></div>
+                    </div>
+                </div>
+                <button class="carousel-btn carousel-btn-next" id="destNext" aria-label="Вперёд"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></button>
+            </div>
+        </div>
+    </section>
+    <!-- Services 
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Услуги</span>
+                <h2 class="section-title">Наши услуги</h2>
+                <p class="section-desc">Полный спектр услуг по организации лечения — от первой консультации до возвращения домой</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Подбор клиники и врача</h3><p>Анализ вашего случая, подбор оптимальной клиники и специалиста</p></div><div class="service-price"><div class="price">Бесплатно</div></div></div>
+                <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Жемчужные виниры в зоне улыбки</h3><p>Первичный и повторные приемы, 3д снимок, оптический слепок, MOC-UP, анестезия, временные коронки, керамические виниры Е-max 20 ед.</p></div><div class="service-price"><div class="price">1 296 000</div></div></div>
+                <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Голливудская улыбка (тотальное протезирование керамическими винирами)</h3><p>Первичный и повторные приемы, 3д снимок, оптический слепок, MOC-UP, анестезия, временные коронки, керамические виниры Е-max 28 ед.</p></div><div class="service-price"><div class="price">1 816 000</div><div class="unit">.</div></div></div>
+                <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Восстановление зубного ряда на 1 челюсть по системе «все на 4-х»</h3><p>Первичный и повторные приемы стоматолога-хирурга и стоматолога-ортопеда, 3д снимок, анестезия, имплантация (система Medentika), навигационный шаблон, формирователь десны, оптический слепок, временная и постоянная конструкция на Акриле</p></div><div class="service-price"><div class="price">631 000</div><div class="unit">.</div></div></div>
+                <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Восстановление зубного ряда на 1 челюсть по системе «все на 6-ти»</h3><p>Первичный и повторные приемы стоматолога-хирурга и стоматолога-ортопеда,3д снимок, анестезия, имплантация (система Strauman), навигационный шаблон, формирователь десны, оптический слепок, временная и постоянная конструкция на оксиде циркония</p></div><div class="service-price"><div class="price">1 037 000</div></div></div>
+                <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Глубокий SMAS лифтинг+Смайл-лифтинг+Эндоскопическая подтяжка лба</h3><p>Консультация с хирургом— Обследование и анализы— 1 сеанс кислородной терапии— Послеоперационные осмотры— Лазерное лечение при необходимости— 1 ночь в клинике + 14 дней в отеле— Переводчик и сопровождение— Трансфер из/в аэропорт Инчхонх</p></div><div class="service-price"><div class="price">1 843 000</div><div class="unit">+ билеты</div></div></div>
+                <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Смайл-лифтинг+Эндоскопическая подтяжка лба</h3><p>Консультация с хирургом— Послеоперационные осмотры— 10 дней в отеле— Переводчик и сопровождение— Трансфер</p></div><div class="service-price"><div class="price">671 000</div>+ билеты</div></div>
+                <div class="service-card"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><div class="service-info"><h3>Перевод медицинских документов</h3><p>Выписки, заключения, результаты анализов</p></div><div class="service-price"><div class="price">от 1 500 ₽</div><div class="unit">за страницу</div></div></div>
+            </div>
+        </div>
+    </section>
+    -->
+    <section class="services" id="services">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-eyebrow">Услуги</span>
+            <h2 class="section-title">Наши услуги</h2>
+            <p class="section-desc">Полный спектр услуг по организации лечения — от первой консультации до возвращения домой</p>
+        </div>
+        
+        <div class="services-accordion">
+            
+            <!-- Категория: Стоматология -->
+            <div class="service-category active">
+                <div class="category-header">
+                    <div class="category-icon">🦷</div>
+                    <div class="category-info">
+                        <h3>Стоматология</h3>
+                        <p>Виниры, имплантация, протезирование</p>
+                    </div>
+                    <div class="category-count">4 услуги</div>
+                    <div class="category-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <div class="category-services">
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Жемчужные виниры в зоне улыбки</h4>
+                                <p>Первичный и повторные приёмы, 3D снимок, оптический слепок, MOC-UP, анестезия, временные коронки, керамические виниры E-max 20 ед.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">1 296 000 ₽</div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Голливудская улыбка</h4>
+                                <p>Тотальное протезирование керамическими винирами E-max 28 ед. Включает все приёмы, 3D снимок, MOC-UP, анестезию, временные коронки.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">1 816 000 ₽</div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Восстановление зубного ряда «Всё на 4-х»</h4>
+                                <p>Имплантация Medentika на 1 челюсть: приёмы хирурга и ортопеда, 3D снимок, навигационный шаблон, временная и постоянная конструкция на акриле.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">631 000 ₽</div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Восстановление зубного ряда «Всё на 6-ти»</h4>
+                                <p>Имплантация Straumann на 1 челюсть: приёмы хирурга и ортопеда, 3D снимок, навигационный шаблон, постоянная конструкция на оксиде циркония.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">1 037 000 ₽</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Категория: Косметология -->
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon">💆</div>
+                    <div class="category-info">
+                        <h3>Косметология и пластика</h3>
+                        <p>Лифтинг, омоложение, эстетическая медицина, пластическая хирургия</p>
+                    </div>
+                    <div class="category-count">2 услуги</div>
+                    <div class="category-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <div class="category-services">
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Глубокий SMAS лифтинг + Смайл-лифтинг + Эндоскопическая подтяжка лба</h4>
+                                <p>Южная Корея. Консультация хирурга, обследование, кислородная терапия, послеоперационные осмотры, 1 ночь в клинике + 14 дней в отеле, переводчик, трансфер.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">1 843 000 ₽</div>
+                                <div class="unit">+ авиабилеты</div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Смайл-лифтинг + Эндоскопическая подтяжка лба</h4>
+                                <p>Южная Корея. Консультация хирурга, послеоперационные осмотры, 10 дней в отеле, переводчик и сопровождение, трансфер.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">671 000 ₽</div>
+                                <div class="unit">+ авиабилеты</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Категория: Организация и сервис -->
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon">🏥</div>
+                    <div class="category-info">
+                        <h3>Организация лечения</h3>
+                        <p>Подбор клиники, сопровождение, переводчик</p>
+                    </div>
+                    <div class="category-count">4 услуги</div>
+                    <div class="category-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <div class="category-services">
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Подбор клиники и врача</h4>
+                                <p>Анализ вашего случая, подбор оптимальной клиники и специалиста, консультация по вариантам лечения.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">Бесплатно</div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Медицинский переводчик</h4>
+                                <p>Сопровождение на приёмах и процедурах, перевод медицинской документации.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">от 8 000 ₽</div>
+                                <div class="unit">за день</div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Сопровождение 24/7</h4>
+                                <p>Связь с координатором в любое время суток, помощь в решении любых вопросов.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">от 10 000 ₽</div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="service-item-info">
+                                <h4>Перевод медицинских документов</h4>
+                                <p>Выписки, заключения, результаты анализов — профессиональный медицинский перевод.</p>
+                            </div>
+                            <div class="service-item-price">
+                                <div class="price">от 1 500 ₽</div>
+                                <div class="unit">за страницу</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+    <!-- Team -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Команда</span>
+                <h2 class="section-title">Наши специалисты</h2>
+                <p class="section-desc">Координаторы и менеджеры, которые организуют ваше лечение</p>
+            </div>
+            <div class="team-carousel">
+                <button class="carousel-btn carousel-btn-prev" id="specPrev" aria-label="Назад"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></button>
+                <div class="team-wrapper">
+                    <div class="team-grid" id="specGrid">
+                        <div class="team-card"><div class="team-photo"><img src="img/molchanova1.jpg" alt="Координатор"></div><div class="team-body"><h3>Молчанова Ольга Ивановна</h3><p class="team-role">Координатор поездок</p><p>Руководитель проекта ФинистМед, кандидат экономических наук</p><div class="team-exp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Опыт 30 лет</div></div></div>
+                        <div class="team-card"><div class="team-photo"><img src="img/boyarshinov.jpg" alt="Менеджер"></div><div class="team-body"><h3>Бояршинов Михаил Рудольфович</h3><p class="team-role">Переводчик</p><p>.....</p><div class="team-exp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Опыт 30 лет</div></div></div>
+                        <div class="team-card"><div class="team-photo"><img src="img/ushatova.jpg" alt="Врач"></div><div class="team-body"><h3>Ушатова Елена Львовна</h3><p class="team-role">Консультант по клиникам</p><p>Врач-психотерапевт, психотерапевтические методы, медиация, панические атаки, неврозы, депрессии и нарушения сна</p><div class="team-exp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Опыт 20 лет</div></div></div>
+                        <div class="team-card"><div class="team-photo"><img src="img/spec04.jpg" alt="Логист"></div><div class="team-body"><h3>Имя Фамилия</h3><p class="team-role">Логист</p><p>Организация перелётов, трансферов и проживания</p><div class="team-exp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Опыт 6 лет</div></div></div>
+                  
+                    </div>
+                </div>
+                <button class="carousel-btn carousel-btn-next" id="specNext" aria-label="Вперёд"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></button>
+            </div>
+            <div class="section-header section-header-second">
+                <h2 class="section-title">Наши врачи</h2>
+                <p class="section-desc">Эксперты, которые заботятся о вашем здоровье</p>
+            </div>
+            <div class="team-carousel">
+                <button class="carousel-btn carousel-btn-prev" id="teamPrev" aria-label="Назад"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></button>
+                <div class="team-wrapper">
+                    <div class="team-grid" id="teamGrid">
+                        <div class="team-card"><div class="team-photo"><img src="img/team05.jpg" alt="Врач"></div><div class="team-body"><h3>Юлия Владимировна Карпинская</h3><p class="team-role">Стоматолог-ортопед</p><p>
+                       Один из лучших ортопедов региона. Протезирование безметалловой керамикой. Повышение квалификации в Германии 
+                       International Center for Dental Education </p><div class="team-exp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Опыт 30 лет</div></div></div>
+                       <div class="team-card"><div class="team-photo"><img src="img/team01.jpg" alt="Врач"></div><div class="team-body"><h3>Усмонов Умиджон Мансурович</h3><p class="team-role">Врач оториноларинголог-хирург</p><p>Сертифицированный специалист лечения и хирургии уха, горла и носа, парацентез, шунтирование, лазерное удаление новообразований ЛОР органов</p><div class="team-exp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Опыт 6 лет</div></div></div>
+                        <div class="team-card"><div class="team-photo"><img src="img/team03.jpg" alt="Врач"></div><div class="team-body"><h3>Столярова Фатима Феликсовна</h3><p class="team-role">Врач-дерматолог, косметолог</p><p>Сертифицированный врач-дерматолог, косметолог</p><div class="team-exp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Опыт 16 лет</div></div></div>
+                        <div class="team-card"><div class="team-photo"><img src="img/team02.jpg" alt="Врач"></div><div class="team-body"><h3>Калинина Елена Васильевна</h3><p class="team-role">Врач офтальмолог - хирург</p><p>Сертифицированный специалист хирургии катаракты, глаукомы</p><div class="team-exp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Опыт 20 лет</div></div></div>
+                       <div class="team-card"><div class="team-photo"><img src="img/team04.jpg" alt="Врач"></div><div class="team-body"><h3>Борисов Вячеслав Александрович</h3><p class="team-role">Врач-дерматолог, косметолог</p><p>Сертифицированный врач-дерматолог, косметолог</p><div class="team-exp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Опыт 12 лет</div></div></div>
+                       
+                       <div class="team-card"><div class="team-photo"><img src="img/team06.jpg" alt="Врач"></div><div class="team-body"><h3>Артур Игоревич Бухалов</h3><p class="team-role">Стоматолог-хирург, имплантолог</p><p>Специализация: имплантация, все виды костной пластики, лазерная хирургия, работа с пациентами 0+, удаление  зубов любой сложности </p><div class="team-exp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Опыт 12 лет</div></div></div>
+                    </div>
+                </div>
+                <button class="carousel-btn carousel-btn-next" id="teamNext" aria-label="Вперёд"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></button>
+            </div>
+        </div>
+    </section>
+    <!-- Advantages -->
+    <section class="advantages" id="advantages">
+        <div class="organic-shape"></div>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Почему мы</span>
+                <h2 class="section-title">Наши преимущества</h2>
+                <p class="section-desc">Что отличает нас от других</p>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-card"><div class="advantage-icon">👨‍⚕️</div><h3>Экспертные консультации</h3><p>Наши врачи помогут разобраться в диагнозе и подобрать план лечения</p></div>
+                <div class="advantage-card"><div class="advantage-icon">✓</div><h3>Проверенные клиники</h3><p>Работаем только с аккредитованными учреждениями</p></div>
+                <div class="advantage-card"><div class="advantage-icon">💰</div><h3>Прозрачные цены</h3><p>Вы всегда знаете, за что платите, без скрытых комиссий</p></div>
+                <div class="advantage-card"><div class="advantage-icon">🏆</div><h3>29 лет опыта</h3><p>С 1997 года организуем поездки за рубеж</p></div>
+                <div class="advantage-card"><div class="advantage-icon">🕐</div><h3>Поддержка 24/7</h3><p>Сопровождаем на всех этапах — от консультации до возвращения</p></div>
+                <div class="advantage-card"><div class="advantage-icon">🌍</div><h3>Полный сервис</h3><p>Визы, билеты, трансферы, проживание — всё берём на себя</p></div>
+            </div>
+        </div>
+    </section>
+    <!-- Reviews -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Отзывы</span>
+                <h2 class="section-title">Истории пациентов</h2>
+                <p class="section-desc">Реальные кейсы наших клиентов</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-top"><div class="review-avatar">АМ</div><div class="review-meta"><h4>Анна М.</h4><p>Лечение в Корее</p></div></div>
+                    <div class="review-block"><p class="review-block-label">Задача</p><p>Комплексная диагностика и консультация онколога</p></div>
+                    <div class="review-block"><p class="review-block-label">Результат</p><p>Подобрана клиника в Сеуле, скорректирован диагноз</p></div>
+                    <p class="review-quote">«Благодарю команду за профессионализм. Всё организовано идеально — от перелёта до сопровождения в клинике»</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-top"><div class="review-avatar">СК</div><div class="review-meta"><h4>Сергей К.</h4><p>Операция в Турции</p></div></div>
+                    <div class="review-block"><p class="review-block-label">Задача</p><p>Эндопротезирование коленного сустава</p></div>
+                    <div class="review-block"><p class="review-block-label">Результат</p><p>Операция в Стамбуле, экономия 40%, полное восстановление</p></div>
+                    <p class="review-quote">«Ребята всё взяли на себя. Трансфер, переводчик, комфортный отель»</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Вопросы</span>
+                <h2 class="section-title">Часто задаваемые вопросы</h2>
+                <p class="section-desc">Ответы на популярные вопросы о медицинском туризме</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item active"><div class="faq-question"><h3>Сколько стоят ваши услуги?</h3><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg></div></div><div class="faq-answer"><div class="faq-answer-inner">Консультация и подбор клиники — бесплатно. Вы оплачиваете только стоимость лечения в клинике, перелёты и проживание. Наша комиссия уже включена в стоимость услуг клиники.</div></div></div>
+                <div class="faq-item"><div class="faq-question"><h3>Как долго занимает организация поездки?</h3><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg></div></div><div class="faq-answer"><div class="faq-answer-inner">В среднем от 5 до 14 дней в зависимости от направления и срочности. При необходимости можем организовать срочный вылет за 2–3 дня.</div></div></div>
+                <div class="faq-item"><div class="faq-question"><h3>Нужно ли знать иностранный язык?</h3><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg></div></div><div class="faq-answer"><div class="faq-answer-inner">Нет, мы предоставляем переводчика с медицинским образованием на всё время пребывания.</div></div></div>
+                <div class="faq-item"><div class="faq-question"><h3>Какие документы нужны для поездки?</h3><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg></div></div><div class="faq-answer"><div class="faq-answer-inner">Загранпаспорт, медицинские документы (выписки, результаты анализов, снимки). Мы поможем перевести документы.</div></div></div>
+                <div class="faq-item"><div class="faq-question"><h3>Можно ли приехать с сопровождающим?</h3><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg></div></div><div class="faq-answer"><div class="faq-answer-inner">Конечно! Мы организуем проживание и для сопровождающего — рядом с клиникой.</div></div></div>
+                <div class="faq-item"><div class="faq-question"><h3>Что входит в стоимость организации?</h3><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg></div></div><div class="faq-answer"><div class="faq-answer-inner">Подбор клиники и врача, запись на приём, бронирование авиабилетов и отеля, трансферы, услуги переводчика, сопровождение и связь 24/7.</div></div></div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-layout">
+                <div class="contact-left">
+                    <span class="section-eyebrow">Контакты</span>
+                    <h2>Получите бесплатную консультацию</h2>
+                    <p>Оставьте заявку, и наш врач-консультант свяжется с вами в ближайшее время</p>
+                    <div class="contact-list">
+                        <div class="contact-row"><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg></div><div class="contact-info"><span>Телефон</span><a href="tel:+73422196666">8 (342) 219-66-66</a></div></div>
+                        <div class="contact-row"><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></div>
+                            <div class="contact-info">
+                                <span>E-mail</span><a href="/cdn-cgi/l/email-protection#a9c4cccdc0cac8c5e9cfc0c7c0dadd84dddbc8dfccc587dbdc"><span class="__cf_email__" data-cfemail="9ef3fbfaf7fdfff2def8f7f0f7edeab3eaecffe8fbf2b0eceb">[email&#160;protected]</span></a>
+                            </div>
+                        </div>
+                        <div class="contact-row"><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div><div class="contact-info"><span>Режим работы</span><p>Пн–Пт: 9:00–19:00, Сб: 10:00–16:00</p></div></div>
+                    </div>
+                    <div class="contact-socials">
+                        <a href="https://vk.com/finist_travel" target="_blank" rel="noopener" class="contact-social" title="ВКонтакте"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.587-1.496c.596-.19 1.364 1.259 2.178 1.816.616.42 1.084.328 1.084.328l2.178-.03s1.14-.07.6-.964c-.044-.073-.316-.661-1.624-1.869-1.37-1.264-1.186-1.06.463-3.248.755-1 1.057-1.61.963-1.87-.09-.247-.644-.182-.644-.182l-2.45.015s-.181-.025-.316.056c-.131.079-.216.262-.216.262s-.387 1.028-.903 1.904c-1.088 1.848-1.524 1.945-1.702 1.831-.413-.265-.31-1.063-.31-1.63 0-1.77.269-2.509-.523-2.7-.263-.064-.456-.106-1.128-.112-.861-.009-1.59.003-2.004.205-.276.135-.49.436-.36.453.16.022.523.098.715.36.249.338.24 1.098.24 1.098s.143 2.083-.333 2.341c-.327.177-.775-.184-1.737-1.836-.493-.846-.866-1.781-.866-1.781s-.072-.176-.2-.27c-.154-.114-.37-.151-.37-.151l-2.327.015s-.35.01-.478.162c-.114.135-.009.414-.009.414s1.82 4.258 3.88 6.404c1.889 1.967 4.032 1.838 4.032 1.838h.972z"/></svg></a>
+                        <a href="https://t.me/finistMed" target="_blank" rel="noopener" class="contact-social" title="Telegram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+                        <a href="https://finist-travel.com" target="_blank" rel="noopener" class="contact-social" title="Сайт"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg></a>
+                    </div>
+                </div>
+                <div class="contact-form-box">
+                    <h3>Отправить запрос</h3>
+                    <p>Заполните форму, и мы перезвоним вам</p>  
+                    <form id="contactForm">
+                        <!-- <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data"> -->
+                        <!-- Web3Forms Access Key -->
+                        <!--  <input type="hidden" name="access_key" value="c5525465-67e3-450b-be33-826c9bb36be4">-->
+                        <!-- Тема письма -->
+                        <!-- <input type="hidden" name="subject" value="Новая заявка с сайта Финист Мед">-->
+                        <!-- Имя отправителя -->
+                        <!-- <input type="hidden" name="from_name" value="Финист Мед">-->
+                        <!-- Защита от спама (honeypot) -->
+                        <!-- <input type="checkbox" name="botcheck" style="display: none;">-->
+                        <div class="form-group"><label>ФИО <span class="req">*</span></label><input type="text" name="name" placeholder="Иванов Иван Иванович" required></div>
+                        <div class="form-row">
+                            <div class="form-group"><label>Телефон <span class="req">*</span></label><input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required></div>
+                            <div class="form-group"><label>E-mail <span class="req">*</span></label><input type="email" name="email" placeholder="email@example.com" required></div>
+                        </div>
+                        <div class="form-group"><label>Предпочитаемый мессенджер</label><select name="messenger"><option value="">Выберите мессенджер</option><option value="telegram">Telegram</option><option value="whatsapp">WhatsApp</option><option value="viber">Viber</option></select></div>
+                        <div class="form-group"><label>Опишите вашу ситуацию <span class="req">*</span></label><textarea name="message" placeholder="Расскажите о диагнозе, какая помощь требуется..." required></textarea></div>
+                        <div class="form-group">
+                            <label>Прикрепить файлы</label>
+                            <label class="file-drop" id="fileDrop">
+                                <input type="file" name="attachment" id="fileInput" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                                <div class="file-drop-icon">📎</div><p><span>Нажмите</span> или перетащите файлы (макс. 50 МБ)</p>
+                            </label>
+                        <div class="file-list" id="fileList"></div>
+                        </div>
+                        <div class="form-checkbox"><input type="checkbox" id="consent" name="consent" required><label for="consent">Я принимаю <a href="javascript:void(0)" class="doc-link" data-modal="privacy">Положение о конфиденциальности</a> и даю <a href="javascript:void(0)" class="doc-link" data-modal="consent">Согласие</a> на обработку персональных данных</label></div>
+                        <div class="form-submit"><button type="submit" class="btn btn-primary" id="submitBtn" disabled>Отправить запрос</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Map -->
+    <section class="map-section">
+        <div class="map-grid">
+            <div class="map-content">
+                <h3>Наш офис</h3>
+                <div class="map-list">
+                    <div class="map-item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg><p>г. Пермь, ул. Газеты Звезда, 27, офис 205<br><small>Бизнес центр "Вознесенский"</small></p></div>
+                    <div class="map-item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg><p><a href="tel:+73422196666">8 (342) 219-66-66</a></p></div>
+                    <div class="map-item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg><p>
+                        <a href="/cdn-cgi/l/email-protection#f19c94959892909db197989f988285dc85839087949ddf8384"><span class="__cf_email__" data-cfemail="99f4fcfdf0faf8f5d9fff0f7f0eaedb4edebf8effcf5b7ebec">[email&#160;protected]</span></a>
+                    </p></div>
+                    <div class="map-item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><p>Пн–Пт: 9:00–19:00<br>Сб: 10:00–16:00</p></div>
+                </div>
+                <div class="map-legal"><p>Все права защищены. ООО "ТК "Финист трэвел" ИНН 5902191610</p></div>
+            </div>
+            <div class="map-embed"><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A930c3a1e509a84aac1e732e9f6f656e6707c8437618d173f860f34611f9d0c34&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script></div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo"><img src="logo.png" alt="Финист Мед"></div>
+                <nav class="footer-nav">
+                    <a href="#how-it-works">Как это работает</a>
+                    <a href="#destinations">Направления</a>
+                    <a href="sanatoriums.html">Санатории</a>
+                    <a href="#team">Команда</a>
+                    <a href="#advantages">Преимущества</a>
+                    <a href="#faq">Вопросы</a>
+                    <a href="#contact">Контакты</a>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025–2026 Финист Мед. Медицинский туризм.</p>
+                <a href="javascript:void(0)" class="doc-link" data-modal="privacy">Положение о конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+    <!-- Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-icon">✓</div>
+            <h3>Спасибо!</h3>
+            <p>Наш врач-консультант свяжется с вами в ближайшее время</p>
+            <button class="btn btn-primary" onclick="closeModal()">Хорошо</button>
+        </div>
+    </div>
+    <!-- Floating -->
+    <div class="floating">
+        <a href="tel:+73422196666" class="float-btn phone" title="Позвонить"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg></a>
+        <a href="https://t.me/finistMed" class="float-btn telegram" title="Telegram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+    </div>
+    <!-- Doc Modals -->
+    <div class="doc-modal-overlay" id="privacyModal">
+        <div class="doc-modal">
+            <div class="doc-modal-header"><h3>Положение о конфиденциальности</h3><button class="doc-modal-close" onclick="closeDocModal('privacy')" aria-label="Закрыть"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button></div>
+            <div class="doc-modal-body">
+                <h4>1. ОБЩИЕ ПОЛОЖЕНИЯ</h4>
+                <p>1.1. Настоящее Положение об обработке персональных данных (далее — Положение) разработано ООО «ТК «Финист трэвел» (ИНН 5902191610, ОГРН 1025900538407, адрес: 614000, г. Пермь, ул. Газеты Звезда, д. 27, офис 205) и применяется в соответствии с п. 2 ч. 1 ст. 18.1 Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных».</p>
+                <p>1.2. Положение определяет политику Оператора в отношении обработки персональных данных, принципы и условия обработки персональных данных, права субъектов персональных данных, а также перечень мер, применяемых Оператором в целях обеспечения безопасности персональных данных при их обработке.</p>
+                <p>1.3. Целью обработки персональных данных является обеспечение защиты прав и свобод человека и гражданина при обработке его персональных данных, в том числе защиты прав на неприкосновенность частной жизни, личную и семейную тайну, а также оказание услуг по организации медицинского туризма.</p>
+                
+                <h4>2. ПРИНЦИПЫ ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ</h4>
+                <p>2.1. Обработка персональных данных осуществляется на законной и справедливой основе.</p>
+                <p>2.2. Обработка персональных данных ограничивается достижением конкретных, заранее определённых и законных целей.</p>
+                <p>2.3. Не допускается обработка персональных данных, несовместимая с целями сбора персональных данных.</p>
+                <p>2.4. Содержание и объём обрабатываемых персональных данных соответствуют заявленным целям обработки.</p>
+                <p>2.5. При обработке персональных данных обеспечивается их точность, достаточность и актуальность.</p>
+                <p>2.6. Хранение персональных данных осуществляется не дольше, чем этого требуют цели обработки.</p>
+                
+                <h4>3. УСЛОВИЯ ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ</h4>
+                <p>3.1. Обработка персональных данных осуществляется с согласия субъекта персональных данных на обработку его персональных данных.</p>
+                <p>3.2. Обработка персональных данных необходима для исполнения договора, стороной которого является субъект персональных данных.</p>
+                <p>3.3. Оператор вправе поручить обработку персональных данных другому лицу с согласия субъекта персональных данных на основании заключаемого договора.</p>
+                
+                <h4>4. ПРАВА СУБЪЕКТА ПЕРСОНАЛЬНЫХ ДАННЫХ</h4>
+                <p>4.1. Субъект персональных данных имеет право на получение информации, касающейся обработки его персональных данных.</p>
+                <p>4.2. Субъект персональных данных вправе требовать уточнения, блокирования или уничтожения персональных данных.</p>
+                <p>4.3. Субъект персональных данных имеет право отозвать согласие на обработку персональных данных, направив соответствующее заявление Оператору.</p>
+                
+                <h4>5. МЕРЫ ПО ОБЕСПЕЧЕНИЮ БЕЗОПАСНОСТИ</h4>
+                <p>5.1. Оператор принимает необходимые правовые, организационные и технические меры для защиты персональных данных от неправомерного доступа, уничтожения, изменения, блокирования, копирования, предоставления, распространения.</p>
+                <p>5.2. Оператор обеспечивает конфиденциальность персональных данных.</p>
+                
+                <h4>6. КОНТАКТНАЯ ИНФОРМАЦИЯ</h4>
+                <p>По вопросам обработки персональных данных обращайтесь:</p>
+                <p>Адрес: 614000, г. Пермь, ул. Газеты Звезда, д. 27, офис 205</p>
+                <p>Телефон: 8 (342) 219-66-66</p>
+                <p>E-mail: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0667626b6f6846606f686f75722b72746770636a2865696b">[email&#160;protected]</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="doc-modal-overlay" id="consentModal">
+        <div class="doc-modal">
+            <div class="doc-modal-header"><h3>Согласие на обработку персональных данных</h3><button class="doc-modal-close" onclick="closeDocModal('consent')" aria-label="Закрыть"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button></div>
+            <div class="doc-modal-body">
+                <p>Пользователь, оставляя заявку на сайте med.finist-travel.com (далее — Сайт), принимает настоящее Согласие на обработку персональных данных (далее — Согласие).</p>
+                
+                <h4>1. ОПЕРАТОР ПЕРСОНАЛЬНЫХ ДАННЫХ</h4>
+                <p>ООО «ТК «Финист трэвел» (ИНН 5902191610, ОГРН 1025900538407), расположенное по адресу: 614000, г. Пермь, ул. Газеты Звезда, д. 27, офис 205.</p>
+                
+                <h4>2. ПЕРСОНАЛЬНЫЕ ДАННЫЕ</h4>
+                <p>Согласие даётся на обработку следующих персональных данных:</p>
+                <p>— Фамилия, имя, отчество;</p>
+                <p>— Номер контактного телефона;</p>
+                <p>— Адрес электронной почты (e-mail);</p>
+                <p>— Предпочитаемый мессенджер для связи;</p>
+                <p>— Сведения о состоянии здоровья, диагнозах, медицинских документах (предоставляемые Пользователем добровольно);</p>
+                <p>— Иные данные, добровольно предоставленные Пользователем.</p>
+                
+                <h4>3. ЦЕЛИ ОБРАБОТКИ</h4>
+                <p>Персональные данные обрабатываются в целях:</p>
+                <p>— Оказания услуг по организации медицинского туризма;</p>
+                <p>— Связи с Пользователем для консультирования;</p>
+                <p>— Подбора клиник и медицинских учреждений;</p>
+                <p>— Организации поездок на лечение;</p>
+                <p>— Информирования об услугах Оператора;</p>
+                <p>— Улучшения качества обслуживания.</p>
+                
+                <h4>4. СПОСОБЫ ОБРАБОТКИ</h4>
+                <p>Обработка персональных данных осуществляется путём сбора, записи, систематизации, накопления, хранения, уточнения, извлечения, использования, передачи (предоставления, доступа), обезличивания, блокирования, удаления и уничтожения.</p>
+                <p>Обработка может осуществляться как с использованием средств автоматизации, так и без их использования.</p>
+                
+                <h4>5. ПЕРЕДАЧА ДАННЫХ ТРЕТЬИМ ЛИЦАМ</h4>
+                <p>Оператор вправе передавать персональные данные третьим лицам (медицинским учреждениям, клиникам-партнёрам, транспортным компаниям, гостиницам) исключительно в целях оказания услуг Пользователю.</p>
+                
+                <h4>6. СРОК ДЕЙСТВИЯ СОГЛАСИЯ</h4>
+                <p>Согласие действует с момента его предоставления и до момента отзыва. Пользователь может отозвать согласие, направив письменное заявление на адрес Оператора или на e-mail: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7e1f1a1317103e181710170d0a530a0c1f081b12501d1113">[email&#160;protected]</a>.</p>
+                <p>При отзыве согласия Оператор прекращает обработку персональных данных и уничтожает их в течение 30 (тридцати) дней с момента получения отзыва.</p>
+                
+                <h4>7. ЗАКЛЮЧИТЕЛЬНЫЕ ПОЛОЖЕНИЯ</h4>
+                <p>Отправляя заявку на Сайте и устанавливая отметку в поле «Я принимаю Положение о конфиденциальности и даю Согласие на обработку персональных данных», Пользователь подтверждает, что ознакомлен с настоящим Согласием, понимает его содержание и добровольно даёт согласие на обработку своих персональных данных на указанных условиях.</p>
+            </div>
+        </div>
+    </div>
+    <!-- ========================================================================
+    JAVASCRIPT
+    Весь функционал лендинга:
+    - Прокрутка шапки (добавление класса .scrolled)
+    - 3 карусели (клиники, специалисты, врачи)
+    - Мобильное меню
+    - Форма обратной связи с валидацией
+    - FAQ аккордеон
+    - Модальные окна
+    - Плавная прокрутка по якорям
+    - Маска телефона
+    ======================================================================== -->
+    <script>
+        /* ==================================================================
+        HEADER SCROLL
+        Добавляет класс .scrolled к шапке при прокрутке > 50px
+        ================================================================== */
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => { 
+            header.classList.toggle('scrolled', window.scrollY > 50); 
+        });
+
+        /* ==================================================================
+        КАРУСЕЛЬ КЛИНИК (Destinations)
+        ================================================================== */
+        const destGrid = document.getElementById('destGrid');
+        const destPrev = document.getElementById('destPrev');
+        const destNext = document.getElementById('destNext');
+        let destPosition = 0;
+        
+        function getVisibleCards() { 
+            const w = window.innerWidth; 
+            if (w <= 768) return 1; 
+            if (w <= 1024) return 2; 
+            return 4; 
+        }
+        
+        function getCardWidth() { 
+            const card = destGrid.querySelector('.destination-card'); 
+            return card.offsetWidth + 24;
+        }
+        
+        function updateCarousel() { 
+            const total = 5, visible = getVisibleCards(), max = Math.max(0, total - visible); 
+            destPrev.disabled = destPosition <= 0;
+            destNext.disabled = destPosition >= max;
+            destGrid.style.transform = 'translateX(-' + (destPosition * getCardWidth()) + 'px)'; 
+        }
+        
+        destPrev.addEventListener('click', () => { 
+            if (destPosition > 0) { destPosition--; updateCarousel(); } 
+        });
+        destNext.addEventListener('click', () => { 
+            const max = Math.max(0, 5 - getVisibleCards()); 
+            if (destPosition < max) { destPosition++; updateCarousel(); } 
+        });
+        
+        window.addEventListener('resize', () => { 
+            destPosition = 0; updateCarousel(); 
+            specPosition = 0; updateSpecCarousel(); 
+            teamPosition = 0; updateTeamCarousel(); 
+            sanPosition = 0; updateSanCarousel(); 
+        });
+        updateCarousel();
+
+        /* ==================================================================
+        КАРУСЕЛЬ СПЕЦИАЛИСТОВ
+        ================================================================== */
+        const specGrid = document.getElementById('specGrid');
+        const specPrev = document.getElementById('specPrev');
+        const specNext = document.getElementById('specNext');
+        let specPosition = 0;
+        
+        function getVisibleSpecCards() { 
+            const w = window.innerWidth; 
+            if (w <= 768) return 1; 
+            if (w <= 1024) return 2; 
+            return 3; 
+        }
+        
+        function getSpecCardWidth() { 
+            const card = specGrid.querySelector('.team-card'); 
+            return card.offsetWidth + 24; 
+        }
+        
+        function updateSpecCarousel() { 
+            const total = 4, visible = getVisibleSpecCards(), max = Math.max(0, total - visible); 
+            specPrev.disabled = specPosition <= 0; 
+            specNext.disabled = specPosition >= max; 
+            specGrid.style.transform = 'translateX(-' + (specPosition * getSpecCardWidth()) + 'px)'; 
+        }
+        
+        specPrev.addEventListener('click', () => { 
+            if (specPosition > 0) { specPosition--; updateSpecCarousel(); } 
+        });
+        specNext.addEventListener('click', () => { 
+            const max = Math.max(0, 4 - getVisibleSpecCards()); 
+            if (specPosition < max) { specPosition++; updateSpecCarousel(); } 
+        });
+        updateSpecCarousel();
+
+        /* ==================================================================
+        КАРУСЕЛЬ ВРАЧЕЙ
+        ================================================================== */
+        const teamGrid = document.getElementById('teamGrid');
+        const teamPrev = document.getElementById('teamPrev');
+        const teamNext = document.getElementById('teamNext');
+        let teamPosition = 0;
+        
+        function getVisibleTeamCards() { 
+            const w = window.innerWidth; 
+            if (w <= 768) return 1; 
+            if (w <= 1024) return 2; 
+            return 4; 
+        }
+        
+        function getTeamCardWidth() { 
+            const card = teamGrid.querySelector('.team-card'); 
+            return card.offsetWidth + 24; 
+        }
+        
+        function updateTeamCarousel() { 
+            const total = 6, visible = getVisibleTeamCards(), max = Math.max(0, total - visible); 
+            teamPrev.disabled = teamPosition <= 0; 
+            teamNext.disabled = teamPosition >= max; 
+            teamGrid.style.transform = 'translateX(-' + (teamPosition * getTeamCardWidth()) + 'px)'; 
+        }
+        
+        teamPrev.addEventListener('click', () => { 
+            if (teamPosition > 0) { teamPosition--; updateTeamCarousel(); } 
+        });
+        teamNext.addEventListener('click', () => { 
+            const max = Math.max(0, 6 - getVisibleTeamCards()); 
+            if (teamPosition < max) { teamPosition++; updateTeamCarousel(); } 
+        });
+        updateTeamCarousel();
+
+        /* ==================================================================
+        /* ==================================================================
+        МОБИЛЬНОЕ МЕНЮ
+        ================================================================== */
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavClose = document.getElementById('mobileNavClose');
+        
+        function closeMobileMenu() { 
+            mobileMenuBtn.classList.remove('active'); 
+            mobileNav.classList.remove('active'); 
+            document.body.style.overflow = '';
+        }
+        
+        mobileMenuBtn.addEventListener('click', () => { 
+            mobileMenuBtn.classList.toggle('active'); 
+            mobileNav.classList.toggle('active'); 
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : ''; 
+        });
+        
+        mobileNavClose.addEventListener('click', closeMobileMenu);
+        mobileNav.querySelectorAll('a').forEach(link => { 
+            link.addEventListener('click', closeMobileMenu); 
+        });
+
+        /* ==================================================================
+        ФОРМА ОБРАТНОЙ СВЯЗИ с Telegram Bot + ОТПРАВКА ФАЙЛОВ
+        ================================================================== */
+        // Конфигурация Telegram Bot
+        const TELEGRAM_BOT_TOKEN = '8515761687:AAEwi4vxajExDIEuxcDgjKkKKVIsXxMiQRM';
+        const TELEGRAM_CHAT_ID = '1010659765';
+
+        // Функция отправки в Telegram (текст + файлы)
+        async function sendToTelegram(data, files) {
+            // 1. Отправляем текстовое сообщение
+            const message = `
+        🏥 <b>Новая заявка с Финист Мед</b>
+
+        👤 Имя: ${data.name}
+        📞 Телефон: ${data.phone}
+        📧 Email: ${data.email || 'не указан'}
+        💬 Мессенджер: ${data.messenger || 'не указан'}
+        📝 Сообщение: ${data.message || 'не указано'}
+
+        ⏰ Дата: ${new Date().toLocaleString('ru-RU')}
+            `.trim();
+
+            const textUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+            
+            console.log('=== ОТПРАВКА В TELEGRAM ===');
+            console.log('Chat ID:', TELEGRAM_CHAT_ID);
+            
+            try {
+                // Отправляем текст
+                const textResponse = await fetch(textUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                });
+
+                const textResult = await textResponse.json();
+                console.log('Ответ (текст):', textResult);
+                
+                if (!textResult.ok) {
+                    throw new Error(textResult.description || 'Ошибка отправки текста');
+                }
+
+                // 2. Отправляем файлы (если есть)
+                if (files && files.length > 0) {
+                    console.log(`Отправка ${files.length} файлов...`);
+                    
+                    for (let i = 0; i < files.length; i++) {
+                        const file = files[i];
+                        
+                        // Проверка размера (50 МБ максимум для Telegram)
+                        if (file.size > 50 * 1024 * 1024) {
+                            console.warn(`Файл ${file.name} слишком большой (${(file.size / 1024 / 1024).toFixed(2)} МБ). Пропускаем.`);
+                            continue;
+                        }
+                        
+                        const fileUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument`;
+                        
+                        const formData = new FormData();
+                        formData.append('chat_id', TELEGRAM_CHAT_ID);
+                        formData.append('document', file);
+                        formData.append('caption', `📎 Файл ${i + 1} из ${files.length}: ${file.name}`);
+                        
+                        const fileResponse = await fetch(fileUrl, {
+                            method: 'POST',
+                            body: formData
+                        });
+                        
+                        const fileResult = await fileResponse.json();
+                        console.log(`Файл ${i + 1}:`, fileResult);
+                        
+                        if (!fileResult.ok) {
+                            console.error(`Ошибка отправки файла ${file.name}:`, fileResult);
+                        }
+                    }
+                    
+                    console.log('✅ Все файлы отправлены');
+                }
+                
+                return { success: true };
+                
+            } catch (error) {
+                console.error('Ошибка:', error);
+                return { success: false, error: error.message };
+            }    
+        }
+        
+        // Обработка формы
+        const form = document.getElementById('contactForm');
+        const modal = document.getElementById('successModal');
+        const consentCheckbox = document.getElementById('consent');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        consentCheckbox.addEventListener('change', () => { 
+            submitBtn.disabled = !consentCheckbox.checked; 
+        });
+   
+        // Обработка прикрепления файлов
+        const fileInput = document.getElementById('fileInput');
+        const fileDrop = document.getElementById('fileDrop');
+        const fileList = document.getElementById('fileList');
+        let selectedFiles = [];
+
+        // Функция для форматирования размера файла
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Б';
+            const k = 1024;
+            const sizes = ['Б', 'КБ', 'МБ', 'ГБ'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+        }
+
+        // Функция для получения иконки по типу файла
+        function getFileIcon(fileName) {
+            const ext = fileName.split('.').pop().toLowerCase();
+            const icons = {
+                'pdf': '📄',
+                'doc': '📝',
+                'docx': '📝',
+                'jpg': '🖼️',
+                'jpeg': '🖼️',
+                'png': '🖼️',
+                'gif': '🖼️',
+                'zip': '🗜️',
+                'rar': '🗜️'
+            };
+            return icons[ext] || '📎';
+        }
+
+        // Функция для отображения списка файлов
+        function displayFiles() {
+            fileList.innerHTML = '';
+            
+            selectedFiles.forEach((file, index) => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                
+                // Проверка размера
+                const isTooBig = file.size > 50 * 1024 * 1024;
+                const sizeColor = isTooBig ? 'color: #DC6E6E;' : '';
+                const sizeText = isTooBig ? formatFileSize(file.size) + ' (слишком большой!)' : formatFileSize(file.size);
+                
+                fileItem.innerHTML = `
+                    <div class="file-item-info">
+                        <span class="file-item-icon">${getFileIcon(file.name)}</span>
+                        <span class="file-item-name" title="${file.name}">${file.name}</span>
+                        <span class="file-item-size" style="${sizeColor}">${sizeText}</span>
+                    </div>
+                    <button type="button" class="file-item-remove" data-index="${index}" title="Удалить">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                `;
+                
+                fileList.appendChild(fileItem);
+            });
+
+            // Обработчики удаления
+            fileList.querySelectorAll('.file-item-remove').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const index = parseInt(btn.getAttribute('data-index'));
+                    selectedFiles.splice(index, 1);
+                    displayFiles();
+                });
+            });
+        }
+
+        // Обработка выбора файлов
+        fileInput.addEventListener('change', (e) => {
+            const newFiles = Array.from(e.target.files);
+            selectedFiles = [...selectedFiles, ...newFiles];
+            displayFiles();
+            // Очищаем input чтобы можно было добавить те же файлы снова
+            fileInput.value = '';
+        });
+
+        // Drag & Drop
+        fileDrop.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileDrop.style.borderColor = 'var(--primary)';
+            fileDrop.style.background = 'rgba(76, 175, 80, 0.05)';
+        });
+
+        fileDrop.addEventListener('dragleave', () => {
+            fileDrop.style.borderColor = '';
+            fileDrop.style.background = '';
+        });
+
+        fileDrop.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileDrop.style.borderColor = '';
+            fileDrop.style.background = '';
+            
+            const newFiles = Array.from(e.dataTransfer.files);
+            selectedFiles = [...selectedFiles, ...newFiles];
+            displayFiles();
+        });
+        
+        form.addEventListener('submit', async (e) => { 
+            e.preventDefault();
+            
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Отправка...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Собираем данные формы
+                const formData = new FormData(form);
+                const data = {
+                    name: formData.get('name'),
+                    phone: formData.get('phone'),
+                    email: formData.get('email'),
+                    messenger: formData.get('messenger'),
+                    message: formData.get('message')
+                };
+                
+                // Собираем файлы
+               const files = selectedFiles;
+                
+                console.log('Данные формы:', data);
+                console.log('Файлы:', files.length > 0 ? files.map(f => f.name) : 'нет файлов');
+                
+                // Отправляем в Telegram (текст + файлы)
+                const result = await sendToTelegram(data, files);
+                
+                if (result.success) {
+                    modal.classList.add('active');
+                    form.reset();
+                    // Очищаем список файлов
+                    selectedFiles = [];
+                    displayFiles();
+                    consentCheckbox.checked = false;
+                    submitBtn.disabled = true;
+                } else {
+                    alert('Ошибка отправки. Попробуйте позже или позвоните нам по телефону 8 (342) 219-66-66');
+                }
+            } catch (error) {
+                console.error('Критическая ошибка:', error);
+                alert('Ошибка соединения. Проверьте интернет или позвоните нам по телефону 8 (342) 219-66-66');
+            }
+            
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = !consentCheckbox.checked;
+        });
+        
+        function closeModal() { 
+            modal.classList.remove('active'); 
+        }
+        
+        modal.addEventListener('click', (e) => { 
+            if (e.target === modal) closeModal(); 
+        });
+        /* ==================================================================
+        ФОРМА ОБРАТНОЙ СВЯЗИ с Telegram Bot
+        ==================================================================
+        // Конфигурация Telegram Bot
+        const TELEGRAM_BOT_TOKEN = '8515761687:AAEwi4vxajExDIEuxcDgjKkKKVIsXxMiQRM';
+        const TELEGRAM_CHAT_ID = '1010659765';
+
+        // Функция отправки в Telegram
+        async function sendToTelegram(data) {
+            const message = `
+        🏥 <b>Новая заявка с Финист Мед</b>
+
+        👤 Имя: ${data.name}
+        📞 Телефон: ${data.phone}
+        📧 Email: ${data.email || 'не указан'}
+        💬 Мессенджер: ${data.messenger || 'не указан'}
+        📝 Сообщение: ${data.message || 'не указано'}
+
+        ⏰ Дата: ${new Date().toLocaleString('ru-RU')}
+            `.trim();
+
+            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+    
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                });
+
+                const result = await response.json();
+        
+                if (result.ok) {
+                    return { success: true };
+                } else {
+                    throw new Error(result.description || 'Ошибка отправки');
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                return { success: false, error: error.message };
+            }    
+        }
+        
+        // Обработка формы
+        const form = document.getElementById('contactForm');
+        const modal = document.getElementById('successModal');
+        const consentCheckbox = document.getElementById('consent');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        consentCheckbox.addEventListener('change', () => { 
+            submitBtn.disabled = !consentCheckbox.checked; 
+        });
+        
+        form.addEventListener('submit', async (e) => { 
+            e.preventDefault();
+            
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Отправка...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Собираем данные формы
+                const formData = new FormData(form);
+                const data = {
+                    name: formData.get('name'),
+                    phone: formData.get('phone'),
+                    email: formData.get('email'),
+                    messenger: formData.get('messenger'),
+                    message: formData.get('message')
+                };
+                
+                // Отправляем в Telegram
+                const result = await sendToTelegram(data);
+                
+                if (result.success) {
+                    modal.classList.add('active');
+                    form.reset();
+                    consentCheckbox.checked = false;
+                    submitBtn.disabled = true;
+                } else {
+                    alert('Ошибка отправки. Попробуйте позже или позвоните нам по телефону 8 (342) 219-66-66');
+                }
+            } catch (error) {
+                alert('Ошибка соединения. Проверьте интернет или позвоните нам по телефону 8 (342) 219-66-66');
+            }
+            
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = !consentCheckbox.checked;
+        });
+        
+        function closeModal() { 
+            modal.classList.remove('active'); 
+        }
+        
+        modal.addEventListener('click', (e) => { 
+            if (e.target === modal) closeModal(); 
+        });
+         */
+        /* ==================================================================
+        ФОРМА ОБРАТНОЙ СВЯЗИ с Web3Forms
+        ================================================================== 
+        const form = document.getElementById('contactForm');
+        const modal = document.getElementById('successModal');
+        const consentCheckbox = document.getElementById('consent');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        consentCheckbox.addEventListener('change', () => { 
+            submitBtn.disabled = !consentCheckbox.checked; 
+        });
+        
+        form.addEventListener('submit', async (e) => { 
+            e.preventDefault();
+            
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Отправка...';
+            submitBtn.disabled = true;
+            
+            try {
+                const formData = new FormData(form);
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+                
+                if (result.success) {
+                    modal.classList.add('active');
+                    form.reset();
+                } else {
+                    alert('Ошибка отправки. Попробуйте позже или позвоните нам.');
+                    submitBtn.disabled = false;
+                }
+            } catch (error) {
+                alert('Ошибка соединения. Проверьте интернет или позвоните нам.');
+                submitBtn.disabled = false;
+            }
+            
+            submitBtn.textContent = originalText;
+        });
+        
+        function closeModal() { 
+            modal.classList.remove('active'); 
+        }
+        
+        modal.addEventListener('click', (e) => { 
+            if (e.target === modal) closeModal(); 
+        });
+*/
+        /* ==================================================================
+        ПЛАВНАЯ ПРОКРУТКА
+        ================================================================== */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => { 
+            anchor.addEventListener('click', function(e) { 
+                e.preventDefault(); 
+                const target = document.querySelector(this.getAttribute('href')); 
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
+            }); 
+        });
+
+        /* ==================================================================
+        МАСКА ТЕЛЕФОНА
+        ================================================================== */
+        const phoneInput = document.querySelector('input[name="phone"]');
+        phoneInput.addEventListener('input', (e) => { 
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 0) { 
+                if (value[0] === '8' || value[0] === '7') value = value.substring(1); 
+                let formatted = '+7'; 
+                if (value.length > 0) formatted += ' (' + value.substring(0, 3); 
+                if (value.length >= 3) formatted += ') ' + value.substring(3, 6); 
+                if (value.length >= 6) formatted += '-' + value.substring(6, 8); 
+                if (value.length >= 8) formatted += '-' + value.substring(8, 10); 
+                e.target.value = formatted; 
+            } 
+        });
+
+        /* ==================================================================
+        FAQ АККОРДЕОН
+        ================================================================== */
+        document.querySelectorAll('.faq-question').forEach(question => { 
+            question.addEventListener('click', () => { 
+                const item = question.parentElement; 
+                const isActive = item.classList.contains('active'); 
+                document.querySelectorAll('.faq-item').forEach(faq => { 
+                    faq.classList.remove('active'); 
+                }); 
+                if (!isActive) { 
+                    item.classList.add('active'); 
+                } 
+            }); 
+        });
+
+        /* ==================================================================
+        МОДАЛЬНЫЕ ОКНА ДОКУМЕНТОВ
+        ================================================================== */
+        document.querySelectorAll('.doc-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const type = link.getAttribute('data-modal');
+                const modalId = type === 'privacy' ? 'privacyModal' : 'consentModal';
+                document.getElementById(modalId).classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        function closeDocModal(type) { 
+            const modalId = type === 'privacy' ? 'privacyModal' : 'consentModal'; 
+            document.getElementById(modalId).classList.remove('active'); 
+            document.body.style.overflow = '';
+        }
+        
+        document.querySelectorAll('.doc-modal-overlay').forEach(overlay => { 
+            overlay.addEventListener('click', (e) => { 
+                if (e.target === overlay) {
+                    overlay.classList.remove('active'); 
+                    document.body.style.overflow = ''; 
+                } 
+            }); 
+        });
+        /* Services Accordion */
+document.querySelectorAll('.category-header').forEach(header => {
+    header.addEventListener('click', () => {
+        const category = header.parentElement;
+        const isActive = category.classList.contains('active');
+        
+        // Закрыть все категории (раскомментируйте, если нужно только одна открытая)
+        // document.quer
