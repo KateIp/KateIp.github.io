@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light only">
+    <meta name="supported-color-schemes" content="light only">
+    <title>Санаторно-курортное лечение — Финист Мед</title>
+    <meta name="description" content="Подбор санаториев и курортов России от Финист Мед. Бальнеологические, грязевые, климатические курорты — поможем выбрать лучший вариант для вашего здоровья.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #4CAF50;
+            --green-dark: #388E3C;
+            --green-light: #81C784;
+            --green-pale: #E8F5E9;
+            --yellow: #FFD600;
+            --yellow-soft: #FFF9C4;
+            --yellow-warm: #FFAB00;
+            --white: #FFFFFF;
+            --off-white: #FAFDF7;
+            --text: #1B2E1B;
+            --text-muted: #4A6349;
+            --text-light: #6B8A6B;
+            --border: #C8E6C9;
+            --shadow: rgba(27, 46, 27, 0.08);
+            --shadow-md: rgba(27, 46, 27, 0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { 
+            scroll-behavior: smooth; 
+            color-scheme: light only !important;
+            background-color: #FAFDF7 !important;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            color: #1B2E1B !important;
+            background-color: #FAFDF7 !important;
+            line-height: 1.7;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            color-scheme: light only !important;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow 0.3s;
+        }
+        .header.scrolled { box-shadow: 0 2px 20px var(--shadow); }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 14px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--green), var(--green-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--green-dark);
+        }
+        .logo-text span { color: var(--yellow-warm); }
+
+        nav { display: flex; gap: 28px; align-items: center; }
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+        }
+        nav a:hover { color: var(--green); }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--green);
+            transition: width 0.3s;
+        }
+        nav a:hover::after { width: 100%; }
+
+        .nav-cta {
+            background: var(--green);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.2s !important;
+        }
+        .nav-cta::after { display: none !important; }
+        .nav-cta:hover { background: var(--green-dark); transform: translateY(-1px); }
+
+        .mobile-menu { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+        .mobile-menu svg { width: 28px; height: 28px; color: var(--text); }
+
+        /* ===== HERO ===== */
+        .hero {
+            margin-top: 68px;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(165deg, #1B3A1B 0%, #2E5E2E 40%, #3A7A3A 100%);
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(76, 175, 80, 0.3) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(255, 214, 0, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.03) 0%, transparent 70%);
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='0.5' opacity='0.04'%3E%3Cpath d='M30 0v60M0 30h60'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Декоративные элементы — природные формы */
+        .hero-decor {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.06;
+            background-color: #FFFFFF;
+        }
+        .hero-decor-1 { width: 500px; height: 500px; top: -150px; right: -100px; }
+        .hero-decor-2 { width: 300px; height: 300px; bottom: -80px; left: -60px; }
+        .hero-decor-3 { width: 200px; height: 200px; top: 40%; right: 15%; background: var(--yellow); opacity: 0.08; }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 32px;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 214, 0, 0.15);
+            border: 1px solid rgba(255, 214, 0, 0.3);
+            color: var(--yellow);
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            animation: fadeSlideUp 0.8s ease-out;
+        }
+        .hero-badge::before { content: '✦'; }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            color: white;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            animation: fadeSlideUp 0.8s ease-out 0.15s both;
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--yellow);
+        }
+
+        .hero-text {
+            color: rgba(255,255,255,0.75);
+            font-size: 19px;
+            line-height: 1.8;
+            max-width: 520px;
+            animation: fadeSlideUp 0.8s ease-out 0.3s both;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 36px;
+            animation: fadeSlideUp 0.8s ease-out 0.45s both;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--yellow);
+            color: var(--text);
+        }
+        .btn-primary:hover { background: #FFE033; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,214,0,0.3); }
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+        /* Hero правая часть — карточки-стат */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            animation: fadeSlideUp 0.8s ease-out 0.5s both;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 16px;
+            padding: 28px 24px;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s;
+        }
+        .stat-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.12); }
+        .stat-card:nth-child(2) { transform: translateY(20px); }
+        .stat-card:nth-child(3) { transform: translateY(-10px); }
+        .stat-card:nth-child(2):hover { transform: translateY(16px); }
+        .stat-card:nth-child(3):hover { transform: translateY(-14px); }
+        .stat-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--yellow);
+            line-height: 1;
+        }
+        .stat-label {
+            color: rgba(255,255,255,0.65);
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        /* ===== INTRO SECTION ===== */
+        .intro {
+            padding: 100px 32px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: #FAFDF7 !important;
+            color: #1B2E1B !important;
+        }
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--green);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .section-label::before, .section-label::after {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--green-light);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 3.5vw, 42px);
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.25;
+            margin-bottom: 24px;
+        }
+        h2 em { color: var(--green); font-style: italic; }
+
+        .intro-text {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .intro-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--green), var(--yellow));
+            border-radius: 3px;
+            margin: 40px auto 0;
+        }
+
+        /* ===== HOW TO CHOOSE ===== */
+        .choose {
+            padding: 80px 32px 100px;
+            background-color: #FFFFFF !important;
+        }
+        .choose-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .choose-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 24px;
+            margin-top: 48px;
+        }
+        .choose-card {
+            background-color: var(--off-white);
+            border-radius: 20px;
+            padding: 36px 28px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .choose-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--green), var(--green-light));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .choose-card:hover::before { opacity: 1; }
+        .choose-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px var(--shadow); }
+
+        .choose-card-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--green-pale);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .choose-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        .choose-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* ===== RESORT TYPES ===== */
+        .resorts {
+            padding: 100px 32px;
+            background-color: #FAFDF7 !important;
+        }
+        .resorts-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .resorts-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .resort-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+        .resort-tab {
+            padding: 10px 22px;
+            border-radius: 40px;
+            border: 1.5px solid var(--border);
+            background-color: #FFFFFF;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .resort-tab:hover { border-color: var(--green-light); color: var(--green); }
+        .resort-tab.active {
+            background: var(--green);
+            color: white;
+            border-color: var(--green);
+        }
+
+        .resort-panels { position: relative; }
+        .resort-panel {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+        .resort-panel.active { display: block; }
+
+        .resort-card-main {
+            background-color: #FFFFFF;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+        .resort-card-header {
+            padding: 40px 40px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+        }
+        .resort-type-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            flex-shrink: 0;
+        }
+        .resort-type-icon.balneo-mud { background: linear-gradient(135deg, #A5D6A7, #81C784); }
+        .resort-type-icon.balneo { background: linear-gradient(135deg, #80DEEA, #4DD0E1); }
+        .resort-type-icon.mud { background: linear-gradient(135deg, #BCAAA4, #A1887F); }
+        .resort-type-icon.kumys { background: linear-gradient(135deg, #FFF9C4, #FFF176); }
+        .resort-type-icon.climate { background: linear-gradient(135deg, #90CAF9, #64B5F6); }
+
+        .resort-card-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .resort-card-header .resort-subtitle {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .resort-card-body { padding: 32px 40px 40px; }
+
+        .resort-locations {
+            margin-top: 20px;
+        }
+        .resort-locations h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 12px;
+        }
+
+        .location-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .location-tag {
+            background: var(--green-pale);
+            color: var(--green-dark);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .location-tag:hover { background: var(--green); color: white; }
+
+        /* Подтипы бальнео */
+        .water-types {
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .water-type-card {
+            background-color: var(--off-white);
+            border-radius: 14px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            transition: border-color 0.2s;
+        }
+        .water-type-card:hover { border-color: var(--green-light); }
+        .water-type-card h5 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .water-type-card h5::before {
+            content: '💧';
+            font-size: 14px;
+        }
+        .water-type-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Подтипы климатических */
+        .climate-subtypes {
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .climate-card {
+            background-color: var(--off-white);
+            border-radius: 14px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+        .climate-card:hover { border-color: var(--green-light); transform: translateY(-2px); }
+        .climate-card .climate-emoji { font-size: 28px; margin-bottom: 10px; }
+        .climate-card h5 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+        .climate-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== ВАЖНО ЗНАТЬ (NOTES) ===== */
+        .notes {
+            padding: 80px 32px 100px;
+            background-color: #FFFFFF !important;
+        }
+        .notes-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .notes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 48px;
+        }
+        .note-card {
+            background-color: var(--off-white);
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid var(--border);
+            display: flex;
+            gap: 20px;
+            transition: all 0.3s;
+        }
+        .note-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px var(--shadow); }
+        .note-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--yellow-soft);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+        .note-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .note-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* ===== ПИТАНИЕ ===== */
+        .nutrition {
+            padding: 100px 32px;
+            background: linear-gradient(165deg, #1B3A1B 0%, #2E5E2E 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .nutrition::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 70% 30%, rgba(255,214,0,0.1) 0%, transparent 60%);
+        }
+        .nutrition-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        .nutrition .section-label { color: var(--yellow); }
+        .nutrition .section-label::before, .nutrition .section-label::after { background: rgba(255,214,0,0.3); }
+        .nutrition h2 { color: white; }
+        .nutrition h2 em { color: var(--yellow); }
+        .nutrition-text {
+            color: rgba(255,255,255,0.7);
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 48px;
+        }
+        .nutrition-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .nutrition-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 20px;
+            padding: 36px;
+            text-align: left;
+            transition: all 0.3s;
+        }
+        .nutrition-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-4px); }
+        .nutrition-card-icon { font-size: 36px; margin-bottom: 16px; }
+        .nutrition-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: white;
+            margin-bottom: 12px;
+        }
+        .nutrition-card p {
+            color: rgba(255,255,255,0.65);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* ===== CTA ===== */
+        .cta {
+            padding: 100px 32px;
+            text-align: center;
+            background-color: #FAFDF7 !important;
+        }
+        .cta-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .cta h2 { margin-bottom: 16px; }
+        .cta-text {
+            color: var(--text-muted);
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 36px;
+        }
+        .cta .btn-primary {
+            padding: 18px 42px;
+            font-size: 17px;
+            border-radius: 14px;
+            background: var(--green);
+            color: white;
+        }
+        .cta .btn-primary:hover { background: var(--green-dark); box-shadow: 0 8px 24px rgba(76,175,80,0.3); }
+
+        .cta-phone {
+            margin-top: 20px;
+            font-size: 24px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--green-dark);
+        }
+        .cta-phone a { text-decoration: none; color: inherit; }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #1B2E1B;
+            color: rgba(255,255,255,0.6);
+            padding: 48px 32px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .footer a { color: var(--green-light); text-decoration: none; }
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+            .hero-stats { max-width: 400px; }
+            .choose-grid { grid-template-columns: 1fr; }
+            .water-types, .climate-subtypes { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .mobile-menu { display: block; }
+            .hero { min-height: auto; }
+            .hero-inner { padding: 60px 20px; }
+            .hero-actions { flex-direction: column; }
+            .hero-stats { grid-template-columns: 1fr 1fr; }
+            .stat-card:nth-child(2), .stat-card:nth-child(3) { transform: none; }
+            .stat-card:nth-child(2):hover, .stat-card:nth-child(3):hover { transform: translateY(-4px); }
+            .resort-card-header { flex-direction: column; padding: 28px 24px 0; }
+            .resort-card-body { padding: 24px; }
+            .notes-grid { grid-template-columns: 1fr; }
+            .nutrition-cards { grid-template-columns: 1fr; }
+            .resort-tabs { gap: 6px; }
+            .resort-tab { padding: 8px 16px; font-size: 13px; }
+        }
+
+        @media (max-width: 480px) {
+            body { font-size: 16px; }
+            .hero-stats { grid-template-columns: 1fr; }
+            h2 { font-size: 28px; }
+        }
+        /* ===== POPULAR CAROUSEL ===== */
+        .popular {
+            padding: 100px 32px;
+            background-color: #FFFFFF !important;
+            overflow-x: hidden;
+        }
+        .popular-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .popular-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+        }
+        .carousel-track-container {
+            overflow: hidden;
+        }
+        .carousel-track {
+            display: flex;
+            gap: 24px;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .carousel-card {
+            width: calc((100% - 48px) / 3);
+            min-width: calc((100% - 48px) / 3);
+            max-width: calc((100% - 48px) / 3);
+            background-color: var(--off-white);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: box-shadow 0.3s, transform 0.3s;
+            flex-shrink: 0;
+        }
+        .carousel-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px var(--shadow);
+        }
+        .carousel-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            background-color: var(--green-pale);
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-img-placeholder {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            position: relative;
+        }
+        .carousel-img-placeholder.img-ust-kachka {
+            background: linear-gradient(135deg, #2E7D32, #4CAF50);
+        }
+        .carousel-img-placeholder.img-klyuchi {
+            background: linear-gradient(135deg, #00695C, #26A69A);
+        }
+        .carousel-img-placeholder.img-demidkovo {
+            background: linear-gradient(135deg, #1565C0, #42A5F5);
+        }
+        .carousel-img-placeholder.img-belokurikha {
+            background: linear-gradient(135deg, #4527A0, #7E57C2);
+        }
+        .carousel-img-placeholder.img-kislovodsk {
+            background: linear-gradient(135deg, #BF360C, #FF7043);
+        }
+        .carousel-img-placeholder.img-sochi {
+            background: linear-gradient(135deg, #00838F, #00BCD4);
+        }
+        .carousel-img-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.35));
+        }
+
+        .carousel-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(8px);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--green-dark);
+        }
+        .carousel-distance {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            color: white;
+        }
+
+        .carousel-body {
+            padding: 24px;
+        }
+        .carousel-body h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .carousel-location {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .carousel-profiles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+        .carousel-profile-tag {
+            background: var(--green-pale);
+            color: var(--green-dark);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .carousel-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-top: 32px;
+        }
+        .carousel-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            background-color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text);
+            font-size: 20px;
+        }
+        .carousel-btn:hover {
+            border-color: var(--green);
+            color: var(--green);
+            background: var(--green-pale);
+        }
+        .carousel-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        .carousel-dots {
+            display: flex;
+            gap: 8px;
+        }
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .carousel-dot.active {
+            background: var(--green);
+            width: 28px;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 1024px) {
+            .carousel-card { 
+                width: calc((100% - 24px) / 2);
+                min-width: calc((100% - 24px) / 2);
+                max-width: calc((100% - 24px) / 2);
+            }
+        }
+        @media (max-width: 768px) {
+            .carousel-card { 
+                width: 100%;
+                min-width: 100%;
+                max-width: 100%;
+            }
+            .popular { padding: 60px 20px; }
+        }
+
+        /* ===== FORCE LIGHT MODE — block dark theme from system/app ===== */
+        @media (prefers-color-scheme: dark) {
+            html, body {
+                background-color: #FAFDF7 !important;
+                color: #1B2E1B !important;
+                color-scheme: light only !important;
+            }
+            .header {
+                background-color: rgba(255,255,255,0.95) !important;
+            }
+            .intro, .resorts, .cta {
+                background-color: #FAFDF7 !important;
+            }
+            .choose, .notes, .popular {
+                background-color: #FFFFFF !important;
+            }
+            .resort-card-main {
+                background-color: #FFFFFF !important;
+            }
+            .choose-card, .note-card, .water-type-card, .climate-card, .carousel-card {
+                background-color: #FAFDF7 !important;
+            }
+            .resort-tab {
+                background-color: #FFFFFF !important;
+            }
+            h2, h3, h4, .choose-card h3, .resort-card-header h3, .note-card h4, .carousel-body h4 {
+                color: #1B2E1B !important;
+            }
+            p, .intro-text, .choose-card p, .resort-subtitle, .note-card p, .carousel-desc, .cta-text, .carousel-location {
+                color: #4A6349 !important;
+            }
+            .section-label {
+                color: #4CAF50 !important;
+            }
+            h2 em {
+                color: #4CAF50 !important;
+            }
+            .location-tag, .carousel-profile-tag {
+                background-color: #E8F5E9 !important;
+                color: #388E3C !important;
+            }
+            .note-icon {
+                background-color: #FFF9C4 !important;
+            }
+            .carousel-btn {
+                background-color: #FFFFFF !important;
+                color: #1B2E1B !important;
+            }
+            .carousel-dot {
+                background-color: #C8E6C9 !important;
+            }
+            .carousel-dot.active {
+                background-color: #4CAF50 !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+    <div class="header-inner">
+        <a href="#" class="logo">
+            <div class="logo-icon">✚</div>
+            <div class="logo-text">Финист <span>Мед</span></div>
+        </a>
+        <nav>
+            <a href="#types">Типы курортов</a>
+            <a href="#choose">Как выбрать</a>
+            <a href="#nutrition">Питание</a>
+            <a href="#contact" class="nav-cta">Подобрать курорт</a>
+        </nav>
+        <button class="mobile-menu" id="mobileMenu" aria-label="Меню">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-decor hero-decor-1"></div>
+    <div class="hero-decor hero-decor-2"></div>
+    <div class="hero-decor hero-decor-3"></div>
+    <div class="hero-inner">
+        <div>
+            <div class="hero-badge">Санаторно-курортное лечение</div>
+            <h1>Верните здоровье<br>силами <em>природы</em></h1>
+            <p class="hero-text">Подберём санаторий или курорт с учётом вашего профиля заболевания — от бальнеологических процедур Кавказских Минеральных Вод до климатотерапии черноморского побережья.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">Подобрать курорт →</a>
+                <a href="#types" class="btn btn-outline">Узнать о типах</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-card">
+                <div class="stat-icon">🏔</div>
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Типов курортов</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🌿</div>
+                <div class="stat-number">80+</div>
+                <div class="stat-label">Курортных регионов</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💧</div>
+                <div class="stat-number">7</div>
+                <div class="stat-label">Видов минеральных вод</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏥</div>
+                <div class="stat-number">28</div>
+                <div class="stat-label">Лет опыта подбора</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro reveal">
+    <div class="section-label">О курортном лечении</div>
+    <h2>Клиника или <em>курорт</em>?</h2>
+    <p class="intro-text">Основное отличие курорта от клиники — использование <strong>природных лечебных факторов</strong>: целебного климата, минеральных вод и лечебных грязей для реабилитации, восстановления и профилактики здоровья. Мы поможем подобрать курорт, природная специализация которого идеально подходит именно вашему лечебному профилю.</p>
+    <div class="intro-divider"></div>
+</section>
+
+<!-- КАК ВЫБРАТЬ -->
+<section class="choose" id="choose">
+    <div class="choose-inner">
+        <div style="text-align:center;" class="reveal">
+            <div class="section-label">Подход к выбору</div>
+            <h2>Как мы подбираем <em>курорт</em></h2>
+        </div>
+        <div class="choose-grid">
+            <div class="choose-card reveal">
+                <div class="choose-card-icon">🎯</div>
+                <h3>Лечебный профиль</h3>
+                <p>Ключ к выбору — не общий список заболеваний, а сочетание вашего основного профиля с природной специализацией курорта. Для опорно-двигательной системы оптимальны грязевые и бальнеологические курорты.</p>
+            </div>
+            <div class="choose-card reveal">
+                <div class="choose-card-icon">🌊</div>
+                <h3>Природные факторы</h3>
+                <p>Для дыхательной системы подходят приморские, степные или горные климатические курорты. Каждый тип воды и грязи имеет свои показания и противопоказания, которые мы учитываем.</p>
+            </div>
+            <div class="choose-card reveal">
+                <div class="choose-card-icon">⚕️</div>
+                <h3>Безопасность</h3>
+                <p>Например, радоновые воды показаны при кожных заболеваниях и проблемах с опорно-двигательной системой, но противопоказаны при болезни почек. Мы учитываем все нюансы при подборе.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ТИПЫ КУРОРТОВ -->
+<section class="resorts" id="types">
+    <div class="resorts-inner">
+        <div class="resorts-header reveal">
+            <div class="section-label">Классификация</div>
+            <h2>Типы курортов <em>России</em></h2>
+        </div>
+
+        <div class="resort-tabs reveal">
+            <button class="resort-tab active" data-tab="balneo">Бальнеологический</button>
+            <button class="resort-tab" data-tab="balneo-mud">Бальнеогрязевой</button>
+            <button class="resort-tab" data-tab="mud">Грязевой</button>
+            <button class="resort-tab" data-tab="kumys">Кумысолечебный</button>
+            <button class="resort-tab" data-tab="climate">Климатический</button>
+        </div>
+
+        <div class="resort-panels">
+            <!-- Бальнеологический -->
+            <div class="resort-panel active" id="panel-balneo">
+                <div class="resort-card-main">
+                    <div class="resort-card-header">
+                        <div class="resort-type-icon balneo">💧</div>
+                        <div>
+                            <h3>Бальнеологические курорты</h3>
+                            <p class="resort-subtitle">Природные минеральные воды для ванн и/или питьевого лечения. Различаются по составу вод — каждый тип имеет свои лечебные показания.</p>
+                        </div>
+                    </div>
+                    <div class="resort-card-body">
+                        <div class="water-types">
+                            <div class="water-type-card">
+                                <h5>Углекислые воды</h5>
+                                <p>Дарасун, Ессентуки, Железноводск, Пятигорск, Шиванда, Шмаковка</p>
+                            </div>
+                            <div class="water-type-card">
+                                <h5>Радоновые воды</h5>
+                                <p>Белокуриха, Красноусольск, Пятигорск, Увильды, Усть-Кут</p>
+                            </div>
+                            <div class="water-type-card">
+                                <h5>Сероводородные воды</h5>
+                                <p>Ангара, Бакирово, Горячий Ключ, Ейск, Сочи, Усть-Качка, Хилово</p>
+                            </div>
+                            <div class="water-type-card">
+                                <h5>Азотные термальные воды</h5>
+                                <p>Горячинск, Кульдур, Паратунка, Талая</p>
+                            </div>
+                            <div class="water-type-card">
+                                <h5>Йодо-бромные воды</h5>
+                                <p>Ейск, Нальчик, Усть-Качка, Хадыженск</p>
+                            </div>
+                            <div class="water-type-card">
+                                <h5>Железистые воды</h5>
+                                <p>Гай, Кука, Курьи, Марциальные Воды, Медвежье, Шиванда</p>
+                            </div>
+                            <div class="water-type-card">
+                                <h5>Хлоридные и сульфатные воды</h5>
+                                <p>Ангара, Большой Тараскуль, Кашин, Нальчик, Старая Русса, Усолье, Хилово</p>
+                            </div>
+                            <div class="water-type-card">
+                                <h5>Питьевые минеральные воды</h5>
+                                <p>Горячий Ключ, Ессентуки, Железноводск, Кашин, Кисловодск и другие</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Грязевой -->
+            <div class="resort-panel" id="panel-balneo-mud">
+                <div class="resort-card-main">
+                    <div class="resort-card-header">
+                        <div class="resort-type-icon balneo-mud">🧖</div>
+                        <div>
+                            <h3>Бальнеогрязевые курорты</h3>
+                            <p class="resort-subtitle">Минеральные воды + лечебные грязи — наиболее универсальный тип курортов, сочетающий сразу два мощных природных лечебных фактора.</p>
+                        </div>
+                    </div>
+                    <div class="resort-card-body">
+                        <div class="resort-locations">
+                            <h4>📍 Курорты и регионы</h4>
+                            <div class="location-tags">
+                                <span class="location-tag">Бакирово</span>
+                                <span class="location-tag">Большой Тараскуль</span>
+                                <span class="location-tag">Гай</span>
+                                <span class="location-tag">Ессентуки</span>
+                                <span class="location-tag">Железноводск</span>
+                                <span class="location-tag">Горячий Ключ</span>
+                                <span class="location-tag">Карачи</span>
+                                <span class="location-tag">Кашин</span>
+                                <span class="location-tag">Красноусольск</span>
+                                <span class="location-tag">Липецк</span>
+                                <span class="location-tag">Марциальные воды</span>
+                                <span class="location-tag">Нальчик</span>
+                                <span class="location-tag">Пятигорск</span>
+                                <span class="location-tag">Старая Русса</span>
+                                <span class="location-tag">Усолье</span>
+                                <span class="location-tag">Шира</span>
+                                <span class="location-tag">Евпатория</span>
+                                <span class="location-tag">Саки</span>
+                                <span class="location-tag">Феодосия</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Грязевой -->
+            <div class="resort-panel" id="panel-mud">
+                <div class="resort-card-main">
+                    <div class="resort-card-header">
+                        <div class="resort-type-icon mud">🫧</div>
+                        <div>
+                            <h3>Грязевые курорты</h3>
+                            <p class="resort-subtitle">Лечебные грязи — иловые, торфяные и сапропелевые — используются для аппликаций, обёртываний и других процедур с мощным восстановительным эффектом.</p>
+                        </div>
+                    </div>
+                    <div class="resort-card-body">
+                        <div class="resort-locations">
+                            <h4>📍 Курорты и регионы</h4>
+                            <div class="location-tags">
+                                <span class="location-tag">Бакирово</span>
+                                <span class="location-tag">Большой Тараскуль</span>
+                                <span class="location-tag">Евпатория</span>
+                                <span class="location-tag">Ейск</span>
+                                <span class="location-tag">Зеленый Городок</span>
+                                <span class="location-tag">Калининградское взморье</span>
+                                <span class="location-tag">Ленинградская курортная зона</span>
+                                <span class="location-tag">Липецк</span>
+                                <span class="location-tag">Марциальные Воды</span>
+                                <span class="location-tag">Медвежье</span>
+                                <span class="location-tag">Саки</span>
+                                <span class="location-tag">Соль-Илецк</span>
+                                <span class="location-tag">Феодосия</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Кумысолечебный -->
+            <div class="resort-panel" id="panel-kumys">
+                <div class="resort-card-main">
+                    <div class="resort-card-header">
+                        <div class="resort-type-icon kumys">🐴</div>
+                        <div>
+                            <h3>Климато-кумысолечебные курорты</h3>
+                            <p class="resort-subtitle">Уникальное сочетание степного или лесостепного климата с кумысолечением — традиционным методом оздоровления кисломолочным напитком из кобыльего молока.</p>
+                        </div>
+                    </div>
+                    <div class="resort-card-body">
+                        <div class="resort-locations">
+                            <h4>📍 Курорты Башкирии, Оренбуржья и Алтая</h4>
+                            <div class="location-tags">
+                                <span class="location-tag">Аксаково</span>
+                                <span class="location-tag">Аксеново</span>
+                                <span class="location-tag">Лебяжье</span>
+                                <span class="location-tag">Шафраново</span>
+                                <span class="location-tag">Юматово</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Климатический -->
+            <div class="resort-panel" id="panel-climate">
+                <div class="resort-card-main">
+                    <div class="resort-card-header">
+                        <div class="resort-type-icon climate">🌤</div>
+                        <div>
+                            <h3>Климатические курорты</h3>
+                            <p class="resort-subtitle">Целебный климат и ландшафтотерапия — природа сама становится лекарством. Делятся на морские, горные, степные и лесные.</p>
+                        </div>
+                    </div>
+                    <div class="resort-card-body">
+                        <div class="climate-subtypes">
+                            <div class="climate-card">
+                                <div class="climate-emoji">🌊</div>
+                                <h5>Морские</h5>
+                                <p>Черноморское побережье Кавказа и Крыма: Анапа, Геленджик, Туапсе, Сочи, Алупка, Алушта, Ялта, Форос. Выборгский и Калининградский курортные районы.</p>
+                            </div>
+                            <div class="climate-card">
+                                <div class="climate-emoji">⛰️</div>
+                                <h5>Горные</h5>
+                                <p>Курорты Большого Кавказа: Нальчик, Теберда, Домбай, Архыз. Прибайкалье и Забайкалье: Аршан, Ямаровка, Олентуй.</p>
+                            </div>
+                            <div class="climate-card">
+                                <div class="climate-emoji">🌾</div>
+                                <h5>Степные</h5>
+                                <p>Курорты Таганрога, Азова; Волгоградской, Саратовской, Астраханской областей и Калмыкии.</p>
+                            </div>
+                            <div class="climate-card">
+                                <div class="climate-emoji">🌲</div>
+                                <h5>Лесные</h5>
+                                <p>Архыз, Кисловодск, Лагонаки, Пятигорск, Селигер, Сочи, Теберда, курорты Урала и Сибири.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ВАЖНО ЗНАТЬ -->
+<section class="notes" id="notes">
+    <div class="notes-inner">
+        <div style="text-align:center;" class="reveal">
+            <div class="section-label">Полезная информация</div>
+            <h2>Важно <em>знать</em></h2>
+        </div>
+        <div class="notes-grid">
+            <div class="note-card reveal">
+                <div class="note-icon">🔬</div>
+                <div>
+                    <h4>Комплексный подход</h4>
+                    <p>Многие современные курорты предлагают лечение по нескольким профилям, но их уникальность определяется природными ресурсами — типом воды, грязи и микроклиматом.</p>
+                </div>
+            </div>
+            <div class="note-card reveal">
+                <div class="note-icon">🏔</div>
+                <div>
+                    <h4>Высота имеет значение</h4>
+                    <p>Горные курорты делятся на низко-, средне- и высокогорные — это важно для выбора при конкретных заболеваниях, таких как болезни лёгких или сердца.</p>
+                </div>
+            </div>
+            <div class="note-card reveal">
+                <div class="note-icon">📋</div>
+                <div>
+                    <h4>Лицензированные учреждения</h4>
+                    <p>Лечение предоставляют санатории и пансионаты, которые имеют необходимую медицинскую лицензию и профессиональное оснащение.</p>
+                </div>
+            </div>
+            <div class="note-card reveal">
+                <div class="note-icon">🛡</div>
+                <div>
+                    <h4>Мы учитываем всё</h4>
+                    <p>При подборе санатория наши специалисты учитывают не только основной диагноз, но и сопутствующие заболевания, противопоказания и ваши пожелания.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ПИТАНИЕ -->
+<section class="nutrition" id="nutrition">
+    <div class="nutrition-inner">
+        <div class="section-label">Забота о деталях</div>
+        <h2>Лечебное <em>питание</em></h2>
+        <p class="nutrition-text">Особое внимание в санаториях уделяется концепции сбалансированного питания — важнейшей части курортного лечения.</p>
+        <div class="nutrition-cards">
+            <div class="nutrition-card">
+                <div class="nutrition-card-icon">🍽</div>
+                <h4>Порционное меню</h4>
+                <p>Индивидуальное меню по заказу с учётом 15 вариантов лечебных диет — от стола №1 при заболеваниях желудка до стола №15 для общего оздоровления.</p>
+            </div>
+            <div class="nutrition-card">
+                <div class="nutrition-card-icon">🥗</div>
+                <h4>Шведский стол</h4>
+                <p>Обширное разнообразие блюд, при котором отдыхающие сами формируют своё меню в соответствии с рекомендациями лечащего врача.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ПОПУЛЯРНЫЕ САНАТОРИИ -->
+<section class="popular" id="popular">
+    <div class="popular-inner">
+        <div class="popular-header reveal">
+            <div class="section-label">Рекомендуем</div>
+            <h2>Популярные санатории <em>у наших клиентов</em></h2>
+        </div>
+
+        <div class="carousel-wrapper reveal">
+            <div class="carousel-track-container">
+                <div class="carousel-track" id="carouselTrack">
+
+                    <!-- 1. Усть-Качка -->
+                    <div class="carousel-card">
+                        <div class="carousel-img-placeholder img-ust-kachka">
+                            <span>🏨</span>
+                            <div class="carousel-img-overlay"></div>
+                            <div class="carousel-badge">Бальнеологический</div>
+                            <div class="carousel-distance">50 км от Перми</div>
+                        </div>
+                        <div class="carousel-body">
+                            <h4>Курорт Усть-Качка</h4>
+                            <div class="carousel-location">📍 Пермский край, с. Усть-Качка</div>
+                            <div class="carousel-profiles">
+                                <span class="carousel-profile-tag">Опорно-двигательный аппарат</span>
+                                <span class="carousel-profile-tag">Кожные заболевания</span>
+                                <span class="carousel-profile-tag">Сердце и сосуды</span>
+                                <span class="carousel-profile-tag">Нервная система</span>
+                            </div>
+                            <p class="carousel-desc">Крупнейший бальнеологический курорт Урала. Три вида минеральных вод — сероводородная, йодобромная и питьевая. Более 60 методик лечения.</p>
+                        </div>
+                    </div>
+
+                    <!-- 2. Ключи -->
+                    <div class="carousel-card">
+                        <div class="carousel-img-placeholder img-klyuchi">
+                            <span>🌿</span>
+                            <div class="carousel-img-overlay"></div>
+                            <div class="carousel-badge">Бальнеогрязевой</div>
+                            <div class="carousel-distance">154 км от Перми</div>
+                        </div>
+                        <div class="carousel-body">
+                            <h4>Курорт Ключи</h4>
+                            <div class="carousel-location">📍 Пермский край, Суксунский р-н</div>
+                            <div class="carousel-profiles">
+                                <span class="carousel-profile-tag">Опорно-двигательный аппарат</span>
+                                <span class="carousel-profile-tag">Гинекология</span>
+                                <span class="carousel-profile-tag">Кожные заболевания</span>
+                                <span class="carousel-profile-tag">Урология</span>
+                            </div>
+                            <p class="carousel-desc">Старейший курорт Пермского края с 1826 года. Сероводородная вода, иловая сульфидная грязь и питьевая минеральная вода «Ключи» в долине Уральских гор.</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Демидково -->
+                    <div class="carousel-card">
+                        <div class="carousel-img-placeholder img-demidkovo">
+                            <span>🏖</span>
+                            <div class="carousel-img-overlay"></div>
+                            <div class="carousel-badge">Бальнеогрязевой</div>
+                            <div class="carousel-distance">40 км от Перми</div>
+                        </div>
+                        <div class="carousel-body">
+                            <h4>Санаторий Демидково</h4>
+                            <div class="carousel-location">📍 Пермский край, д. Демидково</div>
+                            <div class="carousel-profiles">
+                                <span class="carousel-profile-tag">Нервная система</span>
+                                <span class="carousel-profile-tag">Органы пищеварения</span>
+                                <span class="carousel-profile-tag">Опорно-двигательный аппарат</span>
+                                <span class="carousel-profile-tag">Органы дыхания</span>
+                            </div>
+                            <p class="carousel-desc">Современный курорт на берегу Камы в сосновом бору. Грязелечение, сероводородные и йодобромные ванны, развитый SPA-центр и детские программы.</p>
+                        </div>
+                    </div>
+
+                    <!-- 4. Белокуриха -->
+                    <div class="carousel-card">
+                        <div class="carousel-img-placeholder img-belokurikha">
+                            <span>⛰️</span>
+                            <div class="carousel-img-overlay"></div>
+                            <div class="carousel-badge">Бальнеологический</div>
+                            <div class="carousel-distance">Алтайский край</div>
+                        </div>
+                        <div class="carousel-body">
+                            <h4>Курорт Белокуриха</h4>
+                            <div class="carousel-location">📍 Алтайский край, г. Белокуриха</div>
+                            <div class="carousel-profiles">
+                                <span class="carousel-profile-tag">Сердце и сосуды</span>
+                                <span class="carousel-profile-tag">Нервная система</span>
+                                <span class="carousel-profile-tag">Эндокринная система</span>
+                                <span class="carousel-profile-tag">Мочеполовая система</span>
+                            </div>
+                            <p class="carousel-desc">Федеральный курорт в предгорьях Алтая. Радоновые термальные источники, сульфидные грязи, пантовые ванны. 250+ солнечных дней в году.</p>
+                        </div>
+                    </div>
+
+                    <!-- 5. Кисловодск -->
+                    <div class="carousel-card">
+                        <div class="carousel-img-placeholder img-kislovodsk">
+                            <span>🏛</span>
+                            <div class="carousel-img-overlay"></div>
+                            <div class="carousel-badge">Бальнеологический</div>
+                            <div class="carousel-distance">КМВ</div>
+                        </div>
+                        <div class="carousel-body">
+                            <h4>Кисловодск</h4>
+                            <div class="carousel-location">📍 Ставропольский край, г. Кисловодск</div>
+                            <div class="carousel-profiles">
+                                <span class="carousel-profile-tag">Сердце и сосуды</span>
+                                <span class="carousel-profile-tag">Органы дыхания</span>
+                                <span class="carousel-profile-tag">Нервная система</span>
+                                <span class="carousel-profile-tag">Органы пищеварения</span>
+                            </div>
+                            <p class="carousel-desc">Жемчужина Кавказских Минеральных Вод. Знаменитый «Нарзан», крупнейший курортный парк Европы, уникальный горный микроклимат на высоте 800–1200 м.</p>
+                        </div>
+                    </div>
+
+                    <!-- 6. Сочи -->
+                    <div class="carousel-card">
+                        <div class="carousel-img-placeholder img-sochi">
+                            <span>🌊</span>
+                            <div class="carousel-img-overlay"></div>
+                            <div class="carousel-badge">Климатический</div>
+                            <div class="carousel-distance">Черноморское побережье</div>
+                        </div>
+                        <div class="carousel-body">
+                            <h4>Сочи — Мацеста</h4>
+                            <div class="carousel-location">📍 Краснодарский край, г. Сочи</div>
+                            <div class="carousel-profiles">
+                                <span class="carousel-profile-tag">Опорно-двигательный аппарат</span>
+                                <span class="carousel-profile-tag">Кожные заболевания</span>
+                                <span class="carousel-profile-tag">Гинекология</span>
+                                <span class="carousel-profile-tag">Органы дыхания</span>
+                            </div>
+                            <p class="carousel-desc">Морской климатический курорт с мацестинскими сероводородными источниками. Сочетание морского воздуха, субтропического климата и бальнеотерапии.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="carousel-nav">
+                <button class="carousel-btn" id="carouselPrev" aria-label="Назад">←</button>
+                <div class="carousel-dots" id="carouselDots"></div>
+                <button class="carousel-btn" id="carouselNext" aria-label="Вперёд">→</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+    <div class="cta-inner reveal">
+        <div class="section-label">Начните сейчас</div>
+        <h2>Подберём курорт <em>для вас</em></h2>
+        <p class="cta-text">Расскажите нам о вашем состоянии здоровья и пожеланиях — и мы подберём оптимальный санаторий с учётом лечебного профиля, сезона и бюджета.</p>
+        <a href="tel:+73422000000" class="btn btn-primary">Получить консультацию →</a>
+        <div class="cta-phone"><a href="tel:+73422000000">+7 (342) 200-00-00</a></div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-brand">Финист Мед</div>
+    <p>Подразделение медицинского туризма ТК «Финист Трэвел»</p>
+    <p style="margin-top:12px;">© 2026 Финист Мед · <a href="#">Политика конфиденциальности</a></p>
+</footer>
+
+<script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Tabs
+    const tabs = document.querySelectorAll('.resort-tab');
+    const panels = document.querySelectorAll('.resort-panel');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            panels.forEach(p => p.classList.remove('active'));
+            tab.classList.add('active');
+            document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+        });
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // Fallback: make all reveals visible after 3s in case observer fails
+    setTimeout(() => {
+        reveals.forEach(el => el.classList.add('visible'));
+    }, 3000);
+
+    // Carousel
+    const track = document.getElementById('carouselTrack');
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
+    const dotsContainer = document.getElementById('carouselDots');
+    const cards = track.querySelectorAll('.carousel-card');
+
+    let currentIndex = 0;
+    let visibleCards = 3;
+
+    function getVisibleCards() {
+        if (window.innerWidth <= 768) return 1;
+        if (window.innerWidth <= 1024) return 2;
+        return 3;
+    }
+
+    function getTotalPages() {
+        return Math.max(1, cards.length - visibleCards + 1);
+    }
+
+    function buildDots() {
+        dotsContainer.innerHTML = '';
+        const pages = getTotalPages();
+        for (let i = 0; i < pages; i++) {
+            const dot = document.createElement('button');
+            dot.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
+            dot.addEventListener('click', () => goTo(i));
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function updateCarousel() {
+        visibleCards = getVisibleCards();
+        const maxIndex = getTotalPages() - 1;
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+        if (currentIndex < 0) currentIndex = 0;
+
+        const gap = 24;
+        const containerWidth = track.parentElement.offsetWidth;
+        const cardWidth = (containerWidth - gap * (visibleCards - 1)) / visibleCards;
+
+        const offset = currentIndex * (cardWidth + gap);
+        track.style.transform = `translateX(-${offset}px)`;
+
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex >= maxIndex;
+
+        buildDots();
+    }
+
+    function goTo(index) {
+        currentIndex = index;
+        updateCarousel();
+    }
+
+    prevBtn.addEventListener('click', () => { if (currentIndex > 0) goTo(currentIndex - 1); });
+    nextBtn.addEventListener('click', () => { if (currentIndex < getTotalPages() - 1) goTo(currentIndex + 1); });
+
+    window.addEventListener('resize', updateCarousel);
+    updateCarousel();
+</script>
+
+</body>
+</html>
