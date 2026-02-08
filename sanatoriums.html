@@ -1060,6 +1060,223 @@
             }
         }
 
+        /* ===== CONTACT ===== */
+        .contact-section {
+            padding: 80px 32px;
+            background-color: #FFFFFF !important;
+        }
+        .contact-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .contact-left h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.25rem;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+        .contact-left h2 em { color: var(--green); font-style: italic; }
+        .contact-left > p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            line-height: 1.7;
+        }
+        .contact-list { display: flex; flex-direction: column; gap: 16px; }
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 16px;
+            background-color: var(--off-white);
+            border-radius: 12px;
+            transition: background 0.2s;
+        }
+        .contact-row:hover { background-color: var(--green-pale); }
+        .contact-icon {
+            width: 42px;
+            height: 42px;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green-dark);
+            box-shadow: 0 2px 8px var(--shadow);
+            flex-shrink: 0;
+        }
+        .contact-icon svg { width: 20px; height: 20px; }
+        .contact-info span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .contact-info p, .contact-info a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+        }
+        .contact-info a:hover { color: var(--green-dark); }
+        .contact-socials { display: flex; gap: 12px; margin-top: 28px; }
+        .contact-social {
+            width: 44px;
+            height: 44px;
+            background-color: var(--off-white);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green-dark);
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .contact-social:hover { background-color: var(--green); color: white; }
+        .contact-social svg { width: 22px; height: 22px; }
+
+        .contact-form-box {
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            padding: 36px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+        .contact-form-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.375rem;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+        .contact-form-box > p { font-size: 0.9375rem; color: var(--text-muted); margin-bottom: 28px; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+        .form-group label .req { color: #E53935; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.9375rem;
+            font-family: inherit;
+            background-color: var(--off-white);
+            color: var(--text);
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green);
+        }
+        .form-group textarea { min-height: 100px; resize: vertical; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 20px 0;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .form-checkbox input[type="checkbox"] { margin-top: 3px; accent-color: var(--green); }
+        .form-checkbox a { color: var(--green-dark); text-decoration: underline; }
+        .form-submit { margin-top: 24px; }
+        .form-submit .btn-primary {
+            width: 100%;
+            padding: 16px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 12px;
+            background-color: var(--green);
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .form-submit .btn-primary:hover { background-color: var(--green-dark); }
+        .form-submit .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        /* ===== MAP / OFFICE ===== */
+        .map-section {
+            padding: 0;
+        }
+        .map-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 480px;
+        }
+        .map-content {
+            padding: 56px;
+            background: linear-gradient(135deg, #2E5E2E 0%, #1B3A1B 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .map-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: white;
+            margin-bottom: 28px;
+        }
+        .map-list { display: flex; flex-direction: column; gap: 20px; }
+        .map-item { display: flex; gap: 14px; }
+        .map-item svg { width: 22px; height: 22px; color: var(--yellow); flex-shrink: 0; margin-top: 2px; }
+        .map-item p { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.6; }
+        .map-item a { color: var(--yellow); text-decoration: none; }
+        .map-item a:hover { text-decoration: underline; }
+        .map-item small { color: rgba(255,255,255,0.5); }
+        .map-legal { margin-top: 32px; }
+        .map-legal p { font-size: 0.8125rem; color: rgba(255,255,255,0.4); }
+        .map-embed { min-height: 480px; }
+        .map-embed iframe, .map-embed script { width: 100%; height: 100%; border: 0; }
+
+        @media (max-width: 768px) {
+            .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+            .contact-section { padding: 60px 20px; }
+            .form-row { grid-template-columns: 1fr; }
+            .map-grid { grid-template-columns: 1fr; }
+            .map-content { padding: 40px 24px; }
+            .map-embed { min-height: 300px; }
+        }
+
+        /* ===== DARK MODE CONTACT/MAP OVERRIDES ===== */
+        @media (prefers-color-scheme: dark) {
+            .contact-section {
+                background-color: #FFFFFF !important;
+            }
+            .contact-form-box {
+                background-color: #FFFFFF !important;
+            }
+            .contact-row {
+                background-color: #FAFDF7 !important;
+            }
+            .contact-left h2, .contact-form-box h3, .contact-info p, .contact-info a,
+            .form-group label {
+                color: #1B2E1B !important;
+            }
+            .contact-left > p, .contact-form-box > p {
+                color: #4A6349 !important;
+            }
+            .form-group input, .form-group select, .form-group textarea {
+                background-color: #FAFDF7 !important;
+                color: #1B2E1B !important;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1072,7 +1289,7 @@
             <div class="logo-text">Финист <span>Мед</span></div>
         </a>
         <nav>
-            <a href="index.html">Главная</a>
+            <a href="/">Главная</a>
             <a href="#types">Типы курортов</a>
             <a href="#choose">Как выбрать</a>
             <a href="#popular">Популярные</a>
@@ -1574,14 +1791,67 @@
     </div>
 </section>
 
-<!-- CTA -->
-<section class="cta" id="contact">
-    <div class="cta-inner reveal">
-        <div class="section-label">Начните сейчас</div>
-        <h2>Подберём курорт <em>для вас</em></h2>
-        <p class="cta-text">Расскажите нам о вашем состоянии здоровья и пожеланиях — и мы подберём оптимальный санаторий с учётом лечебного профиля, сезона и бюджета.</p>
-        <a href="tel:+73422000000" class="btn btn-primary">Получить консультацию →</a>
-        <div class="cta-phone"><a href="tel:+73422000000">+7 (342) 200-00-00</a></div>
+<!-- КОНТАКТЫ -->
+<section class="contact-section" id="contact">
+    <div class="contact-inner">
+        <div class="contact-layout reveal">
+            <div class="contact-left">
+                <div class="section-label">Контакты</div>
+                <h2>Подберём <em>курорт</em> для вас</h2>
+                <p>Расскажите о вашем диагнозе и пожеланиях — наш специалист подберёт санаторий с нужным лечебным профилем, природными факторами и комфортными условиями проживания.</p>
+                <div class="contact-list">
+                    <div class="contact-row">
+                        <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg></div>
+                        <div class="contact-info"><span>Телефон</span><a href="tel:+73422196666">8 (342) 219-66-66</a></div>
+                    </div>
+                    <div class="contact-row">
+                        <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></div>
+                        <div class="contact-info"><span>E-mail</span><a href="mailto:med@finist-travel.com">med@finist-travel.com</a></div>
+                    </div>
+                    <div class="contact-row">
+                        <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+                        <div class="contact-info"><span>Режим работы</span><p>Пн–Пт: 9:00–19:00, Сб: 10:00–16:00</p></div>
+                    </div>
+                </div>
+                <div class="contact-socials">
+                    <a href="https://vk.com/finist_travel" target="_blank" rel="noopener" class="contact-social" title="ВКонтакте"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.587-1.496c.596-.19 1.364 1.259 2.178 1.816.616.42 1.084.328 1.084.328l2.178-.03s1.14-.07.6-.964c-.044-.073-.316-.661-1.624-1.869-1.37-1.264-1.186-1.06.463-3.248.755-1 1.057-1.61.963-1.87-.09-.247-.644-.182-.644-.182l-2.45.015s-.181-.025-.316.056c-.131.079-.216.262-.216.262s-.387 1.028-.903 1.904c-1.088 1.848-1.524 1.945-1.702 1.831-.413-.265-.31-1.063-.31-1.63 0-1.77.269-2.509-.523-2.7-.263-.064-.456-.106-1.128-.112-.861-.009-1.59.003-2.004.205-.276.135-.49.436-.36.453.16.022.523.098.715.36.249.338.24 1.098.24 1.098s.143 2.083-.333 2.341c-.327.177-.775-.184-1.737-1.836-.493-.846-.866-1.781-.866-1.781s-.072-.176-.2-.27c-.154-.114-.37-.151-.37-.151l-2.327.015s-.35.01-.478.162c-.114.135-.009.414-.009.414s1.82 4.258 3.88 6.404c1.889 1.967 4.032 1.838 4.032 1.838h.972z"/></svg></a>
+                    <a href="https://t.me/finistMed" target="_blank" rel="noopener" class="contact-social" title="Telegram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+                    <a href="https://finist-travel.com" target="_blank" rel="noopener" class="contact-social" title="Сайт"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg></a>
+                </div>
+            </div>
+            <div class="contact-form-box">
+                <h3>Заявка на подбор санатория</h3>
+                <p>Заполните форму — мы предложим варианты в течение дня</p>
+                <form id="contactForm">
+                    <div class="form-group"><label>ФИО <span class="req">*</span></label><input type="text" name="name" placeholder="Иванов Иван Иванович" required></div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Телефон <span class="req">*</span></label><input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required></div>
+                        <div class="form-group"><label>E-mail</label><input type="email" name="email" placeholder="email@example.com"></div>
+                    </div>
+                    <div class="form-group"><label>Предпочитаемый мессенджер</label><select name="messenger"><option value="">Выберите мессенджер</option><option value="telegram">Telegram</option><option value="whatsapp">WhatsApp</option><option value="viber">Viber</option></select></div>
+                    <div class="form-group"><label>Что вас беспокоит? <span class="req">*</span></label><textarea name="message" placeholder="Опишите диагноз или направление лечения, желаемые даты, пожелания по курорту..." required></textarea></div>
+                    <div class="form-checkbox"><input type="checkbox" id="consent" name="consent" required><label for="consent">Я принимаю Положение о конфиденциальности и даю согласие на обработку персональных данных</label></div>
+                    <div class="form-submit"><button type="submit" class="btn-primary" id="submitBtn" disabled>Отправить заявку</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- НАШ ОФИС -->
+<section class="map-section">
+    <div class="map-grid">
+        <div class="map-content">
+            <h3>Наш офис</h3>
+            <div class="map-list">
+                <div class="map-item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg><p>г. Пермь, ул. Газеты Звезда, 27, офис 205<br><small>Бизнес-центр «Вознесенский»</small></p></div>
+                <div class="map-item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg><p><a href="tel:+73422196666">8 (342) 219-66-66</a></p></div>
+                <div class="map-item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg><p><a href="mailto:med@finist-travel.com">med@finist-travel.com</a></p></div>
+                <div class="map-item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><p>Пн–Пт: 9:00–19:00<br>Сб: 10:00–16:00</p></div>
+            </div>
+            <div class="map-legal"><p>Все права защищены. ООО «ТК «Финист трэвел» ИНН 5902191610</p></div>
+        </div>
+        <div class="map-embed"><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A930c3a1e509a84aac1e732e9f6f656e6707c8437618d173f860f34611f9d0c34&amp;width=100%25&amp;height=480&amp;lang=ru_RU&amp;scroll=true"></script></div>
     </div>
 </section>
 
@@ -1690,6 +1960,24 @@
 
     window.addEventListener('resize', updateCarousel);
     updateCarousel();
+
+    // Contact form
+    const consentCb = document.getElementById('consent');
+    const submitBtn = document.getElementById('submitBtn');
+    if (consentCb && submitBtn) {
+        consentCb.addEventListener('change', () => {
+            submitBtn.disabled = !consentCb.checked;
+        });
+    }
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+            contactForm.reset();
+            if (submitBtn) submitBtn.disabled = true;
+        });
+    }
 </script>
 
 </body>
