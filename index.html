@@ -2235,4 +2235,20 @@ document.querySelectorAll('.category-header').forEach(header => {
         const isActive = category.classList.contains('active');
         
         // Закрыть все категории (раскомментируйте, если нужно только одна открытая)
-        // document.quer
+        // document.querySelectorAll('.service-category').forEach(cat => {
+        //     cat.classList.remove('active');
+        // });
+        
+        
+        // Переключить текущую
+        if (isActive) {
+            category.classList.remove('active');
+        } else {
+            category.classList.add('active');
+        }
+    });
+});
+    </script>
+</body>
+
+</html>
