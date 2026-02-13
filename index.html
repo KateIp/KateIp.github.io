@@ -286,13 +286,15 @@
         .header.scrolled .header-phone a { color: var(--night); }
         .header.scrolled .header-phone span { color: var(--bark); }
         
-        /* Внутренняя структура шапки */
-        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        /* Внутренняя структура шапки — двухстрочная */
+        .header-inner { display: flex; flex-direction: column; align-items: stretch; }
+        .header-top { display: flex; justify-content: space-between; align-items: center; }
+        .header-bottom { display: flex; justify-content: center; }
         .logo img { height: 80px; width: auto; }
         
         /* Навигация */
-        .nav { display: flex; align-items: center; gap: 4px; }
-        .nav a { text-decoration: none; color: var(--forest); font-size: 0.9375rem; font-weight: 500; padding: 10px 16px; border-radius: var(--radius); transition: var(--transition); }
+        .nav { display: flex; align-items: center; gap: 2px; }
+        .nav a { text-decoration: none; color: var(--forest); font-size: 0.875rem; font-weight: 500; padding: 8px 12px; border-radius: var(--radius); transition: var(--transition); }
         .nav a:hover { background: var(--cloud); color: var(--night); }
         .header-contact { display: flex; align-items: center; gap: 20px; }
         .header-phone { text-align: right; }
@@ -811,7 +813,7 @@
         .float-btn.telegram { background: #229ED9; }
         /* Responsive */
         @media (max-width: 1024px) {
-            .nav { display: none; }
+            .header-bottom { display: none; }
             .mobile-menu-btn { display: flex; }
             .hero::before { width: 100%; right: -30%; transform: rotate(-10deg); }
             .hero-content { grid-template-columns: 1fr; text-align: center; gap: 48px; }
@@ -996,31 +998,33 @@
     <header class="header" id="header">
         <div class="container">
             <div class="header-inner">
-                <!-- Логотип -->
-                <div class="logo"><img src="logo.png" alt="Финист Мед"></div>
-                
-                <!-- Основная навигация (скрыта на мобильных) -->
-                <nav class="nav">
-                    <a href="#how-it-works">Как это работает</a>
-                    <a href="#destinations">Направления</a>
-                    <a href="sanatoriums.html">Санатории</a>
-                    <a href="#services">Услуги</a>
-                    <a href="#team">Команда</a>
-                    <a href="#advantages">Преимущества</a>
-                    <a href="#faq">Вопросы</a>
-                    <a href="#contact">Контакты</a>
-                </nav>
-                
-                <!-- Телефон в шапке (скрыт на мобильных) -->
-                <div class="header-contact">
-                    <div class="header-phone">
-                        <a href="tel:+73422196666">8 (342) 219-66-66</a>
-                        <span>Бесплатная консультация</span>
+                <!-- Верхняя строка: логотип + телефон + бургер -->
+                <div class="header-top">
+                    <div class="logo"><img src="logo.png" alt="Финист Мед"></div>
+                    
+                    <div class="header-contact">
+                        <div class="header-phone">
+                            <a href="tel:+73422196666">8 (342) 219-66-66</a>
+                            <span>Бесплатная консультация</span>
+                        </div>
                     </div>
+                    
+                    <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
                 </div>
                 
-                <!-- Кнопка мобильного меню (бургер) -->
-                <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
+                <!-- Нижняя строка: навигация -->
+                <div class="header-bottom">
+                    <nav class="nav">
+                        <a href="#how-it-works">Как это работает</a>
+                        <a href="#destinations">Направления</a>
+                        <a href="sanatoriums.html">Санатории</a>
+                        <a href="#services">Услуги</a>
+                        <a href="#team">Команда</a>
+                        <a href="#advantages">Преимущества</a>
+                        <a href="#faq">Вопросы</a>
+                        <a href="#contact">Контакты</a>
+                    </nav>
+                </div>
             </div>
         </div>
     </header>
