@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -29,1324 +28,1320 @@
             --shadow-md: rgba(27, 46, 27, 0.12);
         }
 
-```
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html { 
-        scroll-behavior: smooth; 
-        color-scheme: light only !important;
-        background-color: #FAFDF7 !important;
-    }
-
-    body {
-        font-family: 'Source Sans 3', sans-serif;
-        color: #1B2E1B !important;
-        background-color: #FAFDF7 !important;
-        line-height: 1.7;
-        font-size: 17px;
-        -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
-        color-scheme: light only !important;
-    }
-
-    /* ===== HEADER ===== */
-    .header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 100;
-        background: rgba(255,255,255,0.95);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-bottom: 1px solid var(--border);
-        transition: box-shadow 0.3s;
-    }
-    .header.scrolled { box-shadow: 0 2px 20px var(--shadow); }
-    .header-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 14px 32px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        text-decoration: none;
-    }
-    .logo-icon {
-        width: 40px;
-        height: 40px;
-        background: linear-gradient(135deg, var(--green), var(--green-dark));
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 20px;
-    }
-    .logo-text {
-        font-family: 'Playfair Display', serif;
-        font-size: 22px;
-        font-weight: 700;
-        color: var(--green-dark);
-    }
-    .logo-text span { color: var(--yellow-warm); }
-
-    nav { display: flex; gap: 28px; align-items: center; }
-    nav a {
-        text-decoration: none;
-        color: var(--text-muted);
-        font-size: 15px;
-        font-weight: 500;
-        transition: color 0.2s;
-        position: relative;
-    }
-    nav a:hover { color: var(--green); }
-    nav a::after {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--green);
-        transition: width 0.3s;
-    }
-    nav a:hover::after { width: 100%; }
-
-    .nav-cta {
-        background: var(--green);
-        color: white !important;
-        padding: 10px 24px;
-        border-radius: 8px;
-        font-weight: 600;
-        transition: background 0.2s, transform 0.2s !important;
-    }
-    .nav-cta::after { display: none !important; }
-    .nav-cta:hover { background: var(--green-dark); transform: translateY(-1px); }
-
-    .mobile-menu { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-    .mobile-menu svg { width: 28px; height: 28px; color: var(--text); }
-
-    /* ===== HERO ===== */
-    .hero {
-        margin-top: 68px;
-        min-height: 85vh;
-        display: flex;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-        background: linear-gradient(165deg, #1B3A1B 0%, #2E5E2E 40%, #3A7A3A 100%);
-    }
-    .hero::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background:
-            radial-gradient(ellipse at 20% 80%, rgba(76, 175, 80, 0.3) 0%, transparent 60%),
-            radial-gradient(ellipse at 80% 20%, rgba(255, 214, 0, 0.12) 0%, transparent 50%),
-            radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.03) 0%, transparent 70%);
-    }
-    .hero::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='0.5' opacity='0.04'%3E%3Cpath d='M30 0v60M0 30h60'/%3E%3C/g%3E%3C/svg%3E");
-    }
-
-    /* Декоративные элементы — природные формы */
-    .hero-decor {
-        position: absolute;
-        border-radius: 50%;
-        opacity: 0.06;
-        background-color: #FFFFFF;
-    }
-    .hero-decor-1 { width: 500px; height: 500px; top: -150px; right: -100px; }
-    .hero-decor-2 { width: 300px; height: 300px; bottom: -80px; left: -60px; }
-    .hero-decor-3 { width: 200px; height: 200px; top: 40%; right: 15%; background: var(--yellow); opacity: 0.08; }
-
-    .hero-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 80px 32px;
-        position: relative;
-        z-index: 2;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: center;
-    }
-
-    .hero-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(255, 214, 0, 0.15);
-        border: 1px solid rgba(255, 214, 0, 0.3);
-        color: var(--yellow);
-        padding: 8px 18px;
-        border-radius: 40px;
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        margin-bottom: 24px;
-        animation: fadeSlideUp 0.8s ease-out;
-    }
-    .hero-badge::before { content: '✦'; }
-
-    .hero h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: clamp(36px, 5vw, 56px);
-        font-weight: 700;
-        color: white;
-        line-height: 1.15;
-        margin-bottom: 24px;
-        animation: fadeSlideUp 0.8s ease-out 0.15s both;
-    }
-    .hero h1 em {
-        font-style: italic;
-        color: var(--yellow);
-    }
-
-    .hero-text {
-        color: rgba(255,255,255,0.75);
-        font-size: 19px;
-        line-height: 1.8;
-        max-width: 520px;
-        animation: fadeSlideUp 0.8s ease-out 0.3s both;
-    }
-
-    .hero-actions {
-        display: flex;
-        gap: 16px;
-        margin-top: 36px;
-        animation: fadeSlideUp 0.8s ease-out 0.45s both;
-    }
-    .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 16px 32px;
-        border-radius: 12px;
-        font-size: 16px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.25s;
-        cursor: pointer;
-        border: none;
-    }
-    .btn-primary {
-        background: var(--yellow);
-        color: var(--text);
-    }
-    .btn-primary:hover { background: #FFE033; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,214,0,0.3); }
-    .btn-outline {
-        background: transparent;
-        color: white;
-        border: 2px solid rgba(255,255,255,0.3);
-    }
-    .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
-
-    /* Hero правая часть — карточки-стат */
-    .hero-stats {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        animation: fadeSlideUp 0.8s ease-out 0.5s both;
-    }
-    .stat-card {
-        background: rgba(255,255,255,0.08);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255,255,255,0.12);
-        border-radius: 16px;
-        padding: 28px 24px;
-        text-align: center;
-        transition: transform 0.3s, background 0.3s;
-    }
-    .stat-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.12); }
-    .stat-card:nth-child(2) { transform: translateY(20px); }
-    .stat-card:nth-child(3) { transform: translateY(-10px); }
-    .stat-card:nth-child(2):hover { transform: translateY(16px); }
-    .stat-card:nth-child(3):hover { transform: translateY(-14px); }
-    .stat-icon {
-        font-size: 32px;
-        margin-bottom: 12px;
-    }
-    .stat-number {
-        font-family: 'Playfair Display', serif;
-        font-size: 36px;
-        font-weight: 700;
-        color: var(--yellow);
-        line-height: 1;
-    }
-    .stat-label {
-        color: rgba(255,255,255,0.65);
-        font-size: 14px;
-        margin-top: 6px;
-    }
-
-    /* ===== INTRO SECTION ===== */
-    .intro {
-        padding: 100px 32px;
-        max-width: 900px;
-        margin: 0 auto;
-        text-align: center;
-        background-color: #FAFDF7 !important;
-        color: #1B2E1B !important;
-    }
-    .section-label {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        color: var(--green);
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        margin-bottom: 16px;
-    }
-    .section-label::before, .section-label::after {
-        content: '';
-        width: 24px;
-        height: 1px;
-        background: var(--green-light);
-    }
-
-    h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: clamp(28px, 3.5vw, 42px);
-        font-weight: 700;
-        color: var(--text);
-        line-height: 1.25;
-        margin-bottom: 24px;
-    }
-    h2 em { color: var(--green); font-style: italic; }
-
-    .intro-text {
-        font-size: 18px;
-        color: var(--text-muted);
-        line-height: 1.8;
-        max-width: 700px;
-        margin: 0 auto;
-    }
-
-    .intro-divider {
-        width: 60px;
-        height: 3px;
-        background: linear-gradient(90deg, var(--green), var(--yellow));
-        border-radius: 3px;
-        margin: 40px auto 0;
-    }
-
-    /* ===== HOW TO CHOOSE ===== */
-    .choose {
-        padding: 80px 32px 100px;
-        background-color: #FFFFFF !important;
-    }
-    .choose-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    .choose-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 24px;
-        margin-top: 48px;
-    }
-    .choose-card {
-        background-color: var(--off-white);
-        border-radius: 20px;
-        padding: 36px 28px;
-        border: 1px solid var(--border);
-        transition: all 0.3s;
-        position: relative;
-        overflow: hidden;
-    }
-    .choose-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, var(--green), var(--green-light));
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
-    .choose-card:hover::before { opacity: 1; }
-    .choose-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px var(--shadow); }
-
-    .choose-card-icon {
-        width: 56px;
-        height: 56px;
-        background: var(--green-pale);
-        border-radius: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 28px;
-        margin-bottom: 20px;
-    }
-    .choose-card h3 {
-        font-family: 'Playfair Display', serif;
-        font-size: 20px;
-        font-weight: 600;
-        margin-bottom: 12px;
-        color: var(--text);
-    }
-    .choose-card p {
-        color: var(--text-muted);
-        font-size: 15px;
-        line-height: 1.7;
-    }
-
-    /* ===== RESORT TYPES ===== */
-    .resorts {
-        padding: 100px 32px;
-        background-color: #FAFDF7 !important;
-    }
-    .resorts-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    .resorts-header {
-        text-align: center;
-        margin-bottom: 56px;
-    }
-
-    .resort-tabs {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        flex-wrap: wrap;
-        margin-bottom: 48px;
-    }
-    .resort-tab {
-        padding: 10px 22px;
-        border-radius: 40px;
-        border: 1.5px solid var(--border);
-        background-color: #FFFFFF;
-        color: var(--text-muted);
-        font-size: 14px;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 0.25s;
-    }
-    .resort-tab:hover { border-color: var(--green-light); color: var(--green); }
-    .resort-tab.active {
-        background: var(--green);
-        color: white;
-        border-color: var(--green);
-    }
-
-    .resort-panels { position: relative; }
-    .resort-panel {
-        display: none;
-        animation: fadeIn 0.4s ease-out;
-    }
-    .resort-panel.active { display: block; }
-
-    .resort-card-main {
-        background-color: #FFFFFF;
-        border-radius: 24px;
-        border: 1px solid var(--border);
-        overflow: hidden;
-        box-shadow: 0 4px 20px var(--shadow);
-    }
-    .resort-card-header {
-        padding: 40px 40px 0;
-        display: flex;
-        align-items: flex-start;
-        gap: 24px;
-    }
-    .resort-type-icon {
-        width: 72px;
-        height: 72px;
-        border-radius: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 36px;
-        flex-shrink: 0;
-    }
-    .resort-type-icon.balneo-mud { background: linear-gradient(135deg, #A5D6A7, #81C784); }
-    .resort-type-icon.balneo { background: linear-gradient(135deg, #80DEEA, #4DD0E1); }
-    .resort-type-icon.mud { background: linear-gradient(135deg, #BCAAA4, #A1887F); }
-    .resort-type-icon.kumys { background: linear-gradient(135deg, #FFF9C4, #FFF176); }
-    .resort-type-icon.climate { background: linear-gradient(135deg, #90CAF9, #64B5F6); }
-
-    .resort-card-header h3 {
-        font-family: 'Playfair Display', serif;
-        font-size: 26px;
-        font-weight: 700;
-        color: var(--text);
-        margin-bottom: 8px;
-    }
-    .resort-card-header .resort-subtitle {
-        color: var(--text-muted);
-        font-size: 16px;
-        line-height: 1.7;
-    }
-
-    .resort-card-body { padding: 32px 40px 40px; }
-
-    .resort-locations {
-        margin-top: 20px;
-    }
-    .resort-locations h4 {
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--green);
-        text-transform: uppercase;
-        letter-spacing: 0.8px;
-        margin-bottom: 12px;
-    }
-
-    .location-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-    .location-tag {
-        background: var(--green-pale);
-        color: var(--green-dark);
-        padding: 6px 14px;
-        border-radius: 20px;
-        font-size: 13px;
-        font-weight: 500;
-        transition: all 0.2s;
-    }
-    .location-tag:hover { background: var(--green); color: white; }
-
-    /* Подтипы бальнео */
-    .water-types {
-        margin-top: 28px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-    }
-    .water-type-card {
-        background-color: var(--off-white);
-        border-radius: 14px;
-        padding: 20px;
-        border: 1px solid var(--border);
-        transition: border-color 0.2s;
-    }
-    .water-type-card:hover { border-color: var(--green-light); }
-    .water-type-card h5 {
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--text);
-        margin-bottom: 8px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-    .water-type-card h5::before {
-        content: '💧';
-        font-size: 14px;
-    }
-    .water-type-card p {
-        font-size: 13px;
-        color: var(--text-muted);
-        line-height: 1.6;
-    }
-
-    /* Подтипы климатических */
-    .climate-subtypes {
-        margin-top: 28px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-    }
-    .climate-card {
-        background-color: var(--off-white);
-        border-radius: 14px;
-        padding: 24px;
-        border: 1px solid var(--border);
-        transition: all 0.2s;
-    }
-    .climate-card:hover { border-color: var(--green-light); transform: translateY(-2px); }
-    .climate-card .climate-emoji { font-size: 28px; margin-bottom: 10px; }
-    .climate-card h5 {
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--text);
-        margin-bottom: 6px;
-    }
-    .climate-card p {
-        font-size: 13px;
-        color: var(--text-muted);
-        line-height: 1.6;
-    }
-
-    /* ===== ВАЖНО ЗНАТЬ (NOTES) ===== */
-    .notes {
-        padding: 80px 32px 100px;
-        background-color: #FFFFFF !important;
-    }
-    .notes-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    .notes-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-        margin-top: 48px;
-    }
-    .note-card {
-        background-color: var(--off-white);
-        border-radius: 20px;
-        padding: 32px;
-        border: 1px solid var(--border);
-        display: flex;
-        gap: 20px;
-        transition: all 0.3s;
-    }
-    .note-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px var(--shadow); }
-    .note-icon {
-        width: 48px;
-        height: 48px;
-        background: var(--yellow-soft);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 22px;
-        flex-shrink: 0;
-    }
-    .note-card h4 {
-        font-family: 'Playfair Display', serif;
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 8px;
-    }
-    .note-card p {
-        color: var(--text-muted);
-        font-size: 15px;
-        line-height: 1.7;
-    }
-
-    /* ===== ПИТАНИЕ ===== */
-    .nutrition {
-        padding: 100px 32px;
-        background: linear-gradient(165deg, #1B3A1B 0%, #2E5E2E 100%);
-        position: relative;
-        overflow: hidden;
-    }
-    .nutrition::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(ellipse at 70% 30%, rgba(255,214,0,0.1) 0%, transparent 60%);
-    }
-    .nutrition-inner {
-        max-width: 1000px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 2;
-        text-align: center;
-    }
-    .nutrition .section-label { color: var(--yellow); }
-    .nutrition .section-label::before, .nutrition .section-label::after { background: rgba(255,214,0,0.3); }
-    .nutrition h2 { color: white; }
-    .nutrition h2 em { color: var(--yellow); }
-    .nutrition-text {
-        color: rgba(255,255,255,0.7);
-        font-size: 18px;
-        line-height: 1.8;
-        margin-bottom: 48px;
-    }
-    .nutrition-cards {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-    }
-    .nutrition-card {
-        background: rgba(255,255,255,0.08);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255,255,255,0.12);
-        border-radius: 20px;
-        padding: 36px;
-        text-align: left;
-        transition: all 0.3s;
-    }
-    .nutrition-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-4px); }
-    .nutrition-card-icon { font-size: 36px; margin-bottom: 16px; }
-    .nutrition-card h4 {
-        font-family: 'Playfair Display', serif;
-        font-size: 22px;
-        color: white;
-        margin-bottom: 12px;
-    }
-    .nutrition-card p {
-        color: rgba(255,255,255,0.65);
-        font-size: 15px;
-        line-height: 1.7;
-    }
-
-    /* ===== CTA ===== */
-    .cta {
-        padding: 100px 32px;
-        text-align: center;
-        background-color: #FAFDF7 !important;
-    }
-    .cta-inner {
-        max-width: 700px;
-        margin: 0 auto;
-    }
-    .cta h2 { margin-bottom: 16px; }
-    .cta-text {
-        color: var(--text-muted);
-        font-size: 18px;
-        line-height: 1.8;
-        margin-bottom: 36px;
-    }
-    .cta .btn-primary {
-        padding: 18px 42px;
-        font-size: 17px;
-        border-radius: 14px;
-        background: var(--green);
-        color: white;
-    }
-    .cta .btn-primary:hover { background: var(--green-dark); box-shadow: 0 8px 24px rgba(76,175,80,0.3); }
-
-    .cta-phone {
-        margin-top: 20px;
-        font-size: 24px;
-        font-family: 'Playfair Display', serif;
-        font-weight: 700;
-        color: var(--green-dark);
-    }
-    .cta-phone a { text-decoration: none; color: inherit; }
-
-    /* ===== FOOTER ===== */
-    .footer {
-        background: #1B2E1B;
-        color: rgba(255,255,255,0.6);
-        padding: 48px 32px;
-        text-align: center;
-        font-size: 14px;
-    }
-    .footer a { color: var(--green-light); text-decoration: none; }
-    .footer-brand {
-        font-family: 'Playfair Display', serif;
-        font-size: 20px;
-        color: white;
-        margin-bottom: 8px;
-    }
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeSlideUp {
-        from { opacity: 0; transform: translateY(24px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-    }
-    .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1024px) {
-        .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-        .hero-stats { max-width: 400px; }
-        .choose-grid { grid-template-columns: 1fr; }
-        .water-types, .climate-subtypes { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 768px) {
-        nav { display: none; }
-        .mobile-menu { display: block; }
-        .hero { min-height: auto; }
-        .hero-inner { padding: 60px 20px; }
-        .hero-actions { flex-direction: column; }
-        .hero-stats { grid-template-columns: 1fr 1fr; }
-        .stat-card:nth-child(2), .stat-card:nth-child(3) { transform: none; }
-        .stat-card:nth-child(2):hover, .stat-card:nth-child(3):hover { transform: translateY(-4px); }
-        .resort-card-header { flex-direction: column; padding: 28px 24px 0; }
-        .resort-card-body { padding: 24px; }
-        .notes-grid { grid-template-columns: 1fr; }
-        .nutrition-cards { grid-template-columns: 1fr; }
-        .resort-tabs { gap: 6px; }
-        .resort-tab { padding: 8px 16px; font-size: 13px; }
-    }
-
-    @media (max-width: 480px) {
-        body { font-size: 16px; }
-        .hero-stats { grid-template-columns: 1fr; }
-        h2 { font-size: 28px; }
-    }
-    /* ===== POPULAR CAROUSEL ===== */
-    .popular {
-        padding: 100px 32px;
-        background-color: #FFFFFF !important;
-        overflow-x: hidden;
-    }
-    .popular-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    .popular-header {
-        text-align: center;
-        margin-bottom: 48px;
-    }
-
-    .carousel-wrapper {
-        position: relative;
-    }
-    .carousel-track-container {
-        overflow: hidden;
-    }
-    .carousel-track {
-        display: flex;
-        gap: 24px;
-        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .carousel-card {
-        width: calc((100% - 48px) / 3);
-        min-width: calc((100% - 48px) / 3);
-        max-width: calc((100% - 48px) / 3);
-        background-color: var(--off-white);
-        border-radius: 20px;
-        border: 1px solid var(--border);
-        overflow: hidden;
-        transition: box-shadow 0.3s, transform 0.3s;
-        flex-shrink: 0;
-    }
-    .carousel-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 36px var(--shadow);
-    }
-    .carousel-img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        display: block;
-        background-color: var(--green-pale);
-        position: relative;
-        overflow: hidden;
-    }
-    .carousel-img-placeholder {
-        width: 100%;
-        height: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 64px;
-        position: relative;
-    }
-    .carousel-img-placeholder.img-ust-kachka {
-        background: linear-gradient(135deg, #2E7D32, #4CAF50);
-    }
-    .carousel-img-placeholder.img-klyuchi {
-        background: linear-gradient(135deg, #00695C, #26A69A);
-    }
-    .carousel-img-placeholder.img-demidkovo {
-        background: linear-gradient(135deg, #1565C0, #42A5F5);
-    }
-    .carousel-img-placeholder.img-belokurikha {
-        background: linear-gradient(135deg, #4527A0, #7E57C2);
-    }
-    .carousel-img-placeholder.img-kislovodsk {
-        background: linear-gradient(135deg, #BF360C, #FF7043);
-    }
-    .carousel-img-placeholder.img-sochi {
-        background: linear-gradient(135deg, #00838F, #00BCD4);
-    }
-    .carousel-img-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 50%;
-        background: linear-gradient(transparent, rgba(0,0,0,0.35));
-    }
-
-    .carousel-badge {
-        position: absolute;
-        top: 12px;
-        left: 12px;
-        background: rgba(255,255,255,0.92);
-        backdrop-filter: blur(8px);
-        padding: 5px 12px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--green-dark);
-    }
-    .carousel-distance {
-        position: absolute;
-        top: 12px;
-        right: 12px;
-        background: rgba(0,0,0,0.5);
-        backdrop-filter: blur(8px);
-        padding: 5px 12px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: 500;
-        color: white;
-    }
-
-    .carousel-body {
-        padding: 24px;
-    }
-    .carousel-body h4 {
-        font-family: 'Playfair Display', serif;
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--text);
-        margin-bottom: 4px;
-    }
-    .carousel-location {
-        color: var(--text-light);
-        font-size: 14px;
-        margin-bottom: 14px;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-    }
-    .carousel-profiles {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        margin-bottom: 14px;
-    }
-    .carousel-profile-tag {
-        background: var(--green-pale);
-        color: var(--green-dark);
-        padding: 4px 10px;
-        border-radius: 6px;
-        font-size: 12px;
-        font-weight: 500;
-    }
-    .carousel-desc {
-        color: var(--text-muted);
-        font-size: 14px;
-        line-height: 1.6;
-    }
-
-    .carousel-nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 16px;
-        margin-top: 32px;
-    }
-    .carousel-btn {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        border: 2px solid var(--border);
-        background-color: #FFFFFF;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.2s;
-        color: var(--text);
-        font-size: 20px;
-    }
-    .carousel-btn:hover {
-        border-color: var(--green);
-        color: var(--green);
-        background: var(--green-pale);
-    }
-    .carousel-btn:disabled {
-        opacity: 0.3;
-        cursor: not-allowed;
-    }
-    .carousel-dots {
-        display: flex;
-        gap: 8px;
-    }
-    .carousel-dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--border);
-        border: none;
-        cursor: pointer;
-        transition: all 0.3s;
-    }
-    .carousel-dot.active {
-        background: var(--green);
-        width: 28px;
-        border-radius: 5px;
-    }
-
-    @media (max-width: 1024px) {
-        .carousel-card { 
-            width: calc((100% - 24px) / 2);
-            min-width: calc((100% - 24px) / 2);
-            max-width: calc((100% - 24px) / 2);
-        }
-    }
-    @media (max-width: 768px) {
-        .carousel-card { 
-            width: 100%;
-            min-width: 100%;
-            max-width: 100%;
-        }
-        .popular { padding: 60px 20px; }
-    }
-
-    /* ===== FORCE LIGHT MODE — block dark theme from system/app ===== */
-    @media (prefers-color-scheme: dark) {
-        html, body {
+        html { 
+            scroll-behavior: smooth; 
+            color-scheme: light only !important;
             background-color: #FAFDF7 !important;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
             color: #1B2E1B !important;
+            background-color: #FAFDF7 !important;
+            line-height: 1.7;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
             color-scheme: light only !important;
         }
+
+        /* ===== HEADER ===== */
         .header {
-            background-color: rgba(255,255,255,0.95) !important;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow 0.3s;
         }
-        .intro, .resorts, .cta {
+        .header.scrolled { box-shadow: 0 2px 20px var(--shadow); }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 14px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--green), var(--green-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--green-dark);
+        }
+        .logo-text span { color: var(--yellow-warm); }
+
+        nav { display: flex; gap: 28px; align-items: center; }
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+        }
+        nav a:hover { color: var(--green); }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--green);
+            transition: width 0.3s;
+        }
+        nav a:hover::after { width: 100%; }
+
+        .nav-cta {
+            background: var(--green);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.2s !important;
+        }
+        .nav-cta::after { display: none !important; }
+        .nav-cta:hover { background: var(--green-dark); transform: translateY(-1px); }
+
+        .mobile-menu { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+        .mobile-menu svg { width: 28px; height: 28px; color: var(--text); }
+
+        /* ===== HERO ===== */
+        .hero {
+            margin-top: 68px;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(165deg, #1B3A1B 0%, #2E5E2E 40%, #3A7A3A 100%);
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(76, 175, 80, 0.3) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(255, 214, 0, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.03) 0%, transparent 70%);
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='0.5' opacity='0.04'%3E%3Cpath d='M30 0v60M0 30h60'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Декоративные элементы — природные формы */
+        .hero-decor {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.06;
+            background-color: #FFFFFF;
+        }
+        .hero-decor-1 { width: 500px; height: 500px; top: -150px; right: -100px; }
+        .hero-decor-2 { width: 300px; height: 300px; bottom: -80px; left: -60px; }
+        .hero-decor-3 { width: 200px; height: 200px; top: 40%; right: 15%; background: var(--yellow); opacity: 0.08; }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 32px;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 214, 0, 0.15);
+            border: 1px solid rgba(255, 214, 0, 0.3);
+            color: var(--yellow);
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            animation: fadeSlideUp 0.8s ease-out;
+        }
+        .hero-badge::before { content: '✦'; }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            color: white;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            animation: fadeSlideUp 0.8s ease-out 0.15s both;
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--yellow);
+        }
+
+        .hero-text {
+            color: rgba(255,255,255,0.75);
+            font-size: 19px;
+            line-height: 1.8;
+            max-width: 520px;
+            animation: fadeSlideUp 0.8s ease-out 0.3s both;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 36px;
+            animation: fadeSlideUp 0.8s ease-out 0.45s both;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--yellow);
+            color: var(--text);
+        }
+        .btn-primary:hover { background: #FFE033; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,214,0,0.3); }
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+        /* Hero правая часть — карточки-стат */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            animation: fadeSlideUp 0.8s ease-out 0.5s both;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 16px;
+            padding: 28px 24px;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s;
+        }
+        .stat-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.12); }
+        .stat-card:nth-child(2) { transform: translateY(20px); }
+        .stat-card:nth-child(3) { transform: translateY(-10px); }
+        .stat-card:nth-child(2):hover { transform: translateY(16px); }
+        .stat-card:nth-child(3):hover { transform: translateY(-14px); }
+        .stat-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--yellow);
+            line-height: 1;
+        }
+        .stat-label {
+            color: rgba(255,255,255,0.65);
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        /* ===== INTRO SECTION ===== */
+        .intro {
+            padding: 100px 32px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
             background-color: #FAFDF7 !important;
-        }
-        .choose, .notes, .popular {
-            background-color: #FFFFFF !important;
-        }
-        .resort-card-main {
-            background-color: #FFFFFF !important;
-        }
-        .choose-card, .note-card, .water-type-card, .climate-card, .carousel-card {
-            background-color: #FAFDF7 !important;
-        }
-        .resort-tab {
-            background-color: #FFFFFF !important;
-        }
-        h2, h3, h4, .choose-card h3, .resort-card-header h3, .note-card h4, .carousel-body h4 {
             color: #1B2E1B !important;
-        }
-        p, .intro-text, .choose-card p, .resort-subtitle, .note-card p, .carousel-desc, .cta-text, .carousel-location {
-            color: #4A6349 !important;
         }
         .section-label {
-            color: #4CAF50 !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--green);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
         }
-        h2 em {
-            color: #4CAF50 !important;
+        .section-label::before, .section-label::after {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--green-light);
         }
-        .location-tag, .carousel-profile-tag {
-            background-color: #E8F5E9 !important;
-            color: #388E3C !important;
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 3.5vw, 42px);
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.25;
+            margin-bottom: 24px;
         }
+        h2 em { color: var(--green); font-style: italic; }
+
+        .intro-text {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .intro-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--green), var(--yellow));
+            border-radius: 3px;
+            margin: 40px auto 0;
+        }
+
+        /* ===== HOW TO CHOOSE ===== */
+        .choose {
+            padding: 80px 32px 100px;
+            background-color: #FFFFFF !important;
+        }
+        .choose-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .choose-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 24px;
+            margin-top: 48px;
+        }
+        .choose-card {
+            background-color: var(--off-white);
+            border-radius: 20px;
+            padding: 36px 28px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .choose-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--green), var(--green-light));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .choose-card:hover::before { opacity: 1; }
+        .choose-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px var(--shadow); }
+
+        .choose-card-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--green-pale);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .choose-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        .choose-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* ===== RESORT TYPES ===== */
+        .resorts {
+            padding: 100px 32px;
+            background-color: #FAFDF7 !important;
+        }
+        .resorts-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .resorts-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .resort-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+        .resort-tab {
+            padding: 10px 22px;
+            border-radius: 40px;
+            border: 1.5px solid var(--border);
+            background-color: #FFFFFF;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .resort-tab:hover { border-color: var(--green-light); color: var(--green); }
+        .resort-tab.active {
+            background: var(--green);
+            color: white;
+            border-color: var(--green);
+        }
+
+        .resort-panels { position: relative; }
+        .resort-panel {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+        .resort-panel.active { display: block; }
+
+        .resort-card-main {
+            background-color: #FFFFFF;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+        .resort-card-header {
+            padding: 40px 40px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+        }
+        .resort-type-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            flex-shrink: 0;
+        }
+        .resort-type-icon.balneo-mud { background: linear-gradient(135deg, #A5D6A7, #81C784); }
+        .resort-type-icon.balneo { background: linear-gradient(135deg, #80DEEA, #4DD0E1); }
+        .resort-type-icon.mud { background: linear-gradient(135deg, #BCAAA4, #A1887F); }
+        .resort-type-icon.kumys { background: linear-gradient(135deg, #FFF9C4, #FFF176); }
+        .resort-type-icon.climate { background: linear-gradient(135deg, #90CAF9, #64B5F6); }
+
+        .resort-card-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .resort-card-header .resort-subtitle {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .resort-card-body { padding: 32px 40px 40px; }
+
+        .resort-locations {
+            margin-top: 20px;
+        }
+        .resort-locations h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 12px;
+        }
+
+        .location-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .location-tag {
+            background: var(--green-pale);
+            color: var(--green-dark);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .location-tag:hover { background: var(--green); color: white; }
+
+        /* Подтипы бальнео */
+        .water-types {
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .water-type-card {
+            background-color: var(--off-white);
+            border-radius: 14px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            transition: border-color 0.2s;
+        }
+        .water-type-card:hover { border-color: var(--green-light); }
+        .water-type-card h5 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .water-type-card h5::before {
+            content: '💧';
+            font-size: 14px;
+        }
+        .water-type-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Подтипы климатических */
+        .climate-subtypes {
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .climate-card {
+            background-color: var(--off-white);
+            border-radius: 14px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+        .climate-card:hover { border-color: var(--green-light); transform: translateY(-2px); }
+        .climate-card .climate-emoji { font-size: 28px; margin-bottom: 10px; }
+        .climate-card h5 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+        .climate-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== ВАЖНО ЗНАТЬ (NOTES) ===== */
+        .notes {
+            padding: 80px 32px 100px;
+            background-color: #FFFFFF !important;
+        }
+        .notes-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .notes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 48px;
+        }
+        .note-card {
+            background-color: var(--off-white);
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid var(--border);
+            display: flex;
+            gap: 20px;
+            transition: all 0.3s;
+        }
+        .note-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px var(--shadow); }
         .note-icon {
-            background-color: #FFF9C4 !important;
+            width: 48px;
+            height: 48px;
+            background: var(--yellow-soft);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+        .note-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .note-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* ===== ПИТАНИЕ ===== */
+        .nutrition {
+            padding: 100px 32px;
+            background: linear-gradient(165deg, #1B3A1B 0%, #2E5E2E 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .nutrition::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 70% 30%, rgba(255,214,0,0.1) 0%, transparent 60%);
+        }
+        .nutrition-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        .nutrition .section-label { color: var(--yellow); }
+        .nutrition .section-label::before, .nutrition .section-label::after { background: rgba(255,214,0,0.3); }
+        .nutrition h2 { color: white; }
+        .nutrition h2 em { color: var(--yellow); }
+        .nutrition-text {
+            color: rgba(255,255,255,0.7);
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 48px;
+        }
+        .nutrition-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .nutrition-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 20px;
+            padding: 36px;
+            text-align: left;
+            transition: all 0.3s;
+        }
+        .nutrition-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-4px); }
+        .nutrition-card-icon { font-size: 36px; margin-bottom: 16px; }
+        .nutrition-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: white;
+            margin-bottom: 12px;
+        }
+        .nutrition-card p {
+            color: rgba(255,255,255,0.65);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* ===== CTA ===== */
+        .cta {
+            padding: 100px 32px;
+            text-align: center;
+            background-color: #FAFDF7 !important;
+        }
+        .cta-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .cta h2 { margin-bottom: 16px; }
+        .cta-text {
+            color: var(--text-muted);
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 36px;
+        }
+        .cta .btn-primary {
+            padding: 18px 42px;
+            font-size: 17px;
+            border-radius: 14px;
+            background: var(--green);
+            color: white;
+        }
+        .cta .btn-primary:hover { background: var(--green-dark); box-shadow: 0 8px 24px rgba(76,175,80,0.3); }
+
+        .cta-phone {
+            margin-top: 20px;
+            font-size: 24px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--green-dark);
+        }
+        .cta-phone a { text-decoration: none; color: inherit; }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #1B2E1B;
+            color: rgba(255,255,255,0.6);
+            padding: 48px 32px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .footer a { color: var(--green-light); text-decoration: none; }
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+            .hero-stats { max-width: 400px; }
+            .choose-grid { grid-template-columns: 1fr; }
+            .water-types, .climate-subtypes { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .mobile-menu { display: block; }
+            .hero { min-height: auto; }
+            .hero-inner { padding: 60px 20px; }
+            .hero-actions { flex-direction: column; }
+            .hero-stats { grid-template-columns: 1fr 1fr; }
+            .stat-card:nth-child(2), .stat-card:nth-child(3) { transform: none; }
+            .stat-card:nth-child(2):hover, .stat-card:nth-child(3):hover { transform: translateY(-4px); }
+            .resort-card-header { flex-direction: column; padding: 28px 24px 0; }
+            .resort-card-body { padding: 24px; }
+            .notes-grid { grid-template-columns: 1fr; }
+            .nutrition-cards { grid-template-columns: 1fr; }
+            .resort-tabs { gap: 6px; }
+            .resort-tab { padding: 8px 16px; font-size: 13px; }
+        }
+
+        @media (max-width: 480px) {
+            body { font-size: 16px; }
+            .hero-stats { grid-template-columns: 1fr; }
+            h2 { font-size: 28px; }
+        }
+        /* ===== POPULAR CAROUSEL ===== */
+        .popular {
+            padding: 100px 32px;
+            background-color: #FFFFFF !important;
+            overflow-x: hidden;
+        }
+        .popular-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .popular-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+        }
+        .carousel-track-container {
+            overflow: hidden;
+        }
+        .carousel-track {
+            display: flex;
+            gap: 24px;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .carousel-card {
+            width: calc((100% - 48px) / 3);
+            min-width: calc((100% - 48px) / 3);
+            max-width: calc((100% - 48px) / 3);
+            background-color: var(--off-white);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: box-shadow 0.3s, transform 0.3s;
+            flex-shrink: 0;
+        }
+        .carousel-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px var(--shadow);
+        }
+        .carousel-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            background-color: var(--green-pale);
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-img-placeholder {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            position: relative;
+        }
+        .carousel-img-placeholder.img-ust-kachka {
+            background: linear-gradient(135deg, #2E7D32, #4CAF50);
+        }
+        .carousel-img-placeholder.img-klyuchi {
+            background: linear-gradient(135deg, #00695C, #26A69A);
+        }
+        .carousel-img-placeholder.img-demidkovo {
+            background: linear-gradient(135deg, #1565C0, #42A5F5);
+        }
+        .carousel-img-placeholder.img-belokurikha {
+            background: linear-gradient(135deg, #4527A0, #7E57C2);
+        }
+        .carousel-img-placeholder.img-kislovodsk {
+            background: linear-gradient(135deg, #BF360C, #FF7043);
+        }
+        .carousel-img-placeholder.img-sochi {
+            background: linear-gradient(135deg, #00838F, #00BCD4);
+        }
+        .carousel-img-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.35));
+        }
+
+        .carousel-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(8px);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--green-dark);
+        }
+        .carousel-distance {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            color: white;
+        }
+
+        .carousel-body {
+            padding: 24px;
+        }
+        .carousel-body h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .carousel-location {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .carousel-profiles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+        .carousel-profile-tag {
+            background: var(--green-pale);
+            color: var(--green-dark);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .carousel-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-top: 32px;
         }
         .carousel-btn {
-            background-color: #FFFFFF !important;
-            color: #1B2E1B !important;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            background-color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text);
+            font-size: 20px;
+        }
+        .carousel-btn:hover {
+            border-color: var(--green);
+            color: var(--green);
+            background: var(--green-pale);
+        }
+        .carousel-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        .carousel-dots {
+            display: flex;
+            gap: 8px;
         }
         .carousel-dot {
-            background-color: #C8E6C9 !important;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
         }
         .carousel-dot.active {
-            background-color: #4CAF50 !important;
+            background: var(--green);
+            width: 28px;
+            border-radius: 5px;
         }
-    }
 
-    /* ===== CONTACT ===== */
-    .contact-section {
-        padding: 80px 32px;
-        background-color: #FFFFFF !important;
-    }
-    .contact-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    .contact-layout {
-        display: grid;
-        grid-template-columns: 1fr 1.1fr;
-        gap: 60px;
-        align-items: start;
-    }
-    .contact-left h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.25rem;
-        margin-bottom: 16px;
-        color: var(--text);
-    }
-    .contact-left h2 em { color: var(--green); font-style: italic; }
-    .contact-left > p {
-        font-size: 1rem;
-        color: var(--text-muted);
-        margin-bottom: 36px;
-        line-height: 1.7;
-    }
-    .contact-list { display: flex; flex-direction: column; gap: 16px; }
-    .contact-row {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        padding: 14px 16px;
-        background-color: var(--off-white);
-        border-radius: 12px;
-        transition: background 0.2s;
-    }
-    .contact-row:hover { background-color: var(--green-pale); }
-    .contact-icon {
-        width: 42px;
-        height: 42px;
-        background-color: #FFFFFF;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--green-dark);
-        box-shadow: 0 2px 8px var(--shadow);
-        flex-shrink: 0;
-    }
-    .contact-icon svg { width: 20px; height: 20px; }
-    .contact-info span {
-        display: block;
-        font-size: 0.75rem;
-        color: var(--text-light);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
-    .contact-info p, .contact-info a {
-        font-size: 1rem;
-        font-weight: 500;
-        color: var(--text);
-        text-decoration: none;
-    }
-    .contact-info a:hover { color: var(--green-dark); }
-    .contact-socials { display: flex; gap: 12px; margin-top: 28px; }
-    .contact-social {
-        width: 44px;
-        height: 44px;
-        background-color: var(--off-white);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--green-dark);
-        transition: all 0.2s;
-        text-decoration: none;
-    }
-    .contact-social:hover { background-color: var(--green); color: white; }
-    .contact-social svg { width: 22px; height: 22px; }
+        @media (max-width: 1024px) {
+            .carousel-card { 
+                width: calc((100% - 24px) / 2);
+                min-width: calc((100% - 24px) / 2);
+                max-width: calc((100% - 24px) / 2);
+            }
+        }
+        @media (max-width: 768px) {
+            .carousel-card { 
+                width: 100%;
+                min-width: 100%;
+                max-width: 100%;
+            }
+            .popular { padding: 60px 20px; }
+        }
 
-    .contact-form-box {
-        background-color: #FFFFFF;
-        border-radius: 20px;
-        padding: 36px;
-        border: 1px solid var(--border);
-        box-shadow: 0 4px 20px var(--shadow);
-    }
-    .contact-form-box h3 {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.375rem;
-        margin-bottom: 6px;
-        color: var(--text);
-    }
-    .contact-form-box > p { font-size: 0.9375rem; color: var(--text-muted); margin-bottom: 28px; }
-    .form-group { margin-bottom: 18px; }
-    .form-group label {
-        display: block;
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: var(--text);
-        margin-bottom: 6px;
-    }
-    .form-group label .req { color: #E53935; }
-    .form-group input, .form-group select, .form-group textarea {
-        width: 100%;
-        padding: 12px 16px;
-        border: 1.5px solid var(--border);
-        border-radius: 10px;
-        font-size: 0.9375rem;
-        font-family: inherit;
-        background-color: var(--off-white);
-        color: var(--text);
-        transition: border-color 0.2s;
-    }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-        outline: none;
-        border-color: var(--green);
-    }
-    .form-group textarea { min-height: 100px; resize: vertical; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .form-checkbox {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        margin: 20px 0;
-        font-size: 0.8125rem;
-        color: var(--text-muted);
-        line-height: 1.5;
-    }
-    .form-checkbox input[type="checkbox"] { margin-top: 3px; accent-color: var(--green); }
-    .form-checkbox a { color: var(--green-dark); text-decoration: underline; }
-    .form-submit { margin-top: 24px; }
-    .form-submit .btn-primary {
-        width: 100%;
-        padding: 16px;
-        font-size: 1rem;
-        border: none;
-        border-radius: 12px;
-        background-color: var(--green);
-        color: white;
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.2s;
-    }
-    .form-submit .btn-primary:hover { background-color: var(--green-dark); }
-    .form-submit .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+        /* ===== FORCE LIGHT MODE — block dark theme from system/app ===== */
+        @media (prefers-color-scheme: dark) {
+            html, body {
+                background-color: #FAFDF7 !important;
+                color: #1B2E1B !important;
+                color-scheme: light only !important;
+            }
+            .header {
+                background-color: rgba(255,255,255,0.95) !important;
+            }
+            .intro, .resorts, .cta {
+                background-color: #FAFDF7 !important;
+            }
+            .choose, .notes, .popular {
+                background-color: #FFFFFF !important;
+            }
+            .resort-card-main {
+                background-color: #FFFFFF !important;
+            }
+            .choose-card, .note-card, .water-type-card, .climate-card, .carousel-card {
+                background-color: #FAFDF7 !important;
+            }
+            .resort-tab {
+                background-color: #FFFFFF !important;
+            }
+            h2, h3, h4, .choose-card h3, .resort-card-header h3, .note-card h4, .carousel-body h4 {
+                color: #1B2E1B !important;
+            }
+            p, .intro-text, .choose-card p, .resort-subtitle, .note-card p, .carousel-desc, .cta-text, .carousel-location {
+                color: #4A6349 !important;
+            }
+            .section-label {
+                color: #4CAF50 !important;
+            }
+            h2 em {
+                color: #4CAF50 !important;
+            }
+            .location-tag, .carousel-profile-tag {
+                background-color: #E8F5E9 !important;
+                color: #388E3C !important;
+            }
+            .note-icon {
+                background-color: #FFF9C4 !important;
+            }
+            .carousel-btn {
+                background-color: #FFFFFF !important;
+                color: #1B2E1B !important;
+            }
+            .carousel-dot {
+                background-color: #C8E6C9 !important;
+            }
+            .carousel-dot.active {
+                background-color: #4CAF50 !important;
+            }
+        }
 
-    /* ===== MAP / OFFICE ===== */
-    .map-section {
-        padding: 0;
-    }
-    .map-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        min-height: 480px;
-    }
-    .map-content {
-        padding: 56px;
-        background: linear-gradient(135deg, #2E5E2E 0%, #1B3A1B 100%);
-        color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .map-content h3 {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.75rem;
-        color: white;
-        margin-bottom: 28px;
-    }
-    .map-list { display: flex; flex-direction: column; gap: 20px; }
-    .map-item { display: flex; gap: 14px; }
-    .map-item svg { width: 22px; height: 22px; color: var(--yellow); flex-shrink: 0; margin-top: 2px; }
-    .map-item p { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.6; }
-    .map-item a { color: var(--yellow); text-decoration: none; }
-    .map-item a:hover { text-decoration: underline; }
-    .map-item small { color: rgba(255,255,255,0.5); }
-    .map-legal { margin-top: 32px; }
-    .map-legal p { font-size: 0.8125rem; color: rgba(255,255,255,0.4); }
-    .map-embed { min-height: 480px; }
-    .map-embed iframe, .map-embed script { width: 100%; height: 100%; border: 0; }
-
-    @media (max-width: 768px) {
-        .contact-layout { grid-template-columns: 1fr; gap: 40px; }
-        .contact-section { padding: 60px 20px; }
-        .form-row { grid-template-columns: 1fr; }
-        .map-grid { grid-template-columns: 1fr; }
-        .map-content { padding: 40px 24px; }
-        .map-embed { min-height: 300px; }
-    }
-
-    /* ===== DARK MODE CONTACT/MAP OVERRIDES ===== */
-    @media (prefers-color-scheme: dark) {
+        /* ===== CONTACT ===== */
         .contact-section {
+            padding: 80px 32px;
             background-color: #FFFFFF !important;
         }
-        .contact-form-box {
-            background-color: #FFFFFF !important;
+        .contact-inner {
+            max-width: 1200px;
+            margin: 0 auto;
         }
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .contact-left h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.25rem;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+        .contact-left h2 em { color: var(--green); font-style: italic; }
+        .contact-left > p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            line-height: 1.7;
+        }
+        .contact-list { display: flex; flex-direction: column; gap: 16px; }
         .contact-row {
-            background-color: #FAFDF7 !important;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 16px;
+            background-color: var(--off-white);
+            border-radius: 12px;
+            transition: background 0.2s;
         }
-        .contact-left h2, .contact-form-box h3, .contact-info p, .contact-info a,
+        .contact-row:hover { background-color: var(--green-pale); }
+        .contact-icon {
+            width: 42px;
+            height: 42px;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green-dark);
+            box-shadow: 0 2px 8px var(--shadow);
+            flex-shrink: 0;
+        }
+        .contact-icon svg { width: 20px; height: 20px; }
+        .contact-info span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .contact-info p, .contact-info a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+        }
+        .contact-info a:hover { color: var(--green-dark); }
+        .contact-socials { display: flex; gap: 12px; margin-top: 28px; }
+        .contact-social {
+            width: 44px;
+            height: 44px;
+            background-color: var(--off-white);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green-dark);
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .contact-social:hover { background-color: var(--green); color: white; }
+        .contact-social svg { width: 22px; height: 22px; }
+
+        .contact-form-box {
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            padding: 36px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+        .contact-form-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.375rem;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+        .contact-form-box > p { font-size: 0.9375rem; color: var(--text-muted); margin-bottom: 28px; }
+        .form-group { margin-bottom: 18px; }
         .form-group label {
-            color: #1B2E1B !important;
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 6px;
         }
-        .contact-left > p, .contact-form-box > p {
-            color: #4A6349 !important;
-        }
+        .form-group label .req { color: #E53935; }
         .form-group input, .form-group select, .form-group textarea {
-            background-color: #FAFDF7 !important;
-            color: #1B2E1B !important;
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.9375rem;
+            font-family: inherit;
+            background-color: var(--off-white);
+            color: var(--text);
+            transition: border-color 0.2s;
         }
-    }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green);
+        }
+        .form-group textarea { min-height: 100px; resize: vertical; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 20px 0;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .form-checkbox input[type="checkbox"] { margin-top: 3px; accent-color: var(--green); }
+        .form-checkbox a { color: var(--green-dark); text-decoration: underline; }
+        .form-submit { margin-top: 24px; }
+        .form-submit .btn-primary {
+            width: 100%;
+            padding: 16px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 12px;
+            background-color: var(--green);
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .form-submit .btn-primary:hover { background-color: var(--green-dark); }
+        .form-submit .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
 
-    /* ===== DOC MODALS ===== */
-    .doc-modal-overlay {
-        position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(31, 46, 36, 0.6);
-        backdrop-filter: blur(4px);
-        z-index: 2000;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-    }
-    .doc-modal-overlay.active { display: flex; }
-    .doc-modal {
-        background: white;
-        border-radius: 20px;
-        max-width: 700px;
-        width: 100%;
-        max-height: 80vh;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        animation: docModalIn 0.3s ease;
-    }
-    @keyframes docModalIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-    .doc-modal-header {
-        padding: 24px 28px;
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .doc-modal-header h3 { font-size: 1.25rem; font-family: 'Playfair Display', serif; color: var(--text); margin: 0; }
-    .doc-modal-close {
-        width: 40px; height: 40px;
-        background: var(--off-white);
-        border: none; border-radius: 50%;
-        cursor: pointer;
-        display: flex; align-items: center; justify-content: center;
-        transition: background 0.2s;
-        flex-shrink: 0;
-    }
-    .doc-modal-close:hover { background: var(--green-pale); }
-    .doc-modal-close svg { width: 20px; height: 20px; color: var(--green-dark); }
-    .doc-modal-body {
-        padding: 28px;
-        overflow-y: auto;
-        font-size: 0.9375rem;
-        line-height: 1.8;
-        color: var(--text);
-    }
-    .doc-modal-body h4 { font-size: 1rem; font-weight: 600; margin: 20px 0 10px; }
-    .doc-modal-body p { margin-bottom: 12px; }
-    .doc-modal-body a { color: var(--green-dark); }
-    .doc-link { color: var(--green-dark); text-decoration: underline; cursor: pointer; }
-    .doc-link:hover { color: var(--green); }
+        /* ===== MAP / OFFICE ===== */
+        .map-section {
+            padding: 0;
+        }
+        .map-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 480px;
+        }
+        .map-content {
+            padding: 56px;
+            background: linear-gradient(135deg, #2E5E2E 0%, #1B3A1B 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .map-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: white;
+            margin-bottom: 28px;
+        }
+        .map-list { display: flex; flex-direction: column; gap: 20px; }
+        .map-item { display: flex; gap: 14px; }
+        .map-item svg { width: 22px; height: 22px; color: var(--yellow); flex-shrink: 0; margin-top: 2px; }
+        .map-item p { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.6; }
+        .map-item a { color: var(--yellow); text-decoration: none; }
+        .map-item a:hover { text-decoration: underline; }
+        .map-item small { color: rgba(255,255,255,0.5); }
+        .map-legal { margin-top: 32px; }
+        .map-legal p { font-size: 0.8125rem; color: rgba(255,255,255,0.4); }
+        .map-embed { min-height: 480px; }
+        .map-embed iframe, .map-embed script { width: 100%; height: 100%; border: 0; }
 
-</style>
-```
+        @media (max-width: 768px) {
+            .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+            .contact-section { padding: 60px 20px; }
+            .form-row { grid-template-columns: 1fr; }
+            .map-grid { grid-template-columns: 1fr; }
+            .map-content { padding: 40px 24px; }
+            .map-embed { min-height: 300px; }
+        }
 
+        /* ===== DARK MODE CONTACT/MAP OVERRIDES ===== */
+        @media (prefers-color-scheme: dark) {
+            .contact-section {
+                background-color: #FFFFFF !important;
+            }
+            .contact-form-box {
+                background-color: #FFFFFF !important;
+            }
+            .contact-row {
+                background-color: #FAFDF7 !important;
+            }
+            .contact-left h2, .contact-form-box h3, .contact-info p, .contact-info a,
+            .form-group label {
+                color: #1B2E1B !important;
+            }
+            .contact-left > p, .contact-form-box > p {
+                color: #4A6349 !important;
+            }
+            .form-group input, .form-group select, .form-group textarea {
+                background-color: #FAFDF7 !important;
+                color: #1B2E1B !important;
+            }
+        }
+
+        /* ===== DOC MODALS ===== */
+        .doc-modal-overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(31, 46, 36, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .doc-modal-overlay.active { display: flex; }
+        .doc-modal {
+            background: white;
+            border-radius: 20px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 80vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: docModalIn 0.3s ease;
+        }
+        @keyframes docModalIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        .doc-modal-header {
+            padding: 24px 28px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .doc-modal-header h3 { font-size: 1.25rem; font-family: 'Playfair Display', serif; color: var(--text); margin: 0; }
+        .doc-modal-close {
+            width: 40px; height: 40px;
+            background: var(--off-white);
+            border: none; border-radius: 50%;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s;
+            flex-shrink: 0;
+        }
+        .doc-modal-close:hover { background: var(--green-pale); }
+        .doc-modal-close svg { width: 20px; height: 20px; color: var(--green-dark); }
+        .doc-modal-body {
+            padding: 28px;
+            overflow-y: auto;
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+        .doc-modal-body h4 { font-size: 1rem; font-weight: 600; margin: 20px 0 10px; }
+        .doc-modal-body p { margin-bottom: 12px; }
+        .doc-modal-body a { color: var(--green-dark); }
+        .doc-link { color: var(--green-dark); text-decoration: underline; cursor: pointer; }
+        .doc-link:hover { color: var(--green); }
+
+    </style>
 </head>
 <body>
 
 <!-- HEADER -->
-
 <header class="header" id="header">
     <div class="header-inner">
-        <a href="#" class="logo">
+        <a href="index.html" class="logo">
             <div class="logo-icon">✚</div>
             <div class="logo-text">Финист <span>Мед</span></div>
         </a>
@@ -1365,7 +1360,6 @@
 </header>
 
 <!-- HERO -->
-
 <section class="hero">
     <div class="hero-decor hero-decor-1"></div>
     <div class="hero-decor hero-decor-2"></div>
@@ -1406,7 +1400,6 @@
 </section>
 
 <!-- INTRO -->
-
 <section class="intro reveal">
     <div class="section-label">О курортном лечении</div>
     <h2>Клиника или <em>курорт</em>?</h2>
@@ -1415,7 +1408,6 @@
 </section>
 
 <!-- КАК ВЫБРАТЬ -->
-
 <section class="choose" id="choose">
     <div class="choose-inner">
         <div style="text-align:center;" class="reveal">
@@ -1443,7 +1435,6 @@
 </section>
 
 <!-- ТИПЫ КУРОРТОВ -->
-
 <section class="resorts" id="types">
     <div class="resorts-inner">
         <div class="resorts-header reveal">
@@ -1451,206 +1442,202 @@
             <h2>Типы курортов <em>России</em></h2>
         </div>
 
-```
-    <div class="resort-tabs reveal">
-        <button class="resort-tab active" data-tab="balneo">Бальнеологический</button>
-        <button class="resort-tab" data-tab="balneo-mud">Бальнеогрязевой</button>
-        <button class="resort-tab" data-tab="mud">Грязевой</button>
-        <button class="resort-tab" data-tab="kumys">Кумысолечебный</button>
-        <button class="resort-tab" data-tab="climate">Климатический</button>
+        <div class="resort-tabs reveal">
+            <button class="resort-tab active" data-tab="balneo">Бальнеологический</button>
+            <button class="resort-tab" data-tab="balneo-mud">Бальнеогрязевой</button>
+            <button class="resort-tab" data-tab="mud">Грязевой</button>
+            <button class="resort-tab" data-tab="kumys">Кумысолечебный</button>
+            <button class="resort-tab" data-tab="climate">Климатический</button>
+        </div>
+
+        <div class="resort-panels">
+            <!-- Бальнеологический -->
+            <div class="resort-panel active" id="panel-balneo">
+                <div class="resort-card-main">
+                    <div class="resort-card-header">
+                        <div class="resort-type-icon balneo">💧</div>
+                        <div>
+                            <h3>Бальнеологические курорты</h3>
+                            <p class="resort-subtitle">Природные минеральные воды для ванн и/или питьевого лечения. Различаются по составу вод — каждый тип имеет свои лечебные показания.</p>
+                        </div>
+                    </div>
+                    <div class="resort-card-body">
+                        <div class="water-types">
+                            <div class="water-type-card">
+                                <h5>Углекислые воды</h5>
+                                <p>Дарасун, Ессентуки, Железноводск, Пятигорск, Шиванда, Шмаковка</p>
+                            </div>
+                            <div class="water-type-card">
+                                <h5>Радоновые воды</h5>
+                                <p>Белокуриха, Красноусольск, Пятигорск, Увильды, Усть-Кут</p>
+                            </div>
+                            <div class="water-type-card">
+                                <h5>Сероводородные воды</h5>
+                                <p>Ангара, Бакирово, Горячий Ключ, Ейск, Сочи, Усть-Качка, Хилово</p>
+                            </div>
+                            <div class="water-type-card">
+                                <h5>Азотные термальные воды</h5>
+                                <p>Горячинск, Кульдур, Паратунка, Талая</p>
+                            </div>
+                            <div class="water-type-card">
+                                <h5>Йодо-бромные воды</h5>
+                                <p>Ейск, Нальчик, Усть-Качка, Хадыженск</p>
+                            </div>
+                            <div class="water-type-card">
+                                <h5>Железистые воды</h5>
+                                <p>Гай, Кука, Курьи, Марциальные Воды, Медвежье, Шиванда</p>
+                            </div>
+                            <div class="water-type-card">
+                                <h5>Хлоридные и сульфатные воды</h5>
+                                <p>Ангара, Большой Тараскуль, Кашин, Нальчик, Старая Русса, Усолье, Хилово</p>
+                            </div>
+                            <div class="water-type-card">
+                                <h5>Питьевые минеральные воды</h5>
+                                <p>Горячий Ключ, Ессентуки, Железноводск, Кашин, Кисловодск и другие</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Грязевой -->
+            <div class="resort-panel" id="panel-balneo-mud">
+                <div class="resort-card-main">
+                    <div class="resort-card-header">
+                        <div class="resort-type-icon balneo-mud">🧖</div>
+                        <div>
+                            <h3>Бальнеогрязевые курорты</h3>
+                            <p class="resort-subtitle">Минеральные воды + лечебные грязи — наиболее универсальный тип курортов, сочетающий сразу два мощных природных лечебных фактора.</p>
+                        </div>
+                    </div>
+                    <div class="resort-card-body">
+                        <div class="resort-locations">
+                            <h4>📍 Курорты и регионы</h4>
+                            <div class="location-tags">
+                                <span class="location-tag">Бакирово</span>
+                                <span class="location-tag">Большой Тараскуль</span>
+                                <span class="location-tag">Гай</span>
+                                <span class="location-tag">Ессентуки</span>
+                                <span class="location-tag">Железноводск</span>
+                                <span class="location-tag">Горячий Ключ</span>
+                                <span class="location-tag">Карачи</span>
+                                <span class="location-tag">Кашин</span>
+                                <span class="location-tag">Красноусольск</span>
+                                <span class="location-tag">Липецк</span>
+                                <span class="location-tag">Марциальные воды</span>
+                                <span class="location-tag">Нальчик</span>
+                                <span class="location-tag">Пятигорск</span>
+                                <span class="location-tag">Старая Русса</span>
+                                <span class="location-tag">Усолье</span>
+                                <span class="location-tag">Шира</span>
+                                <span class="location-tag">Евпатория</span>
+                                <span class="location-tag">Саки</span>
+                                <span class="location-tag">Феодосия</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Грязевой -->
+            <div class="resort-panel" id="panel-mud">
+                <div class="resort-card-main">
+                    <div class="resort-card-header">
+                        <div class="resort-type-icon mud">🫧</div>
+                        <div>
+                            <h3>Грязевые курорты</h3>
+                            <p class="resort-subtitle">Лечебные грязи — иловые, торфяные и сапропелевые — используются для аппликаций, обёртываний и других процедур с мощным восстановительным эффектом.</p>
+                        </div>
+                    </div>
+                    <div class="resort-card-body">
+                        <div class="resort-locations">
+                            <h4>📍 Курорты и регионы</h4>
+                            <div class="location-tags">
+                                <span class="location-tag">Бакирово</span>
+                                <span class="location-tag">Большой Тараскуль</span>
+                                <span class="location-tag">Евпатория</span>
+                                <span class="location-tag">Ейск</span>
+                                <span class="location-tag">Зеленый Городок</span>
+                                <span class="location-tag">Калининградское взморье</span>
+                                <span class="location-tag">Ленинградская курортная зона</span>
+                                <span class="location-tag">Липецк</span>
+                                <span class="location-tag">Марциальные Воды</span>
+                                <span class="location-tag">Медвежье</span>
+                                <span class="location-tag">Саки</span>
+                                <span class="location-tag">Соль-Илецк</span>
+                                <span class="location-tag">Феодосия</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Кумысолечебный -->
+            <div class="resort-panel" id="panel-kumys">
+                <div class="resort-card-main">
+                    <div class="resort-card-header">
+                        <div class="resort-type-icon kumys">🐴</div>
+                        <div>
+                            <h3>Климато-кумысолечебные курорты</h3>
+                            <p class="resort-subtitle">Уникальное сочетание степного или лесостепного климата с кумысолечением — традиционным методом оздоровления кисломолочным напитком из кобыльего молока.</p>
+                        </div>
+                    </div>
+                    <div class="resort-card-body">
+                        <div class="resort-locations">
+                            <h4>📍 Курорты Башкирии, Оренбуржья и Алтая</h4>
+                            <div class="location-tags">
+                                <span class="location-tag">Аксаково</span>
+                                <span class="location-tag">Аксеново</span>
+                                <span class="location-tag">Лебяжье</span>
+                                <span class="location-tag">Шафраново</span>
+                                <span class="location-tag">Юматово</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Климатический -->
+            <div class="resort-panel" id="panel-climate">
+                <div class="resort-card-main">
+                    <div class="resort-card-header">
+                        <div class="resort-type-icon climate">🌤</div>
+                        <div>
+                            <h3>Климатические курорты</h3>
+                            <p class="resort-subtitle">Целебный климат и ландшафтотерапия — природа сама становится лекарством. Делятся на морские, горные, степные и лесные.</p>
+                        </div>
+                    </div>
+                    <div class="resort-card-body">
+                        <div class="climate-subtypes">
+                            <div class="climate-card">
+                                <div class="climate-emoji">🌊</div>
+                                <h5>Морские</h5>
+                                <p>Черноморское побережье Кавказа и Крыма: Анапа, Геленджик, Туапсе, Сочи, Алупка, Алушта, Ялта, Форос. Выборгский и Калининградский курортные районы.</p>
+                            </div>
+                            <div class="climate-card">
+                                <div class="climate-emoji">⛰️</div>
+                                <h5>Горные</h5>
+                                <p>Курорты Большого Кавказа: Нальчик, Теберда, Домбай, Архыз. Прибайкалье и Забайкалье: Аршан, Ямаровка, Олентуй.</p>
+                            </div>
+                            <div class="climate-card">
+                                <div class="climate-emoji">🌾</div>
+                                <h5>Степные</h5>
+                                <p>Курорты Таганрога, Азова; Волгоградской, Саратовской, Астраханской областей и Калмыкии.</p>
+                            </div>
+                            <div class="climate-card">
+                                <div class="climate-emoji">🌲</div>
+                                <h5>Лесные</h5>
+                                <p>Архыз, Кисловодск, Лагонаки, Пятигорск, Селигер, Сочи, Теберда, курорты Урала и Сибири.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="resort-panels">
-        <!-- Бальнеологический -->
-        <div class="resort-panel active" id="panel-balneo">
-            <div class="resort-card-main">
-                <div class="resort-card-header">
-                    <div class="resort-type-icon balneo">💧</div>
-                    <div>
-                        <h3>Бальнеологические курорты</h3>
-                        <p class="resort-subtitle">Природные минеральные воды для ванн и/или питьевого лечения. Различаются по составу вод — каждый тип имеет свои лечебные показания.</p>
-                    </div>
-                </div>
-                <div class="resort-card-body">
-                    <div class="water-types">
-                        <div class="water-type-card">
-                            <h5>Углекислые воды</h5>
-                            <p>Дарасун, Ессентуки, Железноводск, Пятигорск, Шиванда, Шмаковка</p>
-                        </div>
-                        <div class="water-type-card">
-                            <h5>Радоновые воды</h5>
-                            <p>Белокуриха, Красноусольск, Пятигорск, Увильды, Усть-Кут</p>
-                        </div>
-                        <div class="water-type-card">
-                            <h5>Сероводородные воды</h5>
-                            <p>Ангара, Бакирово, Горячий Ключ, Ейск, Сочи, Усть-Качка, Хилово</p>
-                        </div>
-                        <div class="water-type-card">
-                            <h5>Азотные термальные воды</h5>
-                            <p>Горячинск, Кульдур, Паратунка, Талая</p>
-                        </div>
-                        <div class="water-type-card">
-                            <h5>Йодо-бромные воды</h5>
-                            <p>Ейск, Нальчик, Усть-Качка, Хадыженск</p>
-                        </div>
-                        <div class="water-type-card">
-                            <h5>Железистые воды</h5>
-                            <p>Гай, Кука, Курьи, Марциальные Воды, Медвежье, Шиванда</p>
-                        </div>
-                        <div class="water-type-card">
-                            <h5>Хлоридные и сульфатные воды</h5>
-                            <p>Ангара, Большой Тараскуль, Кашин, Нальчик, Старая Русса, Усолье, Хилово</p>
-                        </div>
-                        <div class="water-type-card">
-                            <h5>Питьевые минеральные воды</h5>
-                            <p>Горячий Ключ, Ессентуки, Железноводск, Кашин, Кисловодск и другие</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Грязевой -->
-        <div class="resort-panel" id="panel-balneo-mud">
-            <div class="resort-card-main">
-                <div class="resort-card-header">
-                    <div class="resort-type-icon balneo-mud">🧖</div>
-                    <div>
-                        <h3>Бальнеогрязевые курорты</h3>
-                        <p class="resort-subtitle">Минеральные воды + лечебные грязи — наиболее универсальный тип курортов, сочетающий сразу два мощных природных лечебных фактора.</p>
-                    </div>
-                </div>
-                <div class="resort-card-body">
-                    <div class="resort-locations">
-                        <h4>📍 Курорты и регионы</h4>
-                        <div class="location-tags">
-                            <span class="location-tag">Бакирово</span>
-                            <span class="location-tag">Большой Тараскуль</span>
-                            <span class="location-tag">Гай</span>
-                            <span class="location-tag">Ессентуки</span>
-                            <span class="location-tag">Железноводск</span>
-                            <span class="location-tag">Горячий Ключ</span>
-                            <span class="location-tag">Карачи</span>
-                            <span class="location-tag">Кашин</span>
-                            <span class="location-tag">Красноусольск</span>
-                            <span class="location-tag">Липецк</span>
-                            <span class="location-tag">Марциальные воды</span>
-                            <span class="location-tag">Нальчик</span>
-                            <span class="location-tag">Пятигорск</span>
-                            <span class="location-tag">Старая Русса</span>
-                            <span class="location-tag">Усолье</span>
-                            <span class="location-tag">Шира</span>
-                            <span class="location-tag">Евпатория</span>
-                            <span class="location-tag">Саки</span>
-                            <span class="location-tag">Феодосия</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Грязевой -->
-        <div class="resort-panel" id="panel-mud">
-            <div class="resort-card-main">
-                <div class="resort-card-header">
-                    <div class="resort-type-icon mud">🫧</div>
-                    <div>
-                        <h3>Грязевые курорты</h3>
-                        <p class="resort-subtitle">Лечебные грязи — иловые, торфяные и сапропелевые — используются для аппликаций, обёртываний и других процедур с мощным восстановительным эффектом.</p>
-                    </div>
-                </div>
-                <div class="resort-card-body">
-                    <div class="resort-locations">
-                        <h4>📍 Курорты и регионы</h4>
-                        <div class="location-tags">
-                            <span class="location-tag">Бакирово</span>
-                            <span class="location-tag">Большой Тараскуль</span>
-                            <span class="location-tag">Евпатория</span>
-                            <span class="location-tag">Ейск</span>
-                            <span class="location-tag">Зеленый Городок</span>
-                            <span class="location-tag">Калининградское взморье</span>
-                            <span class="location-tag">Ленинградская курортная зона</span>
-                            <span class="location-tag">Липецк</span>
-                            <span class="location-tag">Марциальные Воды</span>
-                            <span class="location-tag">Медвежье</span>
-                            <span class="location-tag">Саки</span>
-                            <span class="location-tag">Соль-Илецк</span>
-                            <span class="location-tag">Феодосия</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Кумысолечебный -->
-        <div class="resort-panel" id="panel-kumys">
-            <div class="resort-card-main">
-                <div class="resort-card-header">
-                    <div class="resort-type-icon kumys">🐴</div>
-                    <div>
-                        <h3>Климато-кумысолечебные курорты</h3>
-                        <p class="resort-subtitle">Уникальное сочетание степного или лесостепного климата с кумысолечением — традиционным методом оздоровления кисломолочным напитком из кобыльего молока.</p>
-                    </div>
-                </div>
-                <div class="resort-card-body">
-                    <div class="resort-locations">
-                        <h4>📍 Курорты Башкирии, Оренбуржья и Алтая</h4>
-                        <div class="location-tags">
-                            <span class="location-tag">Аксаково</span>
-                            <span class="location-tag">Аксеново</span>
-                            <span class="location-tag">Лебяжье</span>
-                            <span class="location-tag">Шафраново</span>
-                            <span class="location-tag">Юматово</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Климатический -->
-        <div class="resort-panel" id="panel-climate">
-            <div class="resort-card-main">
-                <div class="resort-card-header">
-                    <div class="resort-type-icon climate">🌤</div>
-                    <div>
-                        <h3>Климатические курорты</h3>
-                        <p class="resort-subtitle">Целебный климат и ландшафтотерапия — природа сама становится лекарством. Делятся на морские, горные, степные и лесные.</p>
-                    </div>
-                </div>
-                <div class="resort-card-body">
-                    <div class="climate-subtypes">
-                        <div class="climate-card">
-                            <div class="climate-emoji">🌊</div>
-                            <h5>Морские</h5>
-                            <p>Черноморское побережье Кавказа и Крыма: Анапа, Геленджик, Туапсе, Сочи, Алупка, Алушта, Ялта, Форос. Выборгский и Калининградский курортные районы.</p>
-                        </div>
-                        <div class="climate-card">
-                            <div class="climate-emoji">⛰️</div>
-                            <h5>Горные</h5>
-                            <p>Курорты Большого Кавказа: Нальчик, Теберда, Домбай, Архыз. Прибайкалье и Забайкалье: Аршан, Ямаровка, Олентуй.</p>
-                        </div>
-                        <div class="climate-card">
-                            <div class="climate-emoji">🌾</div>
-                            <h5>Степные</h5>
-                            <p>Курорты Таганрога, Азова; Волгоградской, Саратовской, Астраханской областей и Калмыкии.</p>
-                        </div>
-                        <div class="climate-card">
-                            <div class="climate-emoji">🌲</div>
-                            <h5>Лесные</h5>
-                            <p>Архыз, Кисловодск, Лагонаки, Пятигорск, Селигер, Сочи, Теберда, курорты Урала и Сибири.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-```
-
 </section>
 
 <!-- ВАЖНО ЗНАТЬ -->
-
 <section class="notes" id="notes">
     <div class="notes-inner">
         <div style="text-align:center;" class="reveal">
@@ -1691,7 +1678,6 @@
 </section>
 
 <!-- ПИТАНИЕ -->
-
 <section class="nutrition" id="nutrition">
     <div class="nutrition-inner">
         <div class="section-label">Забота о деталях</div>
@@ -1713,7 +1699,6 @@
 </section>
 
 <!-- ПОПУЛЯРНЫЕ САНАТОРИИ -->
-
 <section class="popular" id="popular">
     <div class="popular-inner">
         <div class="popular-header reveal">
@@ -1721,153 +1706,149 @@
             <h2>Популярные санатории <em>у наших клиентов</em></h2>
         </div>
 
-```
-    <div class="carousel-wrapper reveal">
-        <div class="carousel-track-container">
-            <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-wrapper reveal">
+            <div class="carousel-track-container">
+                <div class="carousel-track" id="carouselTrack">
 
-                <!-- 1. Усть-Качка -->
-                <div class="carousel-card">
-                    <div class="carousel-img-placeholder img-ust-kachka">
-                        <span>🏨</span>
-                        <div class="carousel-img-overlay"></div>
-                        <div class="carousel-badge">Бальнеологический</div>
-                        <div class="carousel-distance">50 км от Перми</div>
-                    </div>
-                    <div class="carousel-body">
-                        <h4>Курорт Усть-Качка</h4>
-                        <div class="carousel-location">📍 Пермский край, с. Усть-Качка</div>
-                        <div class="carousel-profiles">
-                            <span class="carousel-profile-tag">Опорно-двигательный аппарат</span>
-                            <span class="carousel-profile-tag">Кожные заболевания</span>
-                            <span class="carousel-profile-tag">Сердце и сосуды</span>
-                            <span class="carousel-profile-tag">Нервная система</span>
+                    <!-- 1. Усть-Качка -->
+                    <div class="carousel-card">
+                        <div class="carousel-img-placeholder img-ust-kachka">
+                            <span>🏨</span>
+                            <div class="carousel-img-overlay"></div>
+                            <div class="carousel-badge">Бальнеологический</div>
+                            <div class="carousel-distance">50 км от Перми</div>
                         </div>
-                        <p class="carousel-desc">Крупнейший бальнеологический курорт Урала. Три вида минеральных вод — сероводородная, йодобромная и питьевая. Более 60 методик лечения.</p>
-                    </div>
-                </div>
-
-                <!-- 2. Ключи -->
-                <div class="carousel-card">
-                    <div class="carousel-img-placeholder img-klyuchi">
-                        <span>🌿</span>
-                        <div class="carousel-img-overlay"></div>
-                        <div class="carousel-badge">Бальнеогрязевой</div>
-                        <div class="carousel-distance">154 км от Перми</div>
-                    </div>
-                    <div class="carousel-body">
-                        <h4>Курорт Ключи</h4>
-                        <div class="carousel-location">📍 Пермский край, Суксунский р-н</div>
-                        <div class="carousel-profiles">
-                            <span class="carousel-profile-tag">Опорно-двигательный аппарат</span>
-                            <span class="carousel-profile-tag">Гинекология</span>
-                            <span class="carousel-profile-tag">Кожные заболевания</span>
-                            <span class="carousel-profile-tag">Урология</span>
+                        <div class="carousel-body">
+                            <h4>Курорт Усть-Качка</h4>
+                            <div class="carousel-location">📍 Пермский край, с. Усть-Качка</div>
+                            <div class="carousel-profiles">
+                                <span class="carousel-profile-tag">Опорно-двигательный аппарат</span>
+                                <span class="carousel-profile-tag">Кожные заболевания</span>
+                                <span class="carousel-profile-tag">Сердце и сосуды</span>
+                                <span class="carousel-profile-tag">Нервная система</span>
+                            </div>
+                            <p class="carousel-desc">Крупнейший бальнеологический курорт Урала. Три вида минеральных вод — сероводородная, йодобромная и питьевая. Более 60 методик лечения.</p>
                         </div>
-                        <p class="carousel-desc">Старейший курорт Пермского края с 1826 года. Сероводородная вода, иловая сульфидная грязь и питьевая минеральная вода «Ключи» в долине Уральских гор.</p>
                     </div>
-                </div>
 
-                <!-- 3. Демидково -->
-                <div class="carousel-card">
-                    <div class="carousel-img-placeholder img-demidkovo">
-                        <span>🏖</span>
-                        <div class="carousel-img-overlay"></div>
-                        <div class="carousel-badge">Бальнеогрязевой</div>
-                        <div class="carousel-distance">40 км от Перми</div>
-                    </div>
-                    <div class="carousel-body">
-                        <h4>Санаторий Демидково</h4>
-                        <div class="carousel-location">📍 Пермский край, д. Демидково</div>
-                        <div class="carousel-profiles">
-                            <span class="carousel-profile-tag">Нервная система</span>
-                            <span class="carousel-profile-tag">Органы пищеварения</span>
-                            <span class="carousel-profile-tag">Опорно-двигательный аппарат</span>
-                            <span class="carousel-profile-tag">Органы дыхания</span>
+                    <!-- 2. Ключи -->
+                    <div class="carousel-card">
+                        <div class="carousel-img-placeholder img-klyuchi">
+                            <span>🌿</span>
+                            <div class="carousel-img-overlay"></div>
+                            <div class="carousel-badge">Бальнеогрязевой</div>
+                            <div class="carousel-distance">154 км от Перми</div>
                         </div>
-                        <p class="carousel-desc">Современный курорт на берегу Камы в сосновом бору. Грязелечение, сероводородные и йодобромные ванны, развитый SPA-центр и детские программы.</p>
-                    </div>
-                </div>
-
-                <!-- 4. Белокуриха -->
-                <div class="carousel-card">
-                    <div class="carousel-img-placeholder img-belokurikha">
-                        <span>⛰️</span>
-                        <div class="carousel-img-overlay"></div>
-                        <div class="carousel-badge">Бальнеологический</div>
-                        <div class="carousel-distance">Алтайский край</div>
-                    </div>
-                    <div class="carousel-body">
-                        <h4>Курорт Белокуриха</h4>
-                        <div class="carousel-location">📍 Алтайский край, г. Белокуриха</div>
-                        <div class="carousel-profiles">
-                            <span class="carousel-profile-tag">Сердце и сосуды</span>
-                            <span class="carousel-profile-tag">Нервная система</span>
-                            <span class="carousel-profile-tag">Эндокринная система</span>
-                            <span class="carousel-profile-tag">Мочеполовая система</span>
+                        <div class="carousel-body">
+                            <h4>Курорт Ключи</h4>
+                            <div class="carousel-location">📍 Пермский край, Суксунский р-н</div>
+                            <div class="carousel-profiles">
+                                <span class="carousel-profile-tag">Опорно-двигательный аппарат</span>
+                                <span class="carousel-profile-tag">Гинекология</span>
+                                <span class="carousel-profile-tag">Кожные заболевания</span>
+                                <span class="carousel-profile-tag">Урология</span>
+                            </div>
+                            <p class="carousel-desc">Старейший курорт Пермского края с 1826 года. Сероводородная вода, иловая сульфидная грязь и питьевая минеральная вода «Ключи» в долине Уральских гор.</p>
                         </div>
-                        <p class="carousel-desc">Федеральный курорт в предгорьях Алтая. Радоновые термальные источники, сульфидные грязи, пантовые ванны. 250+ солнечных дней в году.</p>
                     </div>
-                </div>
 
-                <!-- 5. Кисловодск -->
-                <div class="carousel-card">
-                    <div class="carousel-img-placeholder img-kislovodsk">
-                        <span>🏛</span>
-                        <div class="carousel-img-overlay"></div>
-                        <div class="carousel-badge">Бальнеологический</div>
-                        <div class="carousel-distance">КМВ</div>
-                    </div>
-                    <div class="carousel-body">
-                        <h4>Кисловодск</h4>
-                        <div class="carousel-location">📍 Ставропольский край, г. Кисловодск</div>
-                        <div class="carousel-profiles">
-                            <span class="carousel-profile-tag">Сердце и сосуды</span>
-                            <span class="carousel-profile-tag">Органы дыхания</span>
-                            <span class="carousel-profile-tag">Нервная система</span>
-                            <span class="carousel-profile-tag">Органы пищеварения</span>
+                    <!-- 3. Демидково -->
+                    <div class="carousel-card">
+                        <div class="carousel-img-placeholder img-demidkovo">
+                            <span>🏖</span>
+                            <div class="carousel-img-overlay"></div>
+                            <div class="carousel-badge">Бальнеогрязевой</div>
+                            <div class="carousel-distance">40 км от Перми</div>
                         </div>
-                        <p class="carousel-desc">Жемчужина Кавказских Минеральных Вод. Знаменитый «Нарзан», крупнейший курортный парк Европы, уникальный горный микроклимат на высоте 800–1200 м.</p>
-                    </div>
-                </div>
-
-                <!-- 6. Сочи -->
-                <div class="carousel-card">
-                    <div class="carousel-img-placeholder img-sochi">
-                        <span>🌊</span>
-                        <div class="carousel-img-overlay"></div>
-                        <div class="carousel-badge">Климатический</div>
-                        <div class="carousel-distance">Черноморское побережье</div>
-                    </div>
-                    <div class="carousel-body">
-                        <h4>Сочи — Мацеста</h4>
-                        <div class="carousel-location">📍 Краснодарский край, г. Сочи</div>
-                        <div class="carousel-profiles">
-                            <span class="carousel-profile-tag">Опорно-двигательный аппарат</span>
-                            <span class="carousel-profile-tag">Кожные заболевания</span>
-                            <span class="carousel-profile-tag">Гинекология</span>
-                            <span class="carousel-profile-tag">Органы дыхания</span>
+                        <div class="carousel-body">
+                            <h4>Санаторий Демидково</h4>
+                            <div class="carousel-location">📍 Пермский край, д. Демидково</div>
+                            <div class="carousel-profiles">
+                                <span class="carousel-profile-tag">Нервная система</span>
+                                <span class="carousel-profile-tag">Органы пищеварения</span>
+                                <span class="carousel-profile-tag">Опорно-двигательный аппарат</span>
+                                <span class="carousel-profile-tag">Органы дыхания</span>
+                            </div>
+                            <p class="carousel-desc">Современный курорт на берегу Камы в сосновом бору. Грязелечение, сероводородные и йодобромные ванны, развитый SPA-центр и детские программы.</p>
                         </div>
-                        <p class="carousel-desc">Морской климатический курорт с мацестинскими сероводородными источниками. Сочетание морского воздуха, субтропического климата и бальнеотерапии.</p>
                     </div>
-                </div>
 
+                    <!-- 4. Белокуриха -->
+                    <div class="carousel-card">
+                        <div class="carousel-img-placeholder img-belokurikha">
+                            <span>⛰️</span>
+                            <div class="carousel-img-overlay"></div>
+                            <div class="carousel-badge">Бальнеологический</div>
+                            <div class="carousel-distance">Алтайский край</div>
+                        </div>
+                        <div class="carousel-body">
+                            <h4>Курорт Белокуриха</h4>
+                            <div class="carousel-location">📍 Алтайский край, г. Белокуриха</div>
+                            <div class="carousel-profiles">
+                                <span class="carousel-profile-tag">Сердце и сосуды</span>
+                                <span class="carousel-profile-tag">Нервная система</span>
+                                <span class="carousel-profile-tag">Эндокринная система</span>
+                                <span class="carousel-profile-tag">Мочеполовая система</span>
+                            </div>
+                            <p class="carousel-desc">Федеральный курорт в предгорьях Алтая. Радоновые термальные источники, сульфидные грязи, пантовые ванны. 250+ солнечных дней в году.</p>
+                        </div>
+                    </div>
+
+                    <!-- 5. Кисловодск -->
+                    <div class="carousel-card">
+                        <div class="carousel-img-placeholder img-kislovodsk">
+                            <span>🏛</span>
+                            <div class="carousel-img-overlay"></div>
+                            <div class="carousel-badge">Бальнеологический</div>
+                            <div class="carousel-distance">КМВ</div>
+                        </div>
+                        <div class="carousel-body">
+                            <h4>Кисловодск</h4>
+                            <div class="carousel-location">📍 Ставропольский край, г. Кисловодск</div>
+                            <div class="carousel-profiles">
+                                <span class="carousel-profile-tag">Сердце и сосуды</span>
+                                <span class="carousel-profile-tag">Органы дыхания</span>
+                                <span class="carousel-profile-tag">Нервная система</span>
+                                <span class="carousel-profile-tag">Органы пищеварения</span>
+                            </div>
+                            <p class="carousel-desc">Жемчужина Кавказских Минеральных Вод. Знаменитый «Нарзан», крупнейший курортный парк Европы, уникальный горный микроклимат на высоте 800–1200 м.</p>
+                        </div>
+                    </div>
+
+                    <!-- 6. Сочи -->
+                    <div class="carousel-card">
+                        <div class="carousel-img-placeholder img-sochi">
+                            <span>🌊</span>
+                            <div class="carousel-img-overlay"></div>
+                            <div class="carousel-badge">Климатический</div>
+                            <div class="carousel-distance">Черноморское побережье</div>
+                        </div>
+                        <div class="carousel-body">
+                            <h4>Сочи — Мацеста</h4>
+                            <div class="carousel-location">📍 Краснодарский край, г. Сочи</div>
+                            <div class="carousel-profiles">
+                                <span class="carousel-profile-tag">Опорно-двигательный аппарат</span>
+                                <span class="carousel-profile-tag">Кожные заболевания</span>
+                                <span class="carousel-profile-tag">Гинекология</span>
+                                <span class="carousel-profile-tag">Органы дыхания</span>
+                            </div>
+                            <p class="carousel-desc">Морской климатический курорт с мацестинскими сероводородными источниками. Сочетание морского воздуха, субтропического климата и бальнеотерапии.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="carousel-nav">
+                <button class="carousel-btn" id="carouselPrev" aria-label="Назад">←</button>
+                <div class="carousel-dots" id="carouselDots"></div>
+                <button class="carousel-btn" id="carouselNext" aria-label="Вперёд">→</button>
             </div>
         </div>
-
-        <div class="carousel-nav">
-            <button class="carousel-btn" id="carouselPrev" aria-label="Назад">←</button>
-            <div class="carousel-dots" id="carouselDots"></div>
-            <button class="carousel-btn" id="carouselNext" aria-label="Вперёд">→</button>
-        </div>
     </div>
-</div>
-```
-
 </section>
 
 <!-- КОНТАКТЫ -->
-
 <section class="contact-section" id="contact">
     <div class="contact-inner">
         <div class="contact-layout reveal">
@@ -1915,7 +1896,6 @@
 </section>
 
 <!-- НАШ ОФИС -->
-
 <section class="map-section">
     <div class="map-grid">
         <div class="map-content">
@@ -1933,7 +1913,6 @@
 </section>
 
 <!-- МОДАЛЬНЫЕ ОКНА ДОКУМЕНТОВ -->
-
 <div class="doc-modal-overlay" id="privacyModal">
     <div class="doc-modal">
         <div class="doc-modal-header"><h3>Положение о конфиденциальности</h3><button class="doc-modal-close" onclick="closeDocModal('privacy')" aria-label="Закрыть"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button></div>
@@ -2006,11 +1985,10 @@
 </div>
 
 <!-- FOOTER -->
-
 <footer class="footer">
     <div class="footer-brand">Финист Мед</div>
     <p>Подразделение медицинского туризма ТК «Финист Трэвел»</p>
-    <p style="margin-top:12px;">© 2026 Финист Мед · <a href="#">Политика конфиденциальности</a></p>
+    <p style="margin-top:12px;">© 2026 Финист Мед · <a href="javascript:void(0)" class="doc-link" data-modal="privacy">Политика конфиденциальности</a></p>
 </footer>
 
 <script>
