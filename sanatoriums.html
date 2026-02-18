@@ -1885,7 +1885,6 @@
                         <div class="form-group"><label>Телефон <span class="req">*</span></label><input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required></div>
                         <div class="form-group"><label>E-mail</label><input type="email" name="email" placeholder="email@example.com"></div>
                     </div>
-                    <div class="form-group"><label>Предпочитаемый мессенджер</label><select name="messenger"><option value="">Выберите мессенджер</option><option value="telegram">Telegram</option><option value="whatsapp">WhatsApp</option><option value="viber">Viber</option></select></div>
                     <div class="form-group"><label>Что вас беспокоит? <span class="req">*</span></label><textarea name="message" placeholder="Опишите диагноз или направление лечения, желаемые даты, пожелания по курорту..." required></textarea></div>
                     <div class="form-checkbox"><input type="checkbox" id="consent" name="consent" required><label for="consent">Я принимаю <a href="javascript:void(0)" class="doc-link" data-modal="privacy">Положение о конфиденциальности</a> и даю <a href="javascript:void(0)" class="doc-link" data-modal="consent">Согласие</a> на обработку персональных данных</label></div>
                     <div class="form-submit"><button type="submit" class="btn-primary" id="submitBtn" disabled>Отправить заявку</button></div>
@@ -1959,7 +1958,7 @@
             <p>— Фамилия, имя, отчество;</p>
             <p>— Номер контактного телефона;</p>
             <p>— Адрес электронной почты (e-mail);</p>
-            <p>— Предпочитаемый мессенджер для связи;</p>
+            <p>— E-mail адрес;</p>
             <p>— Сведения о состоянии здоровья, диагнозах, медицинских документах (предоставляемые Пользователем добровольно);</p>
             <p>— Иные данные, добровольно предоставленные Пользователем.</p>
             <h4>3. ЦЕЛИ ОБРАБОТКИ</h4>
@@ -2101,7 +2100,7 @@
 👤 Имя: ${data.name}
 📞 Телефон: ${data.phone}
 📧 Email: ${data.email || 'не указан'}
-💬 Мессенджер: ${data.messenger || 'не указан'}
+📧 E-mail: ${data.email || 'не указан'}
 📝 Сообщение: ${data.message || 'не указано'}
 
 ⏰ Дата: ${new Date().toLocaleString('ru-RU')}
@@ -2150,7 +2149,7 @@
                     name: formData.get('name'),
                     phone: formData.get('phone'),
                     email: formData.get('email'),
-                    messenger: formData.get('messenger'),
+                    email: formData.get('email'),
                     message: formData.get('message')
                 };
 
