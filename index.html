@@ -387,12 +387,36 @@
         .step-num { width: 44px; height: 44px; background: var(--accent); color: var(--night); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant', serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 20px; }
         .step-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.0625rem; font-weight: 600; margin-bottom: 8px; }
         .step-card p { font-size: 0.9375rem; color: var(--bark); line-height: 1.6; }
-        /* Destinations */
+        /* Destinations - Filterable Grid */
         .destinations { background: var(--cloud); position: relative; overflow: hidden; }
         .destinations .organic-shape { width: 400px; height: 400px; background: var(--primary-light); top: 50%; right: -200px; transform: translateY(-50%); opacity: 0.3; }
-        .destinations-carousel { position: relative; z-index: 1; }
-        .destinations-wrapper { overflow: hidden; margin: 0 -12px; padding: 0 12px; }
-        .destinations-grid { display: flex; gap: 24px; transition: transform 0.4s ease; }
+
+        .clinic-filters { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-bottom: 36px; position: relative; z-index: 1; }
+        .filter-group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; padding: 8px 16px; background: rgba(255,255,255,0.5); border-radius: 28px; }
+        .filter-label { font-size: 0.75rem; font-weight: 700; color: var(--earth); text-transform: uppercase; letter-spacing: 0.1em; padding: 8px 4px; }
+        .filter-btn { padding: 8px 20px; border-radius: 24px; border: none; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8125rem; font-weight: 600; transition: var(--transition); background: white; color: var(--forest); box-shadow: var(--shadow-xs); }
+        .filter-btn:hover { background: var(--fog); color: var(--night); }
+        .filter-btn.active { background: var(--primary); color: white; box-shadow: 0 4px 16px rgba(76, 175, 80, 0.25); }
+
+        .clinics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; position: relative; z-index: 1; }
+
+        .clinics-grid .destination-card { 
+            background: white; border-radius: var(--radius-xl); overflow: hidden; 
+            transition: all 0.4s ease; cursor: pointer; 
+            flex: none; min-width: 0;
+            border: 1.5px solid var(--fog);
+        }
+        .clinics-grid .destination-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--primary-light); }
+        .clinics-grid .destination-card.hidden { display: none; }
+        .clinics-grid .destination-body { padding: 24px; }
+        .clinics-grid .destination-body h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .clinics-grid .destination-body > p { font-size: 0.9375rem; color: var(--bark); margin-bottom: 16px; line-height: 1.6; }
+
+        .card-top-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+        .card-top-row h3 { font-size: 1.2rem; margin-bottom: 0; flex: 1; }
+        .card-city { display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: var(--cloud); border-radius: 16px; font-size: 0.75rem; font-weight: 600; color: var(--forest); white-space: nowrap; flex-shrink: 0; }
+
+        .clinics-count { text-align: center; margin-top: 20px; font-size: 0.8125rem; color: var(--earth); position: relative; z-index: 1; }
         .destination-card { background: white; border-radius: var(--radius-xl); overflow: hidden; transition: var(--transition); flex: 0 0 calc(25% - 18px); min-width: calc(25% - 18px); }
         .destination-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
         .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; background: white; border: none; border-radius: 50%; box-shadow: var(--shadow-md); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition); z-index: 10; }
@@ -823,7 +847,7 @@
             .hero-visual { max-width: 480px; margin: 0 auto; }
             .hero-floating { top: -20px; right: -10px; }
             .steps-container { grid-template-columns: repeat(2, 1fr); }
-            .destination-card { flex: 0 0 calc(50% - 12px); min-width: calc(50% - 12px); }
+            .clinics-grid { grid-template-columns: repeat(2, 1fr); }
             .sanatorium-card { flex: 0 0 calc(50% - 12px); min-width: calc(50% - 12px); }
             .carousel-btn-prev { left: -12px; }
             .carousel-btn-next { right: -12px; }
@@ -846,7 +870,7 @@
             .hero-floating { position: relative; top: 0; right: 0; margin-top: 20px; display: inline-block; }
             .hero-visual { text-align: center; }
             .steps-container { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
-            .destination-card { flex: 0 0 calc(100% - 24px); min-width: calc(100% - 24px); }
+            .clinics-grid { grid-template-columns: 1fr; }
             .sanatorium-card { flex: 0 0 calc(100% - 24px); min-width: calc(100% - 24px); }
             .carousel-btn { width: 40px; height: 40px; }
             .carousel-btn svg { width: 20px; height: 20px; }
@@ -1159,23 +1183,79 @@
         <div class="organic-shape"></div>
         <div class="container">
             <div class="section-header">
-                <span class="section-eyebrow"></span>
+                <span class="section-eyebrow">Направления</span>
                 <h2 class="section-title">Наши клиники</h2>
                 <p class="section-desc">Работаем с проверенными клиниками в России и за рубежом</p>
             </div>
-            <div class="destinations-carousel">
-                <button class="carousel-btn carousel-btn-prev" id="destPrev" aria-label="Назад"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></button>
-                <div class="destinations-wrapper">
-                    <div class="destinations-grid" id="destGrid">
-                        <div class="destination-card" data-panel="guten-tag"><div class="destination-img"><img src="img/clinic01.jpg" alt="Стоматология Гутен Таг"></div><div class="destination-body"><h3>Стоматология Гутен Таг</h3><p>Сеть стоматологических клиник в Перми. Имплантология, протезирование, виниры E-max, CAD/CAM.</p><div class="tags"><span class="tag">Имплантология</span><span class="tag">Виниры</span><span class="tag">CAD/CAM</span></div></div></div>
-                        <div class="destination-card" data-panel="lyubimiy-doktor"><div class="destination-img"><img src="img/clinic02.jpg" alt="Медицинский центр Любимый доктор"></div><div class="destination-body"><h3>МЦ Любимый Доктор</h3><p>Современный медицинский центр с полным циклом амбулаторно-поликлинических услуг. 50+ направлений.</p><div class="tags"><span class="tag">50+ направлений</span><span class="tag">Check-up</span><span class="tag">ДМС</span></div></div></div>
-                        <div class="destination-card" data-panel="modern-cosmetology"><div class="destination-img"><img src="img/clinic03.jpg" alt="Клиника современной косметологии"></div><div class="destination-body"><h3>Клиника современной косметологии</h3><p>Комплексный подход к эстетическим проблемам. Передовые технологии омоложения и эстетической медицины.</p><div class="tags"><span class="tag">Инъекции</span><span class="tag">Нитевой лифтинг</span><span class="tag">Лазер</span></div></div></div>
-                        <div class="destination-card" data-panel="korea-elite"><div class="destination-img"><img src="img/clinic04.jpg" alt="Южнокорейская клиника Элит"></div><div class="destination-body"><h3>Южнокорейская клиника Элит</h3><p>Передовые технологии пластической хирургии. Южная Корея — мировая столица красоты!</p><div class="tags"><span class="tag">SMAS лифтинг</span><span class="tag">Эндоскопическая подтяжка</span></div></div></div>
-                        <div class="destination-card" data-panel="medicina-roitberg"><div class="destination-img"><img src="img/clinic05.jpg" alt="Клиника академика Ройтберга"></div><div class="destination-body"><h3>Клиника ак. Ройтберга</h3><p>Многопрофильный центр международного уровня в Москве. Сертификаты JCI и ISO 9001. ПЭТ/КТ-диагностика, 350+ врачей.</p><div class="tags"><span class="tag">JCI</span><span class="tag">Онкология</span><span class="tag">ПЭТ/КТ</span></div></div></div>
+
+            <!-- Фильтры -->
+            <div class="clinic-filters" id="clinicFilters">
+                <div class="filter-group">
+                    <span class="filter-label">Город:</span>
+                    <button class="filter-btn active" data-filter-city="all">Все</button>
+                    <button class="filter-btn" data-filter-city="perm">Пермь</button>
+                    <button class="filter-btn" data-filter-city="moscow">Москва</button>
+                    <button class="filter-btn" data-filter-city="korea">Корея</button>
+                    <button class="filter-btn" data-filter-city="omsk">Омск</button>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label">Тип:</span>
+                    <button class="filter-btn filter-type active" data-filter-type="all">Все</button>
+                    <button class="filter-btn filter-type" data-filter-type="stomatology">Стоматология</button>
+                    <button class="filter-btn filter-type" data-filter-type="multiprofile">Многопрофильный</button>
+                    <button class="filter-btn filter-type" data-filter-type="cosmetology">Косметология</button>
+                    <button class="filter-btn filter-type" data-filter-type="plastic">Пластика</button>
+                    <button class="filter-btn filter-type" data-filter-type="ophthalmology">Офтальмология</button>
+                </div>
+            </div>
+
+            <!-- Сетка клиник -->
+            <div class="clinics-grid" id="clinicsGrid">
+                <div class="destination-card" data-panel="guten-tag" data-city="perm" data-type="stomatology">
+                    <div class="destination-body">
+                        <div class="card-top-row"><h3>Стоматология Гутен Таг</h3><span class="card-city">📍 Пермь</span></div>
+                        <p>Сеть стоматологических клиник в Перми. Имплантология, протезирование, виниры E-max, CAD/CAM.</p>
+                        <div class="tags"><span class="tag">Имплантология</span><span class="tag">Виниры</span><span class="tag">CAD/CAM</span></div>
                     </div>
                 </div>
-                <button class="carousel-btn carousel-btn-next" id="destNext" aria-label="Вперёд"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></button>
+                <div class="destination-card" data-panel="lyubimiy-doktor" data-city="perm" data-type="multiprofile">
+                    <div class="destination-body">
+                        <div class="card-top-row"><h3>МЦ Любимый Доктор</h3><span class="card-city">📍 Пермь</span></div>
+                        <p>Современный медицинский центр с полным циклом амбулаторно-поликлинических услуг. 50+ направлений.</p>
+                        <div class="tags"><span class="tag">50+ направлений</span><span class="tag">Check-up</span><span class="tag">ДМС</span></div>
+                    </div>
+                </div>
+                <div class="destination-card" data-panel="modern-cosmetology" data-city="perm" data-type="cosmetology">
+                    <div class="destination-body">
+                        <div class="card-top-row"><h3>Клиника современной косметологии</h3><span class="card-city">📍 Пермь</span></div>
+                        <p>Комплексный подход к эстетическим проблемам. Передовые технологии омоложения и эстетической медицины.</p>
+                        <div class="tags"><span class="tag">Инъекции</span><span class="tag">Нитевой лифтинг</span><span class="tag">Лазер</span></div>
+                    </div>
+                </div>
+                <div class="destination-card" data-panel="korea-elite" data-city="korea" data-type="plastic">
+                    <div class="destination-body">
+                        <div class="card-top-row"><h3>Южнокорейская клиника Элит</h3><span class="card-city">📍 Сеул, Корея</span></div>
+                        <p>Передовые технологии пластической хирургии. Южная Корея — мировая столица красоты!</p>
+                        <div class="tags"><span class="tag">SMAS лифтинг</span><span class="tag">Эндоскопическая подтяжка</span></div>
+                    </div>
+                </div>
+                <div class="destination-card" data-panel="medicina-roitberg" data-city="moscow" data-type="multiprofile">
+                    <div class="destination-body">
+                        <div class="card-top-row"><h3>Клиника ак. Ройтберга</h3><span class="card-city">📍 Москва</span></div>
+                        <p>Многопрофильный центр международного уровня. Сертификаты JCI и ISO 9001. ПЭТ/КТ-диагностика, 350+ врачей.</p>
+                        <div class="tags"><span class="tag">JCI</span><span class="tag">Онкология</span><span class="tag">ПЭТ/КТ</span></div>
+                    </div>
+                </div>
+                <div class="destination-card" data-panel="vykhodtsev-eye" data-city="omsk" data-type="ophthalmology">
+                    <div class="destination-body">
+                        <div class="card-top-row"><h3>Офтальмологическая больница им. В.П. Выходцева</h3><span class="card-city">📍 Омск</span></div>
+                        <p>Клиническая офтальмологическая больница — ведущий центр микрохирургии глаза в Западной Сибири. Диагностика и лечение заболеваний органов зрения.</p>
+                        <div class="tags"><span class="tag">Офтальмология</span><span class="tag">Микрохирургия глаза</span><span class="tag">Лазерная коррекция</span></div>
+                    </div>
+                </div>
             </div>
+
+            <div class="clinics-count" id="clinicsCount">Показано 6 из 6 клиник</div>
         </div>
     </section>
 
@@ -1428,6 +1508,56 @@
                     <div class="panel-feature"><span class="panel-feature-icon">🩻</span> МРТ, КТ, УЗИ</div>
                     <div class="panel-feature"><span class="panel-feature-icon">☢️</span> Ядерная медицина (Химки)</div>
                     <div class="panel-feature"><span class="panel-feature-icon">⚡</span> Быстрые результаты</div>
+                </div>
+            </div>
+            <div class="panel-section">
+                <div class="panel-section-title">Контакты</div>
+                <div class="panel-contact-row"><div class="icon">📞</div><a href="tel:+73422196666">8 (342) 219-66-66</a></div>
+                <div class="panel-contact-row"><div class="icon">✈️</div><a href="https://t.me/finistMed" target="_blank">Telegram</a></div>
+                <div class="panel-contact-row"><div class="icon">💬</div><a href="https://vk.com/finist_travel" target="_blank">ВКонтакте</a></div>
+                <div class="panel-contact-row"><div class="icon">📧</div><a href="mailto:medical@finist-travel.ru">medical@finist-travel.ru</a></div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <a href="tel:+73422196666" class="btn-panel btn-panel-primary">📞 Записаться</a>
+            <a href="https://t.me/finistMed" target="_blank" class="btn-panel btn-panel-outline">Telegram</a>
+        </div>
+    </div>
+
+    <!-- ПАНЕЛЬ: ОФТАЛЬМОЛОГИЧЕСКАЯ БОЛЬНИЦА ИМ. В.П. ВЫХОДЦЕВА -->
+    <div class="slide-panel" id="panel-vykhodtsev-eye">
+        <div class="panel-header" style="background:linear-gradient(135deg,#1a3550 0%,#2a5070 100%)">
+            <button class="panel-close" onclick="closeClinicPanel()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
+            <div class="panel-icon">👁️</div>
+            <h2>Офтальмологическая больница им. В.П. Выходцева</h2>
+            <p class="panel-subtitle">Клиническая офтальмологическая больница · Омск</p>
+            <div class="panel-meta">
+                <span class="panel-meta-item">👁️ Микрохирургия глаза</span>
+                <span class="panel-meta-item">🔬 Лазерная коррекция</span>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="panel-section">
+                <div class="panel-section-title">О клинике</div>
+                <div class="panel-about">
+                    <strong>Клиническая офтальмологическая больница имени В.П. Выходцева</strong> — ведущий центр микрохирургии глаза в Западной Сибири. Современное диагностическое и хирургическое оборудование, высококвалифицированные офтальмохирурги. Полный цикл помощи: от диагностики до сложных хирургических вмешательств и послеоперационной реабилитации.
+                </div>
+            </div>
+            <div class="panel-section">
+                <div class="panel-section-title">Направления</div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#2a5070"></div><div class="panel-service-info"><h4>Лазерная коррекция зрения</h4><p>LASIK, FemtoLASIK, PRK — восстановление зрения при близорукости, дальнозоркости, астигматизме.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#2a5070"></div><div class="panel-service-info"><h4>Хирургия катаракты</h4><p>Факоэмульсификация с имплантацией ИОЛ. Мультифокальные и торические линзы.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#2a5070"></div><div class="panel-service-info"><h4>Лечение глаукомы</h4><p>Лазерные и хирургические методы снижения внутриглазного давления.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#2a5070"></div><div class="panel-service-info"><h4>Витреоретинальная хирургия</h4><p>Операции на сетчатке и стекловидном теле при отслойке, диабетической ретинопатии.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#2a5070"></div><div class="panel-service-info"><h4>Детская офтальмология</h4><p>Лечение косоглазия, амблиопии, врождённых патологий органов зрения у детей.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
+            </div>
+            <div class="panel-section">
+                <div class="panel-section-title">Преимущества</div>
+                <div class="panel-features">
+                    <div class="panel-feature"><span class="panel-feature-icon">🔬</span> Современное оборудование</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">👨‍⚕️</span> Опытные хирурги</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">👶</span> Детское отделение</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">🏨</span> Стационар</div>
                 </div>
             </div>
             <div class="panel-section">
@@ -1855,46 +1985,52 @@
         });
 
         /* ==================================================================
-        КАРУСЕЛЬ КЛИНИК (Destinations)
+        ФИЛЬТРУЕМАЯ СЕТКА КЛИНИК
         ================================================================== */
-        const destGrid = document.getElementById('destGrid');
-        const destPrev = document.getElementById('destPrev');
-        const destNext = document.getElementById('destNext');
-        let destPosition = 0;
-        
-        function getVisibleCards() { 
-            const w = window.innerWidth; 
-            if (w <= 768) return 1; 
-            if (w <= 1024) return 2; 
-            return 4; 
+        const clinicsGrid = document.getElementById('clinicsGrid');
+        const clinicsCount = document.getElementById('clinicsCount');
+        const allClinicCards = clinicsGrid.querySelectorAll('.destination-card');
+        const totalClinics = allClinicCards.length;
+        let activeCity = 'all';
+        let activeType = 'all';
+
+        function filterClinics() {
+            let shown = 0;
+            allClinicCards.forEach(card => {
+                const cityMatch = activeCity === 'all' || card.getAttribute('data-city') === activeCity;
+                const typeMatch = activeType === 'all' || card.getAttribute('data-type') === activeType;
+                if (cityMatch && typeMatch) {
+                    card.classList.remove('hidden');
+                    shown++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            clinicsCount.textContent = 'Показано ' + shown + ' из ' + totalClinics + ' клиник';
         }
-        
-        function getCardWidth() { 
-            const card = destGrid.querySelector('.destination-card'); 
-            return card.offsetWidth + 24;
-        }
-        
-        function updateCarousel() { 
-            const total = 5, visible = getVisibleCards(), max = Math.max(0, total - visible); 
-            destPrev.disabled = destPosition <= 0;
-            destNext.disabled = destPosition >= max;
-            destGrid.style.transform = 'translateX(-' + (destPosition * getCardWidth()) + 'px)'; 
-        }
-        
-        destPrev.addEventListener('click', () => { 
-            if (destPosition > 0) { destPosition--; updateCarousel(); } 
+
+        document.querySelectorAll('.filter-btn[data-filter-city]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn[data-filter-city]').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeCity = btn.getAttribute('data-filter-city');
+                filterClinics();
+            });
         });
-        destNext.addEventListener('click', () => { 
-            const max = Math.max(0, 5 - getVisibleCards()); 
-            if (destPosition < max) { destPosition++; updateCarousel(); } 
+
+        document.querySelectorAll('.filter-btn[data-filter-type]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn[data-filter-type]').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeType = btn.getAttribute('data-filter-type');
+                filterClinics();
+            });
         });
-        
-        window.addEventListener('resize', () => { 
-            destPosition = 0; updateCarousel(); 
-            specPosition = 0; updateSpecCarousel(); 
-            teamPosition = 0; updateTeamCarousel(); 
+
+        window.addEventListener('resize', () => {
+            specPosition = 0; updateSpecCarousel();
+            teamPosition = 0; updateTeamCarousel();
         });
-        updateCarousel();
 
         /* ==================================================================
         КАРУСЕЛЬ СПЕЦИАЛИСТОВ
