@@ -2479,7 +2479,7 @@
                 // При фильтрации — скрываем карусель, показываем все подходящие
                 if (carouselNav) carouselNav.style.display = 'none';
                 let shown = 0;
-                allClinicCards.forEach(card => {
+                clinicCardsArray.forEach(card => {
                     const cityMatch = activeCity === 'all' || card.getAttribute('data-city') === activeCity;
                     const typeMatch = activeType === 'all' || card.getAttribute('data-type') === activeType;
                     if (cityMatch && typeMatch) {
@@ -2495,10 +2495,11 @@
             } else {
                 // Без фильтра — возвращаем карусель
                 if (carouselNav) carouselNav.style.display = 'flex';
-                allClinicCards.forEach(card => {
+                clinicCardsArray.forEach(card => {
                     card.classList.remove('hidden');
                 });
                 clinicsCurrentPage = 0;
+                clinicsTotalPages = Math.ceil(clinicCardsArray.length / CLINICS_PER_PAGE);
                 renderClinicsDots();
                 showClinicsPage(0);
             }
@@ -3153,32 +3154,28 @@ document.querySelectorAll('.category-header').forEach(header => {
         ================================================================== */
         const CLINICS_PER_PAGE = 9;
         let clinicsCurrentPage = 0;
-        let allClinicCards = [];
-        let clinicsTotalPages = 1;
-
-        function initClinicsCarousel() {
-            allClinicCards = Array.from(document.querySelectorAll('#clinicsGrid .destination-card'));
-            clinicsTotalPages = Math.ceil(allClinicCards.length / CLINICS_PER_PAGE);
-            renderClinicsDots();
-            showClinicsPage(0);
-        }
+        let clinicCardsArray = Array.from(allClinicCards);
+        let clinicsTotalPages = Math.ceil(clinicCardsArray.length / CLINICS_PER_PAGE);
+        console.log('Карусель: найдено ' + clinicCardsArray.length + ' карточек, ' + clinicsTotalPages + ' страниц');
 
         function showClinicsPage(page) {
             clinicsCurrentPage = page;
-            allClinicCards.forEach((card, i) => {
+            clinicCardsArray.forEach((card, i) => {
                 const cardPage = Math.floor(i / CLINICS_PER_PAGE);
                 card.style.display = cardPage === page ? '' : 'none';
             });
 
             // Счётчик
             const start = page * CLINICS_PER_PAGE + 1;
-            const end = Math.min((page + 1) * CLINICS_PER_PAGE, allClinicCards.length);
+            const end = Math.min((page + 1) * CLINICS_PER_PAGE, clinicCardsArray.length);
             const counter = document.getElementById('clinicsCount');
-            if (counter) counter.textContent = 'Показано ' + start + '–' + end + ' из ' + allClinicCards.length + ' клиник';
+            if (counter) counter.textContent = 'Показано ' + start + '–' + end + ' из ' + clinicCardsArray.length + ' клиник';
 
             // Кнопки
-            document.getElementById('clinicsPrev').disabled = page === 0;
-            document.getElementById('clinicsNext').disabled = page >= clinicsTotalPages - 1;
+            const prevBtn = document.getElementById('clinicsPrev');
+            const nextBtn = document.getElementById('clinicsNext');
+            if (prevBtn) prevBtn.disabled = page === 0;
+            if (nextBtn) nextBtn.disabled = page >= clinicsTotalPages - 1;
 
             // Точки
             document.querySelectorAll('.clinics-carousel-dot').forEach((dot, i) => {
@@ -3196,6 +3193,7 @@ document.querySelectorAll('.category-header').forEach(header => {
 
         function renderClinicsDots() {
             const container = document.getElementById('clinicsDots');
+            if (!container) return;
             container.innerHTML = '';
             for (let i = 0; i < clinicsTotalPages; i++) {
                 const dot = document.createElement('button');
@@ -3205,8 +3203,11 @@ document.querySelectorAll('.category-header').forEach(header => {
             }
         }
 
-        // Инициализация при загрузке
-        document.addEventListener('DOMContentLoaded', initClinicsCarousel);
+        // Инициализация карусели сразу
+        if (clinicCardsArray.length > 0) {
+            renderClinicsDots();
+            showClinicsPage(0);
+        }
     </script>
 </body>
 </html>
