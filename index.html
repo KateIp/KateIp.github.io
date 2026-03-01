@@ -1040,6 +1040,76 @@
             .panel-footer { padding:14px 20px; }
             .panel-features { grid-template-columns:1fr; }
         }
+        /* Мобильная пагинация клиник */
+.clinics-mobile-toggle {
+    display: none;
+    justify-content: center;
+    margin-top: 24px;
+    position: relative;
+    z-index: 1;
+}
+.clinics-mobile-toggle .btn {
+    padding: 12px 28px;
+    font-size: 0.875rem;
+    gap: 8px;
+}
+.clinics-mobile-toggle .btn svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+}
+.clinics-mobile-toggle .btn.expanded svg {
+    transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+    .clinics-grid .destination-card:nth-child(n+5) {
+        display: none;
+    }
+    .clinics-grid.show-all .destination-card:nth-child(n+5) {
+        display: block;
+    }
+    .clinics-grid.show-all .destination-card.hidden {
+        display: none;
+    }
+    .clinics-mobile-toggle {
+        display: flex;
+    }
+}
+        
+/* Пагинация клиник: показываем 9, остальные скрыты */
+.clinics-grid .destination-card:nth-child(n+10) {
+    display: none;
+}
+.clinics-grid.show-all .destination-card:nth-child(n+10) {
+    display: block;
+}
+.clinics-grid.show-all .destination-card.hidden {
+    display: none;
+}
+
+.clinics-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+    position: relative;
+    z-index: 1;
+}
+.clinics-pagination .btn {
+    padding: 14px 32px;
+    font-size: 0.9375rem;
+    gap: 10px;
+}
+.clinics-pagination .btn svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+.clinics-pagination .btn.expanded svg {
+    transform: rotate(180deg);
+}
+
+-->
     </style>
 </head>
 <body>
@@ -1316,7 +1386,22 @@
                 </div>
             </div>
 
-            <div class="clinics-count" id="clinicsCount">Показано 9 из 9 клиник</div>
+               <div class="destination-card" data-panel="gauz-med-vlg" data-city="volgograd" data-type="cosmetology">
+                    <div class="destination-body">
+                        <div class="card-top-row"><span class="card-clinic-name">ГАУЗ «Медицинский центр»</span><span class="card-city">📍 Волгоград</span></div>
+                        <p>Косметологическая лечебница с 1962 года. Пластическая хирургия, косметология, лазерные технологии, дерматология.</p>
+                        <div class="tags"><span class="tag">Пластика</span><span class="tag">Косметология</span><span class="tag">Лазер</span><span class="tag">Дерматология</span></div>
+                    </div>
+                </div>
+
+                     <div class="clinics-count" id="clinicsCount">Показано 10 из 10 клиник</div>
+
+            <div class="clinics-pagination" id="clinicsPagination">
+                <button class="btn btn-outline" id="clinicsToggleBtn" onclick="toggleClinicPages()">
+                    Ещё клиники
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+            </div>
         </div>
     </section>
 
@@ -1736,12 +1821,6 @@
 
 <!-- ============================================================
      ВЫДВИЖНАЯ ПАНЕЛЬ КЛИНИКИ LUCIANO — КАЗАНЬ
-     
-     КАК ВСТАВИТЬ:
-     Найдите в index.html строку:
-       <!-- Services 
-     Вставьте этот блок ПЕРЕД ней
-     (т.е. после панели volgograd-okb1 и перед секцией Services)
      ============================================================ -->
 
 <!-- ПАНЕЛЬ: МЕДИЦИНСКИЙ ЦЕНТР LUCIANO (КАЗАНЬ) -->
@@ -1802,6 +1881,67 @@
     </div>
 </div>
 
+ <!-- ПАНЕЛЬ: ГАУЗ МЕДИЦИНСКИЙ ЦЕНТР (ВОЛГОГРАД) -->
+    <div class="slide-panel" id="panel-gauz-med-vlg">
+        <div class="panel-header" style="background:linear-gradient(135deg,#4a1942 0%,#6b2d5b 50%,#893168 100%)">
+            <button class="panel-close" onclick="closeClinicPanel()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
+            <div class="panel-icon">💆</div>
+            <h2>ГАУЗ «Медицинский центр»</h2>
+            <p class="panel-subtitle">Косметологическая лечебница · Волгоград</p>
+            <div class="panel-meta">
+                <span class="panel-meta-item">🏛️ С 1962 года</span>
+                <span class="panel-meta-item">👨‍⚕️ 10 врачей</span>
+                <span class="panel-meta-item">📍 ул. Пархоменко, 15</span>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="panel-section">
+                <div class="panel-section-title">О клинике</div>
+                <div class="panel-about">
+                    <strong>ГАУЗ «Медицинский центр»</strong> — старейшая косметологическая лечебница Волгограда, основана в 1962 году. Государственное учреждение с высококвалифицированным медперсоналом: кандидаты наук, врачи высшей и первой категории. Главный врач — <strong>пластический хирург Выскуб Максим Николаевич</strong>, федеральный тренер по инъекциям ботулотоксина и контурной пластике, эксперт по нитевым технологиям. Доступные цены при государственном уровне контроля качества.
+                </div>
+            </div>
+            <div class="panel-section">
+                <div class="panel-section-title">Направления</div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#893168"></div><div class="panel-service-info"><h4>Пластическая хирургия</h4><p>Отопластика, иссечение рубцов, липофилинг, пластика лица, тела, век, живота.</p></div><div class="panel-service-price"><div class="price">от 17 000 ₽</div></div></div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#893168"></div><div class="panel-service-info"><h4>Контурная пластика и инъекции</h4><p>Контурная пластика, ботулинотерапия, биоревитализация, мезотерапия. Федеральный тренер в штате.</p></div><div class="panel-service-price"><div class="price">от 12 600 ₽</div></div></div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#893168"></div><div class="panel-service-info"><h4>Нитевой лифтинг Aptos</h4><p>Подтяжка нитями — коррекция возрастных изменений лица без хирургического вмешательства.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#893168"></div><div class="panel-service-info"><h4>Фотоомоложение и фотоэпиляция</h4><p>Аппаратные методики омоложения кожи и удаления нежелательных волос.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#893168"></div><div class="panel-service-info"><h4>Дерматология</h4><p>Удаление новообразований, лечение бородавок, фотодинамическая терапия аппаратом Revixan.</p></div><div class="panel-service-price"><div class="price">от 800 ₽</div></div></div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#893168"></div><div class="panel-service-info"><h4>Косметологический уход</h4><p>Пилинги, чистка лица, массаж, перманентный макияж, трихология.</p></div><div class="panel-service-price"><div class="price">от 350 ₽</div></div></div>
+            </div>
+            <div class="panel-section">
+                <div class="panel-section-title">Преимущества</div>
+                <div class="panel-features">
+                    <div class="panel-feature"><span class="panel-feature-icon">🏛️</span> 60+ лет опыта</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">💰</span> Доступные цены</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">🎓</span> К.м.н. в штате</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">🏥</span> Гос. учреждение</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">🏆</span> Федеральные тренеры</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">🕐</span> Пн–Пт 8:00–20:00</div>
+                </div>
+            </div>
+            <div class="panel-section">
+                <div class="panel-section-title">Акции</div>
+                <div class="panel-features">
+                    <div class="panel-feature"><span class="panel-feature-icon">🎁</span> –15% фотодинамика Revixan</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">📦</span> –20% косметика от 3 ед.</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">📅</span> Пн: –10% удаление от 10 ед.</div>
+                </div>
+            </div>
+            <div class="panel-section">
+                <div class="panel-section-title">Контакты</div>
+                <div class="panel-contact-row"><div class="icon">📞</div><a href="tel:+73422196666">8 (342) 219-66-66</a> <span style="color:var(--bark);font-size:0.85rem;margin-left:4px">(Финист Мед)</span></div>
+                <div class="panel-contact-row"><div class="icon">🏥</div><a href="https://lechebnica-vlg.ru" target="_blank">lechebnica-vlg.ru</a></div>
+                <div class="panel-contact-row"><div class="icon">✈️</div><a href="https://t.me/finistMed" target="_blank">Telegram</a></div>
+                <div class="panel-contact-row"><div class="icon">📧</div><a href="mailto:medical@finist-travel.ru">medical@finist-travel.ru</a></div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <a href="tel:+73422196666" class="btn-panel btn-panel-primary">📞 Записаться</a>
+            <a href="https://lechebnica-vlg.ru" target="_blank" class="btn-panel btn-panel-outline">Сайт клиники</a>
+        </div>
+    </div>
 
     <!-- Services 
     (старый формат — закомментирован) 
@@ -2881,6 +3021,42 @@ document.querySelectorAll('.category-header').forEach(header => {
             clinicPanelOverlay.classList.remove('active');
             document.body.style.overflow = '';
         }
+        /* ==================================================================
+   МОБИЛЬНАЯ ПАГИНАЦИЯ КЛИНИК
+   ================================================================== */
+function toggleMobileClinics() {
+    const grid = document.getElementById('clinicsGrid');
+    const btn = document.getElementById('clinicsToggleBtn');
+    const isExpanded = grid.classList.toggle('show-all');
+    
+    if (isExpanded) {
+        btn.innerHTML = 'Свернуть <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>';
+        btn.classList.add('expanded');
+    } else {
+        btn.innerHTML = 'Ещё клиники <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>';
+        btn.classList.remove('expanded');
+        document.getElementById('destinations').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+        
+/* ==================================================================
+   ПАГИНАЦИЯ КЛИНИК — показ/скрытие карточек после 9-й
+   ================================================================== */
+function toggleClinicPages() {
+    const grid = document.getElementById('clinicsGrid');
+    const btn = document.getElementById('clinicsToggleBtn');
+    const isExpanded = grid.classList.toggle('show-all');
+
+    if (isExpanded) {
+        btn.innerHTML = 'Свернуть <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>';
+        btn.classList.add('expanded');
+    } else {
+        btn.innerHTML = 'Ещё клиники <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>';
+        btn.classList.remove('expanded');
+        document.getElementById('destinations').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
     </script>
 </body>
 </html>
