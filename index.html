@@ -416,6 +416,19 @@
         .card-top-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
         .card-top-row h3 { font-size: 1.2rem; margin-bottom: 0; flex: 1; }
         .card-city { display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: var(--cloud); border-radius: 16px; font-size: 0.75rem; font-weight: 600; color: var(--forest); white-space: nowrap; flex-shrink: 0; }
+.card-clinic-name {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--accent);
+    color: var(--night);
+    border-radius: var(--radius);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
 
         .clinics-count { text-align: center; margin-top: 20px; font-size: 0.8125rem; color: var(--earth); position: relative; z-index: 1; }
         .destination-card { background: white; border-radius: var(--radius-xl); overflow: hidden; transition: var(--transition); flex: 0 0 calc(25% - 18px); min-width: calc(25% - 18px); }
@@ -1215,71 +1228,74 @@
             </div>
 
             <!-- Сетка клиник -->
+            
+                
+            -->
+
             <div class="clinics-grid" id="clinicsGrid">
                 <div class="destination-card" data-panel="guten-tag" data-city="perm" data-type="stomatology">
                     <div class="destination-body">
-                        <div class="card-top-row"><h3>Стоматология Гутен Таг</h3><span class="card-city">📍 Пермь</span></div>
+                        <div class="card-top-row"><span class="card-clinic-name">Стоматология Гутен Таг</span><span class="card-city">📍 Пермь</span></div>
                         <p>Сеть стоматологических клиник в Перми. Имплантология, протезирование, виниры E-max, CAD/CAM.</p>
                         <div class="tags"><span class="tag">Имплантология</span><span class="tag">Виниры</span><span class="tag">CAD/CAM</span></div>
                     </div>
                 </div>
                 <div class="destination-card" data-panel="lyubimiy-doktor" data-city="perm" data-type="multiprofile">
                     <div class="destination-body">
-                        <div class="card-top-row"><h3>МЦ Любимый Доктор</h3><span class="card-city">📍 Пермь</span></div>
+                        <div class="card-top-row"><span class="card-clinic-name">МЦ Любимый Доктор</span><span class="card-city">📍 Пермь</span></div>
                         <p>Современный медицинский центр с полным циклом амбулаторно-поликлинических услуг. 50+ направлений.</p>
                         <div class="tags"><span class="tag">50+ направлений</span><span class="tag">Check-up</span><span class="tag">ДМС</span></div>
                     </div>
                 </div>
                 <div class="destination-card" data-panel="modern-cosmetology" data-city="perm" data-type="cosmetology">
                     <div class="destination-body">
-                        <div class="card-top-row"><h3>Клиника современной косметологии</h3><span class="card-city">📍 Пермь</span></div>
+                        <div class="card-top-row"><span class="card-clinic-name">Клиника современной косметологии</span><span class="card-city">📍 Пермь</span></div>
                         <p>Комплексный подход к эстетическим проблемам. Передовые технологии омоложения и эстетической медицины.</p>
                         <div class="tags"><span class="tag">Инъекции</span><span class="tag">Нитевой лифтинг</span><span class="tag">Лазер</span></div>
                     </div>
                 </div>
                 <div class="destination-card" data-panel="korea-elite" data-city="korea" data-type="plastic">
                     <div class="destination-body">
-                        <div class="card-top-row"><h3>Южнокорейская клиника Элит</h3><span class="card-city">📍 Сеул, Корея</span></div>
+                        <div class="card-top-row"><span class="card-clinic-name">Южнокорейская клиника Элит</span><span class="card-city">📍 Сеул, Корея</span></div>
                         <p>Передовые технологии пластической хирургии. Южная Корея — мировая столица красоты!</p>
                         <div class="tags"><span class="tag">SMAS лифтинг</span><span class="tag">Эндоскопическая подтяжка</span></div>
                     </div>
                 </div>
                 <div class="destination-card" data-panel="medicina-roitberg" data-city="moscow" data-type="multiprofile">
                     <div class="destination-body">
-                        <div class="card-top-row"><h3>Клиника ак. Ройтберга</h3><span class="card-city">📍 Москва</span></div>
+                        <div class="card-top-row"><span class="card-clinic-name">Клиника ак. Ройтберга</span><span class="card-city">📍 Москва</span></div>
                         <p>Многопрофильный центр международного уровня. Сертификаты JCI и ISO 9001. ПЭТ/КТ-диагностика, 350+ врачей.</p>
                         <div class="tags"><span class="tag">JCI</span><span class="tag">Онкология</span><span class="tag">ПЭТ/КТ</span></div>
                     </div>
                 </div>
                 <div class="destination-card" data-panel="vykhodtsev-eye" data-city="omsk" data-type="ophthalmology">
                     <div class="destination-body">
-                        <div class="card-top-row"><h3>Офтальмологическая больница им. В.П. Выходцева</h3><span class="card-city">📍 Омск</span></div>
+                        <div class="card-top-row"><span class="card-clinic-name">Офтальмологическая больница им. В.П. Выходцева</span><span class="card-city">📍 Омск</span></div>
                         <p>Клиническая офтальмологическая больница — ведущий центр микрохирургии глаза в Западной Сибири. Диагностика и лечение заболеваний органов зрения.</p>
                         <div class="tags"><span class="tag">Офтальмология</span><span class="tag">Микрохирургия глаза</span><span class="tag">Лазерная коррекция</span></div>
                     </div>
                 </div>
-                  <div class="destination-card" data-panel="okd-center" data-city="omsk" data-type="multiprofile">
+                <div class="destination-card" data-panel="okd-center" data-city="omsk" data-type="multiprofile">
                     <div class="destination-body">
-                        <div class="card-top-row"><h3>Клинический диагностический центр</h3><span class="card-city">📍 Омск</span></div>
+                        <div class="card-top-row"><span class="card-clinic-name">Клинический диагностический центр</span><span class="card-city">📍 Омск</span></div>
                         <p>Крупнейший диагностический центр Омской области. 500 специалистов, 1400+ методик, стационар, реабилитация, онкология, Check-up.</p>
                         <div class="tags"><span class="tag">Диагностика</span><span class="tag">Check-up</span><span class="tag">Онкология</span><span class="tag">Реабилитация</span></div>
                     </div>
                 </div>
                 <div class="destination-card" data-panel="volgograd-okb1" data-city="volgograd" data-type="neurosurgery">
                     <div class="destination-body">
-                        <div class="card-top-row"><h3>Волгоградская ОКБ №1 · Нейрохирургия</h3><span class="card-city">📍 Волгоград</span></div>
+                        <div class="card-top-row"><span class="card-clinic-name">Волгоградская ОКБ №1 · Нейрохирургия</span><span class="card-city">📍 Волгоград</span></div>
                         <p>Нейрохирургическое отделение областной клинической больницы №1. Операции на головном и спинном мозге, позвоночнике.</p>
                         <div class="tags"><span class="tag">Нейрохирургия</span><span class="tag">Позвоночник</span><span class="tag">ВМП</span></div>
                     </div>
                 </div>
-                  <div class="destination-card" data-panel="luciano-kazan" data-city="kazan" data-type="multiprofile">
+                <div class="destination-card" data-panel="luciano-kazan" data-city="kazan" data-type="multiprofile">
                     <div class="destination-body">
-                        <div class="card-top-row"><h3>Медицинский центр LUCIANO</h3><span class="card-city">📍 Казань</span></div>
+                        <div class="card-top-row"><span class="card-clinic-name">Медицинский центр LUCIANO</span><span class="card-city">📍 Казань</span></div>
                         <p>Уникальная многопрофильная клиника европейского уровня. Косметология, оздоровление, физиотерапия, 64 врача.</p>
                         <div class="tags"><span class="tag">Косметология</span><span class="tag">Оздоровление</span><span class="tag">Физиотерапия</span><span class="tag">Офтальмология</span></div>
                     </div>
                 </div>
-                
             </div>
 
             <div class="clinics-count" id="clinicsCount">Показано 9 из 9 клиник</div>
