@@ -1039,44 +1039,62 @@
             .panel-footer { padding:14px 20px; }
             .panel-features { grid-template-columns:1fr; }
         }
-        /* Пагинация клиник: показываем 9, остальные скрыты */
-        .clinics-grid .destination-card:nth-child(n+10) {
-            display: none;
-        }
-        .clinics-grid.show-all .destination-card:nth-child(n+10) {
-            display: block;
-        }
-        .clinics-grid.show-all .destination-card.hidden {
-            display: none;
-        }
-
-        .clinics-pagination {
+        /* Карусель клиник: страницы по 9 */
+        .clinics-carousel-nav {
             display: flex;
+            align-items: center;
             justify-content: center;
-            margin-top: 28px;
-            position: relative;
-            z-index: 1;
+            gap: 16px;
+            margin-top: 32px;
         }
-        .clinics-pagination .btn {
-            padding: 14px 32px;
-            font-size: 0.9375rem;
-            gap: 10px;
+        .clinics-carousel-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid var(--stone);
+            background: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
         }
-        .clinics-pagination .btn svg {
-            width: 18px;
-            height: 18px;
-            transition: transform 0.3s ease;
+        .clinics-carousel-btn:hover:not(:disabled) {
+            border-color: var(--primary);
+            background: var(--cloud);
         }
-        .clinics-pagination .btn.expanded svg {
-            transform: rotate(180deg);
+        .clinics-carousel-btn:disabled {
+            opacity: 0.3;
+            cursor: default;
+        }
+        .clinics-carousel-btn svg {
+            width: 20px;
+            height: 20px;
+            color: var(--forest);
+        }
+        .clinics-carousel-dots {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .clinics-carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--stone);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .clinics-carousel-dot.active {
+            background: var(--primary);
+            width: 28px;
+            border-radius: 5px;
         }
 
         @media (max-width: 768px) {
-            .clinics-grid .destination-card:nth-child(n+5) {
-                display: none;
-            }
-            .clinics-grid.show-all .destination-card:nth-child(n+5) {
-                display: block;
+            .clinics-carousel-nav {
+                margin-top: 24px;
             }
         }
     </style>
@@ -1212,8 +1230,8 @@
     <div class="destination-item">
         <div class="destination-emoji">🌏</div>
         <div class="destination-text">
-            <h4>Южная Корея · Турция</h4>
-            <p>Пластика • Check-up • Стоматология • Ортопедия</p>
+            <h4>Южная Корея · Турция · Тунис</h4>
+            <p>Пластика • Check-up • Стоматология • Эстетика • Бариатрия</p>
         </div>
     </div>
     <div class="destination-item">
@@ -1270,6 +1288,7 @@
                     <button class="filter-btn" data-filter-city="omsk">Омск</button>
                     <button class="filter-btn" data-filter-city="volgograd">Волгоград</button>
                     <button class="filter-btn" data-filter-city="kazan">Казань</button>
+                    <button class="filter-btn" data-filter-city="tunisia">Тунис</button>
 
                 </div>
                 <div class="filter-group">
@@ -1350,24 +1369,41 @@
                         <div class="tags"><span class="tag">Косметология</span><span class="tag">Оздоровление</span><span class="tag">Физиотерапия</span><span class="tag">Офтальмология</span></div>
                     </div>
                 </div>
-            </div>
-
-               <div class="destination-card" data-panel="gauz-med-vlg" data-city="volgograd" data-type="cosmetology">
+                <div class="destination-card" data-panel="gauz-med-vlg" data-city="volgograd" data-type="cosmetology">
                     <div class="destination-body">
                         <div class="card-top-row"><span class="card-clinic-name">ГАУЗ «Медицинский центр»</span><span class="card-city">📍 Волгоград</span></div>
                         <p>Косметологическая лечебница с 1962 года. Пластическая хирургия, косметология, лазерные технологии, дерматология.</p>
                         <div class="tags"><span class="tag">Пластика</span><span class="tag">Косметология</span><span class="tag">Лазер</span><span class="tag">Дерматология</span></div>
                     </div>
                 </div>
+                <div class="destination-card" data-panel="carthago-med" data-city="tunisia" data-type="plastic">
+                    <div class="destination-body">
+                        <div class="card-top-row"><span class="card-clinic-name">CARTHAGO MED</span><span class="card-city">📍 Тунис</span></div>
+                        <p>Агентство медицинского туризма в Тунисе. Пластическая и бариатрическая хирургия, стоматология, пересадка волос. Пакеты «всё включено».</p>
+                        <div class="tags"><span class="tag">Пластика</span><span class="tag">Бариатрия</span><span class="tag">Стоматология</span><span class="tag">Трансплантация волос</span></div>
+                    </div>
+                </div>
+                <div class="destination-card" data-panel="tds-tunisia" data-city="tunisia" data-type="multiprofile">
+                    <div class="destination-body">
+                        <div class="card-top-row"><span class="card-clinic-name">Tunisie Destination Santé</span><span class="card-city">📍 Тунис</span></div>
+                        <p>Организация медицинских туров и эвакуаций в Тунис. Все хирургические специальности: кардиология, онкология, ортопедия, офтальмология.</p>
+                        <div class="tags"><span class="tag">Хирургия</span><span class="tag">Кардиология</span><span class="tag">Онкология</span><span class="tag">Эвакуация</span></div>
+                    </div>
+                </div>
+            </div>
 
-                     <div class="clinics-count" id="clinicsCount">Показано 10 из 10 клиник</div>
-
-            <div class="clinics-pagination" id="clinicsPagination">
-                <button class="btn btn-outline" id="clinicsToggleBtn" onclick="toggleClinicPages()">
-                    Ещё клиники
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            <!-- Навигация карусели клиник -->
+            <div class="clinics-carousel-nav">
+                <button class="clinics-carousel-btn clinics-carousel-prev" id="clinicsPrev" onclick="clinicsCarousel(-1)" disabled>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <div class="clinics-carousel-dots" id="clinicsDots"></div>
+                <button class="clinics-carousel-btn clinics-carousel-next" id="clinicsNext" onclick="clinicsCarousel(1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </button>
             </div>
+
+            <div class="clinics-count" id="clinicsCount"></div>
         </div>
     </section>
 
@@ -1909,6 +1945,112 @@
         </div>
     </div>
 
+    <!-- ПАНЕЛЬ: CARTHAGO MED (ТУНИС) -->
+    <div class="slide-panel" id="panel-carthago-med">
+        <div class="panel-header" style="background:linear-gradient(135deg,#0d1b2a 0%,#1b2838 50%,#2c4a6e 100%)">
+            <button class="panel-close" onclick="closeClinicPanel()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
+            <div class="panel-icon">🇹🇳</div>
+            <h2>CARTHAGO MED</h2>
+            <p class="panel-subtitle">Медицинский туризм · Тунис</p>
+            <div class="panel-meta">
+                <span class="panel-meta-item">✨ Пакеты «всё включено»</span>
+                <span class="panel-meta-item">🏨 Отели 5*</span>
+                <span class="panel-meta-item">🌍 Франция / Европа / Африка</span>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="panel-section">
+                <div class="panel-section-title">О клинике</div>
+                <div class="panel-about">
+                    <strong>CARTHAGO MED</strong> — специализированное агентство медицинского туризма в Тунисе. Организация пластической и бариатрической хирургии, стоматологии и пересадки волос. Работают с престижными клиниками и опытными хирургами, выпускниками лучших французских медицинских школ. Пакеты «всё включено»: операция, анестезия, клиника, отель с питанием, трансферы аэропорт–клиника–отель, послеоперационное наблюдение. Цены на 50–70% ниже европейских при аналогичном качестве.
+                </div>
+            </div>
+            <div class="panel-section">
+                <div class="panel-section-title">Направления</div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#2c4a6e"></div><div class="panel-service-info"><h4>Пластическая хирургия</h4><p>Липосакция, абдоминопластика, подтяжка лица, ринопластика, увеличение груди, BBL (липофилинг ягодиц), J-Plasma.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#2c4a6e"></div><div class="panel-service-info"><h4>Бариатрическая хирургия</h4><p>Sleeve-гастрэктомия, желудочный bypass, бандажирование желудка. Борьба с ожирением.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#2c4a6e"></div><div class="panel-service-info"><h4>Стоматология</h4><p>Имплантация, виниры, отбеливание зубов. Результаты европейского уровня.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#2c4a6e"></div><div class="panel-service-info"><h4>Пересадка волос (FUE)</h4><p>Метод FUE — безоперационная пересадка волосяных фолликулов. Собственный центр трансплантации.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
+            </div>
+            <div class="panel-section">
+                <div class="panel-section-title">Что включено в пакет</div>
+                <div class="panel-features">
+                    <div class="panel-feature"><span class="panel-feature-icon">💉</span> Операция + анестезия</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">🏥</span> Пребывание в клинике</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">🏨</span> Отель с питанием</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">🚐</span> Трансферы</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">👨‍⚕️</span> Консультации до и после</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">🩺</span> Послеоперационный уход</div>
+                </div>
+            </div>
+            <div class="panel-section">
+                <div class="panel-section-title">Контакты</div>
+                <div class="panel-contact-row"><div class="icon">📞</div><a href="tel:+73422196666">8 (342) 219-66-66</a> <span style="color:var(--bark);font-size:0.85rem;margin-left:4px">(Финист Мед)</span></div>
+                <div class="panel-contact-row"><div class="icon">🌐</div><a href="https://www.carthagomed.com" target="_blank">carthagomed.com</a></div>
+                <div class="panel-contact-row"><div class="icon">✈️</div><a href="https://t.me/finistMed" target="_blank">Telegram</a></div>
+                <div class="panel-contact-row"><div class="icon">📧</div><a href="mailto:medical@finist-travel.ru">medical@finist-travel.ru</a></div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <a href="tel:+73422196666" class="btn-panel btn-panel-primary">📞 Записаться</a>
+            <a href="https://www.carthagomed.com" target="_blank" class="btn-panel btn-panel-outline">Сайт клиники</a>
+        </div>
+    </div>
+
+    <!-- ПАНЕЛЬ: TUNISIE DESTINATION SANTÉ (ТУНИС) -->
+    <div class="slide-panel" id="panel-tds-tunisia">
+        <div class="panel-header" style="background:linear-gradient(135deg,#1a0a2e 0%,#2d1b4e 50%,#4a2c6e 100%)">
+            <button class="panel-close" onclick="closeClinicPanel()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
+            <div class="panel-icon">🏥</div>
+            <h2>Tunisie Destination Santé</h2>
+            <p class="panel-subtitle">Медицинские туры и эвакуация · Тунис</p>
+            <div class="panel-meta">
+                <span class="panel-meta-item">🌍 Африка · Европа · Алжир</span>
+                <span class="panel-meta-item">🩺 Все специальности</span>
+                <span class="panel-meta-item">🚑 Санитарная эвакуация</span>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="panel-section">
+                <div class="panel-section-title">О клинике</div>
+                <div class="panel-about">
+                    <strong>Tunisie Destination Santé (TDS)</strong> — профессиональное агентство организации медицинских туров в Тунис. Охватывает все хирургические и терапевтические специальности. Работает с пациентами из стран Африки, Алжира и Европы. Врачи, прошедшие подготовку в Тунисе, Франции и США. Полное сопровождение: от изучения медицинского досье до послеоперационного наблюдения. Организация <strong>санитарных эвакуаций</strong> (EVASAN) из стран Африки в клиники Туниса.
+                </div>
+            </div>
+            <div class="panel-section">
+                <div class="panel-section-title">Медицинские специальности</div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#4a2c6e"></div><div class="panel-service-info"><h4>Кардиология и кардиохирургия</h4><p>Ангиография, ангиопластика, аортокоронарное шунтирование, замена клапанов, имплантация кардиостимулятора.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#4a2c6e"></div><div class="panel-service-info"><h4>Онкология</h4><p>Химиотерапия, радиотерапия, хирургическое лечение. Полный цикл диагностики и лечения.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#4a2c6e"></div><div class="panel-service-info"><h4>Ортопедия</h4><p>Эндопротезирование суставов, артроскопия, лечение позвоночника.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#4a2c6e"></div><div class="panel-service-info"><h4>Офтальмология и неврология</h4><p>Хирургия глаза, лечение неврологических заболеваний, гемодиализ.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#4a2c6e"></div><div class="panel-service-info"><h4>Пластика и бариатрия</h4><p>Эстетическая хирургия, стоматология, трансплантация волос, хирургия ожирения, Check-up.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
+                <div class="panel-service"><div class="panel-service-dot" style="background:#4a2c6e"></div><div class="panel-service-info"><h4>Санитарная эвакуация (EVASAN)</h4><p>Организация экстренных медицинских эвакуаций из стран Африки в клиники Туниса. Быстрое оформление.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
+            </div>
+            <div class="panel-section">
+                <div class="panel-section-title">Преимущества</div>
+                <div class="panel-features">
+                    <div class="panel-feature"><span class="panel-feature-icon">🩺</span> Все специальности</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">🎓</span> Врачи из Франции/США</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">💰</span> Цены в 2–3 раза ниже</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">🚑</span> Эвакуация 24–72ч</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">📋</span> Полный пакет услуг</div>
+                    <div class="panel-feature"><span class="panel-feature-icon">🏨</span> Проживание + трансферы</div>
+                </div>
+            </div>
+            <div class="panel-section">
+                <div class="panel-section-title">Контакты</div>
+                <div class="panel-contact-row"><div class="icon">📞</div><a href="tel:+73422196666">8 (342) 219-66-66</a> <span style="color:var(--bark);font-size:0.85rem;margin-left:4px">(Финист Мед)</span></div>
+                <div class="panel-contact-row"><div class="icon">🌐</div><a href="https://www.tunisiedestinationsante.com" target="_blank">tunisiedestinationsante.com</a></div>
+                <div class="panel-contact-row"><div class="icon">✈️</div><a href="https://t.me/finistMed" target="_blank">Telegram</a></div>
+                <div class="panel-contact-row"><div class="icon">📧</div><a href="mailto:medical@finist-travel.ru">medical@finist-travel.ru</a></div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <a href="tel:+73422196666" class="btn-panel btn-panel-primary">📞 Записаться</a>
+            <a href="https://www.tunisiedestinationsante.com" target="_blank" class="btn-panel btn-panel-outline">Сайт клиники</a>
+        </div>
+    </div>
+
     <!-- Services 
     (старый формат — закомментирован) 
     -->
@@ -2330,18 +2472,36 @@
         let activeType = 'all';
 
         function filterClinics() {
-            let shown = 0;
-            allClinicCards.forEach(card => {
-                const cityMatch = activeCity === 'all' || card.getAttribute('data-city') === activeCity;
-                const typeMatch = activeType === 'all' || card.getAttribute('data-type') === activeType;
-                if (cityMatch && typeMatch) {
+            const isFiltered = activeCity !== 'all' || activeType !== 'all';
+            const carouselNav = document.querySelector('.clinics-carousel-nav');
+            
+            if (isFiltered) {
+                // При фильтрации — скрываем карусель, показываем все подходящие
+                if (carouselNav) carouselNav.style.display = 'none';
+                let shown = 0;
+                allClinicCards.forEach(card => {
+                    const cityMatch = activeCity === 'all' || card.getAttribute('data-city') === activeCity;
+                    const typeMatch = activeType === 'all' || card.getAttribute('data-type') === activeType;
+                    if (cityMatch && typeMatch) {
+                        card.style.display = '';
+                        card.classList.remove('hidden');
+                        shown++;
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.add('hidden');
+                    }
+                });
+                clinicsCount.textContent = 'Показано ' + shown + ' из ' + totalClinics + ' клиник';
+            } else {
+                // Без фильтра — возвращаем карусель
+                if (carouselNav) carouselNav.style.display = 'flex';
+                allClinicCards.forEach(card => {
                     card.classList.remove('hidden');
-                    shown++;
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-            clinicsCount.textContent = 'Показано ' + shown + ' из ' + totalClinics + ' клиник';
+                });
+                clinicsCurrentPage = 0;
+                renderClinicsDots();
+                showClinicsPage(0);
+            }
         }
 
         document.querySelectorAll('.filter-btn[data-filter-city]').forEach(btn => {
@@ -2989,22 +3149,64 @@ document.querySelectorAll('.category-header').forEach(header => {
         }
         
         /* ==================================================================
-        ПАГИНАЦИЯ КЛИНИК
+        КАРУСЕЛЬ КЛИНИК — страницы по 9
         ================================================================== */
-        function toggleClinicPages() {
-            const grid = document.getElementById('clinicsGrid');
-            const btn = document.getElementById('clinicsToggleBtn');
-            const isExpanded = grid.classList.toggle('show-all');
+        const CLINICS_PER_PAGE = 9;
+        let clinicsCurrentPage = 0;
+        let allClinicCards = [];
+        let clinicsTotalPages = 1;
 
-            if (isExpanded) {
-                btn.innerHTML = 'Свернуть <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>';
-                btn.classList.add('expanded');
-            } else {
-                btn.innerHTML = 'Ещё клиники <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>';
-                btn.classList.remove('expanded');
+        function initClinicsCarousel() {
+            allClinicCards = Array.from(document.querySelectorAll('#clinicsGrid .destination-card'));
+            clinicsTotalPages = Math.ceil(allClinicCards.length / CLINICS_PER_PAGE);
+            renderClinicsDots();
+            showClinicsPage(0);
+        }
+
+        function showClinicsPage(page) {
+            clinicsCurrentPage = page;
+            allClinicCards.forEach((card, i) => {
+                const cardPage = Math.floor(i / CLINICS_PER_PAGE);
+                card.style.display = cardPage === page ? '' : 'none';
+            });
+
+            // Счётчик
+            const start = page * CLINICS_PER_PAGE + 1;
+            const end = Math.min((page + 1) * CLINICS_PER_PAGE, allClinicCards.length);
+            const counter = document.getElementById('clinicsCount');
+            if (counter) counter.textContent = 'Показано ' + start + '–' + end + ' из ' + allClinicCards.length + ' клиник';
+
+            // Кнопки
+            document.getElementById('clinicsPrev').disabled = page === 0;
+            document.getElementById('clinicsNext').disabled = page >= clinicsTotalPages - 1;
+
+            // Точки
+            document.querySelectorAll('.clinics-carousel-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === page);
+            });
+        }
+
+        function clinicsCarousel(dir) {
+            const newPage = clinicsCurrentPage + dir;
+            if (newPage >= 0 && newPage < clinicsTotalPages) {
+                showClinicsPage(newPage);
                 document.getElementById('destinations').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
+
+        function renderClinicsDots() {
+            const container = document.getElementById('clinicsDots');
+            container.innerHTML = '';
+            for (let i = 0; i < clinicsTotalPages; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'clinics-carousel-dot' + (i === 0 ? ' active' : '');
+                dot.onclick = () => showClinicsPage(i);
+                container.appendChild(dot);
+            }
+        }
+
+        // Инициализация при загрузке
+        document.addEventListener('DOMContentLoaded', initClinicsCarousel);
     </script>
 </body>
 </html>
