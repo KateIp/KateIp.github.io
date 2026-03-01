@@ -485,21 +485,23 @@
         .team-grid { display: flex; gap: 24px; transition: transform 0.4s ease; }
         .team-card { background: white; border-radius: var(--radius-xl); overflow: hidden; transition: var(--transition); flex: 0 0 calc(25% - 18px); min-width: calc(25% - 18px); }
         /* Карусель специалистов: 3 карточки на десктопе */
-        #specGrid .team-card { flex: 0 0 calc(33.333% - 16px); min-width: calc(33.333% - 16px); }
+      
+            #specGrid .team-card { flex: 0 0 calc(33.333% - 16px); min-width: calc(33.333% - 16px); }
         .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
         .team-carousel .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; }
         .team-carousel .carousel-btn-prev { left: -24px; }
         .team-carousel .carousel-btn-next { right: -24px; }
-        .team-photo { height: 300px; background: linear-gradient(135deg, var(--fog) 0%, var(--stone) 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .team-photo { height: 225px; background: linear-gradient(135deg, var(--fog) 0%, var(--stone) 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .team-photo img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
         .team-card:hover .team-photo img { transform: scale(1.04); }
-        .team-body { padding: 28px; text-align: center; }
-        .team-body h3 { font-size: 1.25rem; margin-bottom: 4px; }
-        .team-role { font-size: 0.8125rem; font-weight: 600; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
-        .team-body > p { font-size: 0.9375rem; color: var(--bark); line-height: 1.6; }
-        .team-exp { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 8px 14px; background: var(--cloud); border-radius: var(--radius); font-size: 0.8125rem; font-weight: 500; color: var(--forest); }
-        .team-exp svg { width: 14px; height: 14px; color: var(--primary); }
-        /* Services 
+        .team-body { padding: 21px; text-align: center; }
+        .team-body h3 { font-size: 1.05rem; margin-bottom: 3px; }
+        .team-role { font-size: 0.625rem; font-weight: 600; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 9px; }
+        .team-body > p { font-size: 0.8125rem; color: var(--bark); line-height: 1.6; }
+        .team-exp { display: inline-flex; align-items: center; gap: 5px; margin-top: 12px; padding: 6px 11px; background: var(--cloud); border-radius: var(--radius); font-size: 0.625rem; font-weight: 500; color: var(--forest); }
+        .team-exp svg { width: 11px; height: 11px; color: var(--primary); }
+
+    /* Services 
         .services { background: white; }
         .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
         .service-card { background: var(--cloud); border-radius: var(--radius); padding: 20px 24px; display: flex; align-items: center; gap: 20px; transition: var(--transition); }
