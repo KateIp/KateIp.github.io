@@ -1161,29 +1161,35 @@
                 <div class="hero-visual">
                     <div class="hero-card">
                         <h3>Куда организуем лечение</h3>
-                        <div class="destination-list">
-                            <div class="destination-item">
-                                <div class="destination-emoji">🇰🇷</div>
-                                <div class="destination-text">
-                                    <h4>Южная Корея</h4>
-                                    <p>Онкология • Check-up • Пластика</p>
-                                </div>
-                            </div>
-                            <div class="destination-item">
-                                <div class="destination-emoji">🇹🇷</div>
-                                <div class="destination-text">
-                                    <h4>Турция</h4>
-                                    <p>Стоматология • Ортопедия • Кардиология</p>
-                                </div>
-                            </div>
-                            <div class="destination-item">
-                                <div class="destination-emoji">🏥</div>
-                                <div class="destination-text">
-                                    <h4>Пермь</h4>
-                                    <p>Ведущие частные клиники</p>
-                                </div>
-                            </div>
-                        </div>
+                       Вот обновлённый блок `destination-list` внутри Hero-секции. Замените текущий `<div class="destination-list">...</div>` на:
+
+```html
+<div class="destination-list">
+    <div class="destination-item">
+        <div class="destination-emoji">🇷🇺</div>
+        <div class="destination-text">
+            <h4>Москва · Казань · Омск</h4>
+            <p>Онкология • Нейрохирургия • Офтальмология • Косметология</p>
+        </div>
+    </div>
+    <div class="destination-item">
+        <div class="destination-emoji">🌏</div>
+        <div class="destination-text">
+            <h4>Южная Корея · Турция</h4>
+            <p>Пластика • Check-up • Стоматология • Ортопедия</p>
+        </div>
+    </div>
+    <div class="destination-item">
+        <div class="destination-emoji">🏥</div>
+        <div class="destination-text">
+            <h4>Пермь</h4>
+            <p>Стоматология • Косметология • Check-up • ДМС</p>
+        </div>
+    </div>
+</div>
+```
+
+Первая строка — российские города с флагом 🇷🇺, вторая — зарубежные с 🌏, третья — Пермь с 🏥 как было.​​​​​​​​​​​​​​​​
                     </div>
                     <div class="hero-floating">
                         <div class="value">29 лет</div>
