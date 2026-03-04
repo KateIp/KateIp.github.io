@@ -8,7 +8,7 @@
 Версия: 1.0
 Автор: Финист Мед / ООО ТК "Финист трэвел"
 Сайт: med.finist-travel.com
-Дата: 2026
+Дата: 2024
 
 СТРУКТУРА ЛЕНДИНГА:
 
@@ -1038,6 +1038,16 @@ border-top: 1px solid var(--fog);
     .btn-panel-outline { background:transparent; color:var(--forest); border:1.5px solid var(--fog); }
     .btn-panel-outline:hover { border-color:var(--primary); color:var(--primary-dark); }
 
+    /* Мини-карточки врачей в панелях клиник */
+    .panel-doctors { display: flex; flex-direction: column; gap: 12px; }
+    .panel-doctor { display: flex; align-items: center; gap: 14px; padding: 12px; background: var(--cloud); border-radius: var(--radius); transition: var(--transition); }
+    .panel-doctor:hover { background: var(--fog); }
+    .panel-doctor-photo { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+    .panel-doctor-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .panel-doctor-info h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 600; color: var(--night); margin: 0 0 2px; }
+    .panel-doctor-info .panel-doctor-role { font-size: 0.75rem; color: var(--primary-dark); font-weight: 500; margin: 0 0 2px; }
+    .panel-doctor-info .panel-doctor-exp { font-size: 0.6875rem; color: var(--bark); margin: 0; }
+
     /* Карточки клиник - курсор pointer для открытия панели */
     .destination-card { cursor: pointer; }
 
@@ -1452,12 +1462,32 @@ HERO (Главный экран)
             <div class="panel-service"><div class="panel-service-dot" style="background:#4CAF50"></div><div class="panel-service-info"><h4>Восстановление «Всё на 6-ти»</h4><p>Имплантация Straumann на 1 челюсть, конструкция на оксиде циркония.</p></div><div class="panel-service-price"><div class="price">1 037 000 ₽</div></div></div>
         </div>
         <div class="panel-section">
+            <div class="panel-section-title">Наши врачи</div>
+            <div class="panel-doctors">
+                <div class="panel-doctor">
+                    <div class="panel-doctor-photo"><img src="img/team05.jpg" alt="Карпинская Ю.В."></div>
+                    <div class="panel-doctor-info">
+                        <h4>Юлия Владимировна Карпинская</h4>
+                        <p class="panel-doctor-role">Стоматолог-ортопед</p>
+                        <p class="panel-doctor-exp">Опыт работы — с 2006 года</p>
+                    </div>
+                </div>
+                <div class="panel-doctor">
+                    <div class="panel-doctor-photo"><img src="img/team06.jpg" alt="Бухалов А.И."></div>
+                    <div class="panel-doctor-info">
+                        <h4>Артур Игоревич Бухалов</h4>
+                        <p class="panel-doctor-role">Стоматолог-хирург, имплантолог</p>
+                        <p class="panel-doctor-exp">Опыт 12 лет</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-section">
             <div class="panel-section-title">Контакты</div>
             <div class="panel-contact-row"><div class="icon">📞</div><a href="tel:+73422196666">8 (342) 219-66-66</a></div>
             <div class="panel-contact-row"><div class="icon">✈️</div><a href="https://t.me/finistMed" target="_blank">Telegram</a></div>
             <div class="panel-contact-row"><div class="icon">💬</div><a href="https://vk.com/finist_travel" target="_blank">ВКонтакте</a></div>
             <div class="panel-contact-row"><div class="icon">📧</div><a href="mailto:medical@finist-travel.ru">medical@finist-travel.ru</a></div>
-            
         </div>
     </div>
     <div class="panel-footer">
@@ -1504,6 +1534,27 @@ HERO (Главный экран)
             <div class="panel-service"><div class="panel-service-dot" style="background:#2a3d55"></div><div class="panel-service-info"><h4>Пластическая хирургия</h4><p>Эстетическая и реконструктивная пластика. Высококвалифицированные хирурги.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
             <div class="panel-service"><div class="panel-service-dot" style="background:#2a3d55"></div><div class="panel-service-info"><h4>Biomedica — оздоровление</h4><p>Инновационное оборудование, комплексное лечение, программы anti-age и реабилитации.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
             <div class="panel-service"><div class="panel-service-dot" style="background:#2a3d55"></div><div class="panel-service-info"><h4>Онкология</h4><p>Ранняя диагностика, консервативное лечение с использованием малоинвазивных методик.</p></div><div class="panel-service-price"><div class="price">по запросу</div></div></div>
+        </div>
+        <div class="panel-section">
+            <div class="panel-section-title">Наши врачи</div>
+            <div class="panel-doctors">
+                <div class="panel-doctor">
+                    <div class="panel-doctor-photo"><img src="img/team01.jpg" alt="Усмонов У.М."></div>
+                    <div class="panel-doctor-info">
+                        <h4>Усмонов Умиджон Мансурович</h4>
+                        <p class="panel-doctor-role">Врач оториноларинголог-хирург</p>
+                        <p class="panel-doctor-exp">Опыт 6 лет</p>
+                    </div>
+                </div>
+                <div class="panel-doctor">
+                    <div class="panel-doctor-photo"><img src="img/team02.jpg" alt="Калинина Е.В."></div>
+                    <div class="panel-doctor-info">
+                        <h4>Калинина Елена Васильевна</h4>
+                        <p class="panel-doctor-role">Офтальмолог-хирург, блефаропластика</p>
+                        <p class="panel-doctor-exp">Опыт 22 года</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="panel-section">
             <div class="panel-section-title">Контакты</div>
@@ -1558,12 +1609,32 @@ HERO (Главный экран)
             </div>
         </div>
         <div class="panel-section">
+            <div class="panel-section-title">Наши врачи</div>
+            <div class="panel-doctors">
+                <div class="panel-doctor">
+                    <div class="panel-doctor-photo"><img src="img/team03.jpg" alt="Столярова Ф.Ф."></div>
+                    <div class="panel-doctor-info">
+                        <h4>Столярова Фатима Феликсовна</h4>
+                        <p class="panel-doctor-role">Врач-дерматолог, косметолог</p>
+                        <p class="panel-doctor-exp">Опыт 16 лет</p>
+                    </div>
+                </div>
+                <div class="panel-doctor">
+                    <div class="panel-doctor-photo"><img src="img/team04.jpg" alt="Борисов В.А."></div>
+                    <div class="panel-doctor-info">
+                        <h4>Борисов Вячеслав Александрович</h4>
+                        <p class="panel-doctor-role">Врач-дерматолог, косметолог</p>
+                        <p class="panel-doctor-exp">Опыт 12 лет</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-section">
             <div class="panel-section-title">Контакты</div>
             <div class="panel-contact-row"><div class="icon">📞</div><a href="tel:+73422196666">8 (342) 219-66-66</a></div>
             <div class="panel-contact-row"><div class="icon">✈️</div><a href="https://t.me/finistMed" target="_blank">Telegram</a></div>
             <div class="panel-contact-row"><div class="icon">💬</div><a href="https://vk.com/finist_travel" target="_blank">ВКонтакте</a></div>
             <div class="panel-contact-row"><div class="icon">📧</div><a href="mailto:medical@finist-travel.ru">medical@finist-travel.ru</a></div>
-            
         </div>
     </div>
     <div class="panel-footer">
@@ -1724,8 +1795,7 @@ HERO (Главный экран)
     </div>
 </div>
 
-  <!-- ПАНЕЛЬ: КЛИНИЧЕСКИЙ ДИАГНОСТИЧЕСКИЙ ЦЕНТР (ОМСК) -->
-
+<!-- ПАНЕЛЬ: КЛИНИЧЕСКИЙ ДИАГНОСТИЧЕСКИЙ ЦЕНТР (ОМСК) -->
 <div class="slide-panel" id="panel-okd-center">
     <div class="panel-header" style="background:linear-gradient(135deg,#8B1A1A 0%,#c0392b 100%)">
         <button class="panel-close" onclick="closeClinicPanel()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
@@ -2169,27 +2239,6 @@ HERO (Главный экран)
             </div>
             <button class="carousel-btn carousel-btn-next" id="specNext" aria-label="Вперёд"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></button>
         </div>
-        <div class="section-header section-header-second">
-            <h2 class="section-title">Наши врачи</h2>
-            <p class="section-desc">Эксперты, которые заботятся о вашем здоровье</p>
-        </div>
-        <div class="team-carousel">
-            <button class="carousel-btn carousel-btn-prev" id="teamPrev" aria-label="Назад"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></button>
-            <div class="team-wrapper">
-                <div class="team-grid" id="teamGrid">
-                    <div class="team-card"><div class="team-photo"><img src="img/team05.jpg" alt="Врач"></div><div class="team-body"><h3>Юлия Владимировна Карпинская</h3><p class="team-role">Стоматолог-ортопед</p><p>
-                   Один из лучших ортопедов региона. Протезирование безметалловой керамикой. Повышение квалификации в Германии 
-                   International Center for Dental Education </p><div class="team-exp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Опыт 30 лет</div></div></div>
-                   <div class="team-card"><div class="team-photo"><img src="img/team01.jpg" alt="Врач"></div><div class="team-body"><h3>Усмонов Умиджон Мансурович</h3><p class="team-role">Врач оториноларинголог-хирург</p><p>Сертифицированный специалист лечения и хирургии уха, горла и носа, парацентез, шунтирование, лазерное удаление новообразований ЛОР органов</p><div class="team-exp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Опыт 6 лет</div></div></div>
-                    <div class="team-card"><div class="team-photo"><img src="img/team03.jpg" alt="Врач"></div><div class="team-body"><h3>Столярова Фатима Феликсовна</h3><p class="team-role">Врач-дерматолог, косметолог</p><p>Сертифицированный врач-дерматолог, косметолог</p><div class="team-exp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Опыт 16 лет</div></div></div>
-                    <div class="team-card"><div class="team-photo"><img src="img/team02.jpg" alt="Калинина Елена Васильевна"></div><div class="team-body"><h3>Калинина Елена Васильевна</h3><p class="team-role">Офтальмолог-хирург · Блефаропластика</p><p>Член Европейского и Российского общества катарактальных и рефракционных хирургов. Пластика век, хирургия катаракты и глаукомы, дакриоцисториностомия</p><div class="team-exp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Опыт 22 года</div></div></div>
-                   <div class="team-card"><div class="team-photo"><img src="img/team04.jpg" alt="Врач"></div><div class="team-body"><h3>Борисов Вячеслав Александрович</h3><p class="team-role">Врач-дерматолог, косметолог</p><p>Сертифицированный врач-дерматолог, косметолог</p><div class="team-exp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Опыт 12 лет</div></div></div>
-                   
-                   <div class="team-card"><div class="team-photo"><img src="img/team06.jpg" alt="Врач"></div><div class="team-body"><h3>Артур Игоревич Бухалов</h3><p class="team-role">Стоматолог-хирург, имплантолог</p><p>Специализация: имплантация, все виды костной пластики, лазерная хирургия, работа с пациентами 0+, удаление  зубов любой сложности </p><div class="team-exp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Опыт 12 лет</div></div></div>
-                </div>
-            </div>
-            <button class="carousel-btn carousel-btn-next" id="teamNext" aria-label="Вперёд"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></button>
-        </div>
     </div>
 </section>
 <!-- Advantages -->
@@ -2587,7 +2636,6 @@ JAVASCRIPT
 
     window.addEventListener('resize', () => {
         specPosition = 0; updateSpecCarousel();
-        teamPosition = 0; updateTeamCarousel();
         // Пересчёт карусели клиник
         const newPerPage = getClinicsPerPage();
         if (newPerPage !== clinicsPerPage) {
@@ -2634,42 +2682,6 @@ JAVASCRIPT
         if (specPosition < max) { specPosition++; updateSpecCarousel(); } 
     });
     updateSpecCarousel();
-
-    /* ==================================================================
-    КАРУСЕЛЬ ВРАЧЕЙ
-    ================================================================== */
-    const teamGrid = document.getElementById('teamGrid');
-    const teamPrev = document.getElementById('teamPrev');
-    const teamNext = document.getElementById('teamNext');
-    let teamPosition = 0;
-    
-    function getVisibleTeamCards() { 
-        const w = window.innerWidth; 
-        if (w <= 768) return 1; 
-        if (w <= 1024) return 2; 
-        return 4; 
-    }
-    
-    function getTeamCardWidth() { 
-        const card = teamGrid.querySelector('.team-card'); 
-        return card.offsetWidth + 24; 
-    }
-    
-    function updateTeamCarousel() { 
-        const total = 6, visible = getVisibleTeamCards(), max = Math.max(0, total - visible); 
-        teamPrev.disabled = teamPosition <= 0; 
-        teamNext.disabled = teamPosition >= max; 
-        teamGrid.style.transform = 'translateX(-' + (teamPosition * getTeamCardWidth()) + 'px)'; 
-    }
-    
-    teamPrev.addEventListener('click', () => { 
-        if (teamPosition > 0) { teamPosition--; updateTeamCarousel(); } 
-    });
-    teamNext.addEventListener('click', () => { 
-        const max = Math.max(0, 6 - getVisibleTeamCards()); 
-        if (teamPosition < max) { teamPosition++; updateTeamCarousel(); } 
-    });
-    updateTeamCarousel();
 
     /* ==================================================================
     МОБИЛЬНОЕ МЕНЮ
