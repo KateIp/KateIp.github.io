@@ -174,7 +174,7 @@ CSS СТИЛИ
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
     /* Плавная прокрутка при клике на якоря */
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     
     /* Базовые стили body */
     body { 
@@ -183,8 +183,8 @@ CSS СТИЛИ
         color: var(--forest); 
         background: var(--snow); 
         line-height: 1.7; 
-        overflow-x: hidden; /* Убираем горизонтальный скролл */
-        -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов на Mac */
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
     }
     
     /* Заголовки используют шрифт Cormorant */
@@ -340,9 +340,9 @@ CSS СТИЛИ
     .hero::before {
         content: '';
         position: absolute;
-        top: -60%; right: -25%;
-        width: 90%;
-        height: 220%;
+        top: -50%; right: -20%;
+        width: 80%;
+        height: 200%;
         background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
         border-radius: 0 0 0 50%;
         transform: rotate(-15deg);
@@ -392,7 +392,7 @@ CSS СТИЛИ
     .step-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.0625rem; font-weight: 600; margin-bottom: 8px; }
     .step-card p { font-size: 0.9375rem; color: var(--bark); line-height: 1.6; }
     /* Destinations - Filterable Grid */
-    .destinations { background: var(--cloud); position: relative; }
+    .destinations { background: var(--cloud); position: relative; overflow: hidden; }
     .destinations .organic-shape { width: 400px; height: 400px; background: var(--primary-light); top: 50%; right: -200px; transform: translateY(-50%); opacity: 0.3; }
 
     .clinic-filters { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-bottom: 36px; position: relative; z-index: 1; }
@@ -450,7 +450,7 @@ letter-spacing: -0.01em;
 
 
     .clinics-count { text-align: center; margin-top: 20px; font-size: 0.8125rem; color: var(--earth); position: relative; z-index: 1; }
-    .destination-card { background: white; border-radius: var(--radius-xl); overflow: hidden; transition: var(--transition); flex: 0 0 calc(25% - 18px); min-width: calc(25% - 18px); -webkit-backface-visibility: hidden; backface-visibility: hidden; transform: translateZ(0); }
+    .destination-card { background: white; border-radius: var(--radius-xl); overflow: hidden; transition: var(--transition); flex: 0 0 calc(25% - 18px); min-width: calc(25% - 18px); }
     .destination-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
     .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; background: white; border: none; border-radius: 50%; box-shadow: var(--shadow-md); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition); z-index: 10; }
     .carousel-btn:hover { background: var(--primary); color: white; }
@@ -468,12 +468,12 @@ letter-spacing: -0.01em;
     .tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .tag { padding: 6px 12px; background: var(--cloud); border-radius: var(--radius-sm); font-size: 0.75rem; font-weight: 500; color: var(--forest); }
     /* Sanatoriums - БЕЛЫЙ ФОН */
-    .sanatoriums { background: white; position: relative; }
+    .sanatoriums { background: white; position: relative; overflow: hidden; }
     .sanatoriums .organic-shape { width: 400px; height: 400px; background: var(--accent-light); top: 50%; left: -200px; transform: translateY(-50%); opacity: 0.3; }
     .sanatoriums-carousel { position: relative; z-index: 1; }
     .sanatoriums-wrapper { overflow: hidden; margin: 0; padding: 0 12px; }
     .sanatoriums-grid { display: flex; gap: 24px; transition: transform 0.4s ease; }
-    .sanatorium-card { background: var(--cloud); border-radius: var(--radius-xl); overflow: hidden; transition: var(--transition); flex: 0 0 calc(25% - 18px); min-width: calc(25% - 18px); -webkit-backface-visibility: hidden; backface-visibility: hidden; transform: translateZ(0); }
+    .sanatorium-card { background: var(--cloud); border-radius: var(--radius-xl); overflow: hidden; transition: var(--transition); flex: 0 0 calc(25% - 18px); min-width: calc(25% - 18px); }
     .sanatorium-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
     .sanatorium-img { height: 180px; background: linear-gradient(135deg, var(--accent-light) 0%, var(--fog) 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .sanatorium-img img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
@@ -487,7 +487,7 @@ letter-spacing: -0.01em;
     .team-carousel { position: relative; }
     .team-wrapper { overflow: hidden; margin: 0; padding: 0 12px; }
     .team-grid { display: flex; gap: 24px; transition: transform 0.4s ease; }
-    .team-card { background: white; border-radius: var(--radius-xl); overflow: hidden; transition: var(--transition); flex: 0 0 calc(25% - 18px); min-width: calc(25% - 18px); -webkit-backface-visibility: hidden; backface-visibility: hidden; transform: translateZ(0); }
+    .team-card { background: white; border-radius: var(--radius-xl); overflow: hidden; transition: var(--transition); flex: 0 0 calc(25% - 18px); min-width: calc(25% - 18px); }
     /* Карусель специалистов: 3 карточки на десктопе */
   
         #specGrid .team-card { flex: 0 0 calc(33.333% - 16px); min-width: calc(33.333% - 16px); }
@@ -727,7 +727,7 @@ border-top: 1px solid var(--fog);
 }
 }
 /* Advantages - БЕЛЫЙ ФОН */
-.advantages { background: white; position: relative; }
+.advantages { background: white; position: relative; overflow: hidden; }
 .advantages .organic-shape { background: var(--primary-light); opacity: 0.3; width: 600px; height: 600px; top: -200px; right: -200px; }
 .advantages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; position: relative; z-index: 1; }
 .advantage-card { padding: 32px 28px; background: var(--cloud); border: 1px solid var(--fog); border-radius: var(--radius-lg); transition: var(--transition); }
@@ -875,6 +875,7 @@ border-top: 1px solid var(--fog);
     .float-btn.telegram { background: #229ED9; }
     /* Responsive */
     @media (max-width: 1024px) {
+        .organic-shape { display: none; }
         .header-top .nav { display: none; }
         .mobile-menu-btn { display: flex; }
         .hero::before { width: 100%; right: -30%; transform: rotate(-10deg); }
@@ -1337,7 +1338,7 @@ HERO (Главный экран)
             </div>
             <div class="destination-card" data-panel="medicina-roitberg" data-city="moscow" data-type="multiprofile">
                 <div class="destination-body">
-                    <div class="card-top-row"><span class="card-clinic-name">Клиника ак. Ройтберга</span><span class="card-city">📍 Москва</span></div>
+                    <div class="card-top-row"><span class="card-clinic-name">АО «Медицина» — Клиника ак. Ройтберга</span><span class="card-city">📍 Москва</span></div>
                     <p>Многопрофильный центр международного уровня. Сертификаты JCI и ISO 9001. ПЭТ/КТ-диагностика, 350+ врачей.</p>
                     <div class="tags"><span class="tag">JCI</span><span class="tag">Онкология</span><span class="tag">ПЭТ/КТ</span></div>
                 </div>
@@ -1620,7 +1621,7 @@ HERO (Главный экран)
     <div class="panel-header" style="background:linear-gradient(135deg,#1a3a5c 0%,#0d5c3f 100%)">
         <button class="panel-close" onclick="closeClinicPanel()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
         <div class="panel-icon">🏥</div>
-        <h2>Клиника ак. Ройтберга</h2>
+        <h2>АО «Медицина» — Клиника ак. Ройтберга</h2>
         <p class="panel-subtitle">Многопрофильный центр · Москва</p>
         <div class="panel-meta">
             <span class="panel-meta-item">🏅 JCI & ISO 9001</span>
@@ -2542,7 +2543,7 @@ JAVASCRIPT
             let shown = 0;
             clinicCardsArray.forEach(card => {
                 const cityMatch = activeCity === 'all' || card.getAttribute('data-city') === activeCity;
-                const typeMatch = activeType === 'all' || card.getAttribute('data-type') === activeType;
+                const typeMatch = activeType === 'all' || card.getAttribute('data-type') === activeType || card.getAttribute('data-type') === 'multiprofile';
                 if (cityMatch && typeMatch) {
                     card.style.display = '';
                     card.classList.remove('hidden');
